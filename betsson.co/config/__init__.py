@@ -4,6 +4,10 @@ from dotenv import load_dotenv
 # Cargar las variables de entorno desde el archivo .env
 load_dotenv()
 
+betsson_config_file_path = "exploracion_manual\config_betsson.json"
+
+betsson_partidos_Prematch_file_path = "exploracion_manual\partidos_Prematch.json"
+
 # Variables de entorno
 USUARIO = os.getenv("USUARIO")
 PASSWORD = os.getenv("PASSWORD")
