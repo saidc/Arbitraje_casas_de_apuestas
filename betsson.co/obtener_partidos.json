@@ -1,0 +1,506 @@
+{
+    "f-QFVna7cEe0CZ2TQ3m_aeEw":{
+       "eventId":"f-QFVna7cEe0CZ2TQ3m_aeEw",
+       "categoryId":"1",
+       "categoryName":"F\u00fatbol",
+       "regionId":"84",
+       "regionName":"Champions League",
+       "competitionId":"6134",
+       "slug":"futbol/champions-league/champions-league/atalanta-sk-sturm-graz",
+       "phase":"Prematch",
+       "startDate":"2025-01-21T17:45:00Z",
+       "categoryTrackingLabel":"football",
+       "competitionTrackingLabel":"champions-league",
+       "regionTrackingLabel":"champions-league",
+       "neutralPath":"football/champions-league/champions-league/atalanta-sk-sturm-graz",
+       "label":"Atalanta - SK Sturm Graz",
+       "participants":[
+          {
+             "label":"Atalanta",
+             "id":"499",
+             "sortOrder":1
+          },
+          {
+             "label":"SK Sturm Graz",
+             "id":"1449",
+             "sortOrder":2
+          }
+       ]
+    },
+    "f-P-zFxKf9MEOPNP__JAU6Ag":{
+       "eventId":"f-P-zFxKf9MEOPNP__JAU6Ag",
+       "categoryId":"1",
+       "categoryName":"F\u00fatbol",
+       "regionId":"84",
+       "regionName":"Champions League",
+       "competitionId":"6134",
+       "slug":"futbol/champions-league/champions-league/monaco-aston-villa",
+       "phase":"Prematch",
+       "startDate":"2025-01-21T17:45:00Z",
+       "categoryTrackingLabel":"football",
+       "competitionTrackingLabel":"champions-league",
+       "regionTrackingLabel":"champions-league",
+       "neutralPath":"football/champions-league/champions-league/monaco-aston-villa",
+       "label":"Monaco - Aston Villa",
+       "participants":[
+          {
+             "label":"Monaco",
+             "id":"814",
+             "sortOrder":1
+          },
+          {
+             "label":"Aston Villa",
+             "id":"98",
+             "sortOrder":2
+          }
+       ]
+    },
+    "f-AijGlzyJ5UmAFfdocSrVRQ":{
+       "eventId":"f-AijGlzyJ5UmAFfdocSrVRQ",
+       "categoryId":"1",
+       "categoryName":"F\u00fatbol",
+       "regionId":"84",
+       "regionName":"Champions League",
+       "competitionId":"6134",
+       "slug":"futbol/champions-league/champions-league/atletico-madrid-bayer-leverkusen",
+       "phase":"Prematch",
+       "startDate":"2025-01-21T20:00:00Z",
+       "categoryTrackingLabel":"football",
+       "competitionTrackingLabel":"champions-league",
+       "regionTrackingLabel":"champions-league",
+       "neutralPath":"football/champions-league/champions-league/atletico-madrid-bayer-leverkusen",
+       "label":"Atl\u00e9tico Madrid - Bayer Leverkusen",
+       "participants":[
+          {
+             "label":"Atl\u00e9tico Madrid",
+             "id":"745",
+             "sortOrder":1
+          },
+          {
+             "label":"Bayer Leverkusen",
+             "id":"771",
+             "sortOrder":2
+          }
+       ]
+    },
+    "f-dmLrl7kkZ0CkEZPeR9vo4g":{
+       "eventId":"f-dmLrl7kkZ0CkEZPeR9vo4g",
+       "categoryId":"1",
+       "categoryName":"F\u00fatbol",
+       "regionId":"84",
+       "regionName":"Champions League",
+       "competitionId":"6134",
+       "slug":"futbol/champions-league/champions-league/crvena-zvezda-psv-eindhoven",
+       "phase":"Prematch",
+       "startDate":"2025-01-21T20:00:00Z",
+       "categoryTrackingLabel":"football",
+       "competitionTrackingLabel":"champions-league",
+       "regionTrackingLabel":"champions-league",
+       "neutralPath":"football/champions-league/champions-league/crvena-zvezda-psv-eindhoven",
+       "label":"Crvena Zvezda - PSV Eindhoven",
+       "participants":[
+          {
+             "label":"Crvena Zvezda",
+             "id":"3879",
+             "sortOrder":1
+          },
+          {
+             "label":"PSV Eindhoven",
+             "id":"872",
+             "sortOrder":2
+          }
+       ]
+    },
+    "f-VCPNtKR0DUeGJjJk5J-LzQ":{
+       "eventId":"f-VCPNtKR0DUeGJjJk5J-LzQ",
+       "categoryId":"1",
+       "categoryName":"F\u00fatbol",
+       "regionId":"84",
+       "regionName":"Champions League",
+       "competitionId":"6134",
+       "slug":"futbol/champions-league/champions-league/bologna-borussia-dortmund",
+       "phase":"Prematch",
+       "startDate":"2025-01-21T20:00:00Z",
+       "categoryTrackingLabel":"football",
+       "competitionTrackingLabel":"champions-league",
+       "regionTrackingLabel":"champions-league",
+       "neutralPath":"football/champions-league/champions-league/bologna-borussia-dortmund",
+       "label":"Bologna - Borussia Dortmund",
+       "participants":[
+          {
+             "label":"Bologna",
+             "id":"500",
+             "sortOrder":1
+          },
+          {
+             "label":"Borussia Dortmund",
+             "id":"773",
+             "sortOrder":2
+          }
+       ]
+    },
+    "f-w1ZZjnA4xEO7Kb1Kg_iOxQ":{
+       "eventId":"f-w1ZZjnA4xEO7Kb1Kg_iOxQ",
+       "categoryId":"1",
+       "categoryName":"F\u00fatbol",
+       "regionId":"84",
+       "regionName":"Champions League",
+       "competitionId":"6134",
+       "slug":"futbol/champions-league/champions-league/liverpool-lille",
+       "phase":"Prematch",
+       "startDate":"2025-01-21T20:00:00Z",
+       "categoryTrackingLabel":"football",
+       "competitionTrackingLabel":"champions-league",
+       "regionTrackingLabel":"champions-league",
+       "neutralPath":"football/champions-league/champions-league/liverpool-lille",
+       "label":"Liverpool - Lille",
+       "participants":[
+          {
+             "label":"Liverpool",
+             "id":"104",
+             "sortOrder":1
+          },
+          {
+             "label":"Lille",
+             "id":"810",
+             "sortOrder":2
+          }
+       ]
+    },
+    "f-o-o0d2m6fE-w5WOO8ozbyQ":{
+       "eventId":"f-o-o0d2m6fE-w5WOO8ozbyQ",
+       "categoryId":"1",
+       "categoryName":"F\u00fatbol",
+       "regionId":"84",
+       "regionName":"Champions League",
+       "competitionId":"6134",
+       "slug":"futbol/champions-league/champions-league/slovan-bratislava-vfb-stuttgart",
+       "phase":"Prematch",
+       "startDate":"2025-01-21T20:00:00Z",
+       "categoryTrackingLabel":"football",
+       "competitionTrackingLabel":"champions-league",
+       "regionTrackingLabel":"champions-league",
+       "neutralPath":"football/champions-league/champions-league/slovan-bratislava-vfb-stuttgart",
+       "label":"Slovan Bratislava - VfB Stuttgart",
+       "participants":[
+          {
+             "label":"Slovan Bratislava",
+             "id":"3685",
+             "sortOrder":1
+          },
+          {
+             "label":"VfB Stuttgart",
+             "id":"781",
+             "sortOrder":2
+          }
+       ]
+    },
+    "f-H_61UF-ISkORdLSMbtkgBw":{
+       "eventId":"f-H_61UF-ISkORdLSMbtkgBw",
+       "categoryId":"1",
+       "categoryName":"F\u00fatbol",
+       "regionId":"84",
+       "regionName":"Champions League",
+       "competitionId":"6134",
+       "slug":"futbol/champions-league/champions-league/club-brugge-juventus",
+       "phase":"Prematch",
+       "startDate":"2025-01-21T20:00:00Z",
+       "categoryTrackingLabel":"football",
+       "competitionTrackingLabel":"champions-league",
+       "regionTrackingLabel":"champions-league",
+       "neutralPath":"football/champions-league/champions-league/club-brugge-juventus",
+       "label":"Club Brugge - Juventus",
+       "participants":[
+          {
+             "label":"Club Brugge",
+             "id":"640",
+             "sortOrder":1
+          },
+          {
+             "label":"Juventus",
+             "id":"614",
+             "sortOrder":2
+          }
+       ]
+    },
+    "f-CDV-JwgPPUGkK0k3EpXE6w":{
+       "eventId":"f-CDV-JwgPPUGkK0k3EpXE6w",
+       "categoryId":"1",
+       "categoryName":"F\u00fatbol",
+       "regionId":"84",
+       "regionName":"Champions League",
+       "competitionId":"6134",
+       "slug":"futbol/champions-league/champions-league/benfica-barcelona",
+       "phase":"Prematch",
+       "startDate":"2025-01-21T20:00:00Z",
+       "categoryTrackingLabel":"football",
+       "competitionTrackingLabel":"champions-league",
+       "regionTrackingLabel":"champions-league",
+       "neutralPath":"football/champions-league/champions-league/benfica-barcelona",
+       "label":"Benfica - Barcelona",
+       "participants":[
+          {
+             "label":"Benfica",
+             "id":"847",
+             "sortOrder":1
+          },
+          {
+             "label":"Barcelona",
+             "id":"731",
+             "sortOrder":2
+          }
+       ]
+    },
+    "f-MRAsau2sRUS3nA2jjl4zwA":{
+       "eventId":"f-MRAsau2sRUS3nA2jjl4zwA",
+       "categoryId":"1",
+       "categoryName":"F\u00fatbol",
+       "regionId":"84",
+       "regionName":"Champions League",
+       "competitionId":"6134",
+       "slug":"futbol/champions-league/champions-league/rb-leipzig-sporting-lisboa",
+       "phase":"Prematch",
+       "startDate":"2025-01-22T17:45:00Z",
+       "categoryTrackingLabel":"football",
+       "competitionTrackingLabel":"champions-league",
+       "regionTrackingLabel":"champions-league",
+       "neutralPath":"football/champions-league/champions-league/rb-leipzig-sporting-cp",
+       "label":"RB Leipzig - Sporting Lisboa",
+       "participants":[
+          {
+             "label":"RB Leipzig",
+             "id":"123913",
+             "sortOrder":1
+          },
+          {
+             "label":"Sporting Lisboa",
+             "id":"853",
+             "sortOrder":2
+          }
+       ]
+    },
+    "f-S_eonfP9mkCIoVf0BPml9Q":{
+       "eventId":"f-S_eonfP9mkCIoVf0BPml9Q",
+       "categoryId":"1",
+       "categoryName":"F\u00fatbol",
+       "regionId":"84",
+       "regionName":"Champions League",
+       "competitionId":"6134",
+       "slug":"futbol/champions-league/champions-league/shakhtar-donetsk-brest",
+       "phase":"Prematch",
+       "startDate":"2025-01-22T17:45:00Z",
+       "categoryTrackingLabel":"football",
+       "competitionTrackingLabel":"champions-league",
+       "regionTrackingLabel":"champions-league",
+       "neutralPath":"football/champions-league/champions-league/shakhtar-donetsk-brest",
+       "label":"Shakhtar Donetsk - Brest",
+       "participants":[
+          {
+             "label":"Shakhtar Donetsk",
+             "id":"1050",
+             "sortOrder":1
+          },
+          {
+             "label":"Brest",
+             "id":"845",
+             "sortOrder":2
+          }
+       ]
+    },
+    "f-foNM6dDBsUunp_kts705SQ":{
+       "eventId":"f-foNM6dDBsUunp_kts705SQ",
+       "categoryId":"1",
+       "categoryName":"F\u00fatbol",
+       "regionId":"84",
+       "regionName":"Champions League",
+       "competitionId":"6134",
+       "slug":"futbol/champions-league/champions-league/ac-milan-girona",
+       "phase":"Prematch",
+       "startDate":"2025-01-22T20:00:00Z",
+       "categoryTrackingLabel":"football",
+       "competitionTrackingLabel":"champions-league",
+       "regionTrackingLabel":"champions-league",
+       "neutralPath":"football/champions-league/champions-league/ac-milan-girona",
+       "label":"AC Milan - Girona",
+       "participants":[
+          {
+             "label":"AC Milan",
+             "id":"617",
+             "sortOrder":1
+          },
+          {
+             "label":"Girona",
+             "id":"89172",
+             "sortOrder":2
+          }
+       ]
+    },
+    "f-Rngoyx2DXEaAT0zuK2VFUA":{
+       "eventId":"f-Rngoyx2DXEaAT0zuK2VFUA",
+       "categoryId":"1",
+       "categoryName":"F\u00fatbol",
+       "regionId":"84",
+       "regionName":"Champions League",
+       "competitionId":"6134",
+       "slug":"futbol/champions-league/champions-league/arsenal-dinamo-zagreb",
+       "phase":"Prematch",
+       "startDate":"2025-01-22T20:00:00Z",
+       "categoryTrackingLabel":"football",
+       "competitionTrackingLabel":"champions-league",
+       "regionTrackingLabel":"champions-league",
+       "neutralPath":"football/champions-league/champions-league/arsenal-dinamo-zagreb",
+       "label":"Arsenal - Dinamo Zagreb",
+       "participants":[
+          {
+             "label":"Arsenal",
+             "id":"107",
+             "sortOrder":1
+          },
+          {
+             "label":"Dinamo Zagreb",
+             "id":"1468",
+             "sortOrder":2
+          }
+       ]
+    },
+    "f-dFTy_RZzbUy8DyYDTLZaeA":{
+       "eventId":"f-dFTy_RZzbUy8DyYDTLZaeA",
+       "categoryId":"1",
+       "categoryName":"F\u00fatbol",
+       "regionId":"84",
+       "regionName":"Champions League",
+       "competitionId":"6134",
+       "slug":"futbol/champions-league/champions-league/celtic-young-boys",
+       "phase":"Prematch",
+       "startDate":"2025-01-22T20:00:00Z",
+       "categoryTrackingLabel":"football",
+       "competitionTrackingLabel":"champions-league",
+       "regionTrackingLabel":"champions-league",
+       "neutralPath":"football/champions-league/champions-league/celtic-young-boys",
+       "label":"Celtic - Young Boys",
+       "participants":[
+          {
+             "label":"Celtic",
+             "id":"622",
+             "sortOrder":1
+          },
+          {
+             "label":"Young Boys",
+             "id":"1326",
+             "sortOrder":2
+          }
+       ]
+    },
+    "f-Lz9uczOSX0WpiAByC3HZ4A":{
+       "eventId":"f-Lz9uczOSX0WpiAByC3HZ4A",
+       "categoryId":"1",
+       "categoryName":"F\u00fatbol",
+       "regionId":"84",
+       "regionName":"Champions League",
+       "competitionId":"6134",
+       "slug":"futbol/champions-league/champions-league/feyenoord-bayern-munchen",
+       "phase":"Prematch",
+       "startDate":"2025-01-22T20:00:00Z",
+       "categoryTrackingLabel":"football",
+       "competitionTrackingLabel":"champions-league",
+       "regionTrackingLabel":"champions-league",
+       "neutralPath":"football/champions-league/champions-league/feyenoord-bayern-munchen",
+       "label":"Feyenoord - Bayern M\u00fcnchen",
+       "participants":[
+          {
+             "label":"Feyenoord",
+             "id":"868",
+             "sortOrder":1
+          },
+          {
+             "label":"Bayern M\u00fcnchen ",
+             "id":"772",
+             "sortOrder":2
+          }
+       ]
+    },
+    "f-Lt21_RX8LESrKwAxN8bGPA":{
+       "eventId":"f-Lt21_RX8LESrKwAxN8bGPA",
+       "categoryId":"1",
+       "categoryName":"F\u00fatbol",
+       "regionId":"84",
+       "regionName":"Champions League",
+       "competitionId":"6134",
+       "slug":"futbol/champions-league/champions-league/paris-sg-manchester-city",
+       "phase":"Prematch",
+       "startDate":"2025-01-22T20:00:00Z",
+       "categoryTrackingLabel":"football",
+       "competitionTrackingLabel":"champions-league",
+       "regionTrackingLabel":"champions-league",
+       "neutralPath":"football/champions-league/champions-league/paris-sg-manchester-city",
+       "label":"Paris SG  - Manchester City",
+       "participants":[
+          {
+             "label":"Paris SG ",
+             "id":"816",
+             "sortOrder":1
+          },
+          {
+             "label":"Manchester City",
+             "id":"109",
+             "sortOrder":2
+          }
+       ]
+    },
+    "f-pjWHjUWAhkO6YBgGCBXisQ":{
+       "eventId":"f-pjWHjUWAhkO6YBgGCBXisQ",
+       "categoryId":"1",
+       "categoryName":"F\u00fatbol",
+       "regionId":"84",
+       "regionName":"Champions League",
+       "competitionId":"6134",
+       "slug":"futbol/champions-league/champions-league/real-madrid-red-bull-salzburg",
+       "phase":"Prematch",
+       "startDate":"2025-01-22T20:00:00Z",
+       "categoryTrackingLabel":"football",
+       "competitionTrackingLabel":"champions-league",
+       "regionTrackingLabel":"champions-league",
+       "neutralPath":"football/champions-league/champions-league/real-madrid-red-bull-salzburg",
+       "label":"Real Madrid - Red Bull Salzburg",
+       "participants":[
+          {
+             "label":"Real Madrid",
+             "id":"739",
+             "sortOrder":1
+          },
+          {
+             "label":"Red Bull Salzburg",
+             "id":"1452",
+             "sortOrder":2
+          }
+       ]
+    },
+    "f-lq-Gvj9Ih0eOw7yzRMz-GA":{
+       "eventId":"f-lq-Gvj9Ih0eOw7yzRMz-GA",
+       "categoryId":"1",
+       "categoryName":"F\u00fatbol",
+       "regionId":"84",
+       "regionName":"Champions League",
+       "competitionId":"6134",
+       "slug":"futbol/champions-league/champions-league/sparta-prague-inter",
+       "phase":"Prematch",
+       "startDate":"2025-01-22T20:00:00Z",
+       "categoryTrackingLabel":"football",
+       "competitionTrackingLabel":"champions-league",
+       "regionTrackingLabel":"champions-league",
+       "neutralPath":"football/champions-league/champions-league/sparta-prague-inter",
+       "label":"Sparta Prague - Inter",
+       "participants":[
+          {
+             "label":"Sparta Prague",
+             "id":"391075",
+             "sortOrder":1
+          },
+          {
+             "label":"Inter",
+             "id":"613",
+             "sortOrder":2
+          }
+       ]
+    }
+ }
