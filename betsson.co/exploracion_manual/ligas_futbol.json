@@ -1,0 +1,737 @@
+
+{
+  "FUTBOL":{
+    "categoryId": 1,
+    "enlace": "https://www.betsson.co/apuestas-deportivas/futbol?tab=allLeagues",
+    "Eventos & Ligas":{
+      "Alemania": [
+        {
+          "nombre": "Todos Alemania",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/alemania"
+        },
+        {
+          "nombre": "Alemania 2. Bundesliga",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/alemania/alemania-2-bundesliga"
+        },
+        {
+          "nombre": "Alemania Bundesliga",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/alemania/alemania-bundesliga"
+        },
+        {
+          "nombre": "Alemania DFB-Pokal",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/alemania/alemania-dfb-pokal"
+        }
+      ],
+      "Amistosos": [
+        {
+          "nombre": "Amistosos de Clubes",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/amistosos/amistosos-de-clubes"
+        }
+      ],
+      "Arabia Saudita": [
+        {
+          "nombre": "Todos Arabia Saudita",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/arabia-saudita"
+        },
+        {
+          "nombre": "Saudi Arabia - ProLeague",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/arabia-saudita/saudi-arabia-proleague"
+        },
+        {
+          "nombre": "Saudi Arabia King's Cup",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/arabia-saudita/saudi-arabia-kings-cup"
+        }
+      ],
+      "Argelia": [
+        {
+          "nombre": "Argelia Copa",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/argelia/argelia-copa"
+        }
+      ],
+      "Argentina": [
+        {
+          "nombre": "Liga Profesional",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/argentina/liga-profesional"
+        }
+      ],
+      "Australia": [
+        {
+          "nombre": "Todos Australia",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/australia"
+        },
+        {
+          "nombre": "Australia A-Liga",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/australia/australia-a-liga"
+        },
+        {
+          "nombre": "Australia A-Liga Femenina",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/australia/australia-a-liga-femenina"
+        }
+      ],
+      "Austria": [
+        {
+          "nombre": "Austria Bundesliga",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/austria/austria-bundesliga"
+        }
+      ],
+      "Bélgica": [
+        {
+          "nombre": "Todos Bélgica",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/belgica"
+        },
+        {
+          "nombre": "Bélgica Challenger Pro League",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/belgica/belgica-challenger-pro-league"
+        },
+        {
+          "nombre": "Bélgica Jupiler League",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/belgica/belgica-jupiler-league"
+        },
+        {
+          "nombre": "Copa de Bélgica",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/belgica/copa-de-belgica"
+        }
+      ],
+      "Brasil": [
+        {
+          "nombre": "Todos Brasil",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/brasil"
+        },
+        {
+          "nombre": "Brasil Carioca",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/brasil/brasil-carioca"
+        },
+        {
+          "nombre": "Brasil Copa São Paulo Sub20",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/brasil/brasil-copa-sao-paulo-sub20"
+        },
+        {
+          "nombre": "Brasil Gaúcho",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/brasil/brasil-gaucho"
+        },
+        {
+          "nombre": "Brasil Mineiro",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/brasil/brasil-mineiro"
+        },
+        {
+          "nombre": "Brasil Paulista",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/brasil/brasil-paulista"
+        },
+        {
+          "nombre": "Brasileirao - Serie A",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/brasil/brasileirao-serie-a"
+        },
+        {
+          "nombre": "Copa do Brasil",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/brasil/copa-do-brasil"
+        }
+      ],
+      "Bulgaria": [
+        {
+          "nombre": "Bulgaria Liga 1",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/bulgaria/bulgaria-liga-1"
+        }
+      ],
+      "Champions League": [
+        {
+          "competitionId":6134,
+          "nombre": "Champions League",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/champions-league/champions-league",
+          "partidos":{
+            "enlace": "https://www.betsson.co/api/sb/v1/widgets/events-table/v2?categoryIds=1&competitionIds=6134&eventPhase=Prematch&eventSortBy=StartDate&maxMarketCount=3&pageNumber=1&startsBefore=2025-01-22T04:59:59Z&startsOnOrAfter=2025-01-21T05:00:00Z"
+          }
+        }
+      ],
+      "Chile": [
+        {
+          "nombre": "Chile Primera Division",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/chile/chile-primera-division"
+        }
+      ],
+      "Conference League": [
+        {
+          "nombre": "Conference League",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/conference-league/conference-league"
+        }
+      ],
+      "Copa Libertadores": [
+        {
+          "nombre": "Copa Libertadores",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/copa-libertadores/copa-libertadores"
+        }
+      ],
+      "Copas europeas femeninas": [
+        {
+          "nombre": "UEFA Champions League Femenina",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/copas-europeas-femeninas/uefa-champions-league-femenina"
+        }
+      ],
+      "Croacia": [
+        {
+          "nombre": "Croacia HNL",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/croacia/croacia-hnl"
+        }
+      ],
+      "Cyprus": [
+        {
+          "nombre": "Chipre 1ª División",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/cyprus/chipre-1a-division"
+        }
+      ],
+      "Dinamarca": [
+        {
+          "nombre": "Todos Dinamarca",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/dinamarca"
+        },
+        {
+          "nombre": "Dinamarca 1. division",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/dinamarca/dinamarca-1-division"
+        },
+        {
+          "nombre": "Superliga",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/dinamarca/superliga"
+        }
+      ],
+      "eFootball": [
+        {
+          "nombre": "Todos eFootball",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/efootball"
+        },
+        {
+          "nombre": "Batalla de eFootball - 8 minutos de juego",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/efootball/batalla-de-efootball-8-minutos-de-juego"
+        },
+        {
+          "nombre": "Batalla de eFootball Volta League - 6 minutos de j",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/efootball/batalla-de-efootball-volta-league-6-minutos-de-j"
+        },
+        {
+          "nombre": "eFootball Adriatic League - 10 minutos de juego",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/efootball/efootball-adriatic-league-10-minutos-de-juego"
+        },
+        {
+          "nombre": "eFootball GT Leagues - 12 minutos de juego",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/efootball/efootball-gt-leagues-12-minutos-de-juego"
+        }
+      ],
+      "Egipto": [
+        {
+          "nombre": "Egipto Liga Premier",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/egipto/egipto-liga-premier"
+        }
+      ],
+      "Escocia": [
+        {
+          "nombre": "Todos Escocia",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/escocia"
+        },
+        {
+          "nombre": "1º División Escocesa",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/escocia/1o-division-escocesa"
+        },
+        {
+          "nombre": "2º División Escocesa",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/escocia/2o-division-escocesa"
+        },
+        {
+          "nombre": "Championship Escocesa",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/escocia/championship-escocesa"
+        },
+        {
+          "nombre": "Copa de Escocia",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/escocia/copa-de-escocia"
+        },
+        {
+          "nombre": "Escocia Liga de Reservas",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/escocia/escocia-liga-de-reservas"
+        },
+        {
+          "nombre": "Premier League Escocesa",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/escocia/premier-league-escocesa"
+        }
+      ],
+      "Eslovaquia": [
+        {
+          "nombre": "Eslovaquia Super Liga",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/eslovaquia/eslovaquia-super-liga"
+        }
+      ],
+      "España": [
+        {
+          "nombre": "Todos España",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/espana"
+        },
+        {
+          "nombre": "Copa del Rey Española",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/espana/copa-del-rey-espanola"
+        },
+        {
+          "nombre": "España La Liga",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/espana/espana-la-liga"
+        },
+        {
+          "nombre": "España Segunda División",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/espana/espana-segunda-division"
+        },
+        {
+          "nombre": "Supercopa de España",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/espana/supercopa-de-espana"
+        }
+      ],
+      "Especiales de Fútbol": [
+        {
+          "nombre": "Todos Especiales de Fútbol",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/especiales-de-futbol"
+        },
+        {
+          "nombre": "Award Specials",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/especiales-de-futbol/award-specials"
+        },
+        {
+          "nombre": "Fichaje especial",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/especiales-de-futbol/fichaje-especial"
+        },
+        {
+          "nombre": "Manager Specials",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/especiales-de-futbol/manager-specials"
+        },
+        {
+          "nombre": "Especiales del Inter",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/especiales-de-futbol/especiales-del-inter"
+        }
+      ],
+      "Europa League": [
+        {
+          "nombre": "Europa League",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/europa-league/europa-league"
+        }
+      ],
+      "Francia": [
+        {
+          "nombre": "Todos Francia",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/francia"
+        },
+        {
+          "nombre": "France Division 1 Women",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/francia/france-division-1-women"
+        },
+        {
+          "nombre": "Francia Copa de Francia",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/francia/francia-copa-de-francia"
+        },
+        {
+          "nombre": "Francia Ligue 1",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/francia/francia-ligue-1"
+        },
+        {
+          "nombre": "Francia Ligue 2",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/francia/francia-ligue-2"
+        },
+        {
+          "nombre": "Francia National 1",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/francia/francia-national-1"
+        }
+      ],
+      "Gales": [
+        {
+          "nombre": "Todos Gales",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/gales"
+        },
+        {
+          "nombre": "Gales Championship",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/gales/gales-championship"
+        },
+        {
+          "nombre": "Premier League Galesa",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/gales/premier-league-galesa"
+        }
+      ],
+      "Gambia": [
+        {
+          "nombre": "Gambia 1ª División",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/gambia/gambia-1a-division"
+        }
+      ],
+      "Grecia": [
+        {
+          "nombre": "Todos Grecia",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/grecia"
+        },
+        {
+          "nombre": "Betsson Copa de Grecia",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/grecia/betsson-copa-de-grecia"
+        },
+        {
+          "nombre": "Grecia Super Liga 1",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/grecia/grecia-super-liga-1"
+        },
+        {
+          "nombre": "Grecia Super Liga 2",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/grecia/grecia-super-liga-2"
+        }
+      ],
+      "Húngaro": [
+        {
+          "nombre": "Hungría NB I",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/hungaro/hungria-nb-i"
+        }
+      ],
+      "India": [
+        {
+          "nombre": "India Super League",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/india/india-super-league"
+        }
+      ],
+      "Indonesia": [
+        {
+          "nombre": "Indonesia Liga 1",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/indonesia/indonesia-liga-1"
+        }
+      ],
+      "Inglaterra": [
+        {
+          "nombre": "Todos Inglaterra",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/inglaterra"
+        },
+        {
+          "nombre": "England FA Cup Women",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/inglaterra/england-fa-cup-women"
+        },
+        {
+          "nombre": "England Football League Trophy",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/inglaterra/england-football-league-trophy"
+        },
+        {
+          "nombre": "England Premier League 2",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/inglaterra/england-premier-league-2"
+        },
+        {
+          "nombre": "Inglaterra EFL Championship",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/inglaterra/inglaterra-efl-championship"
+        },
+        {
+          "nombre": "Inglaterra EFL Cup",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/inglaterra/inglaterra-efl-cup"
+        },
+        {
+          "nombre": "Inglaterra FA Cup",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/inglaterra/inglaterra-fa-cup"
+        },
+        {
+          "nombre": "Inglaterra FA Trophy",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/inglaterra/inglaterra-fa-trophy"
+        },
+        {
+          "nombre": "Inglaterra FA WSL",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/inglaterra/inglaterra-fa-wsl"
+        },
+        {
+          "nombre": "Inglaterra Isthmian League",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/inglaterra/inglaterra-isthmian-league"
+        },
+        {
+          "nombre": "Inglaterra League One",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/inglaterra/inglaterra-league-one"
+        },
+        {
+          "nombre": "Inglaterra League Two",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/inglaterra/inglaterra-league-two"
+        },
+        {
+          "nombre": "Inglaterra National League",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/inglaterra/inglaterra-national-league"
+        },
+        {
+          "nombre": "Inglaterra National League Norte",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/inglaterra/inglaterra-national-league-norte"
+        },
+        {
+          "nombre": "Inglaterra National League Sur",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/inglaterra/inglaterra-national-league-sur"
+        },
+        {
+          "nombre": "Inglaterra Northern Premier League",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/inglaterra/inglaterra-northern-premier-league"
+        },
+        {
+          "nombre": "Inglaterra Premier League (EPL)",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/inglaterra/inglaterra-premier-league-epl"
+        },
+        {
+          "nombre": "Inglaterra Premier League Cup Sub-21",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/inglaterra/inglaterra-premier-league-cup-sub-21"
+        },
+        {
+          "nombre": "Inglaterra Professional Development League",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/inglaterra/inglaterra-professional-development-league"
+        },
+        {
+          "nombre": "Inglaterra Southern Central League",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/inglaterra/inglaterra-southern-central-league"
+        },
+        {
+          "nombre": "Inglaterra Southern South League",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/inglaterra/inglaterra-southern-south-league"
+        }
+      ],
+      "Irlanda del Norte": [
+        {
+          "nombre": "Todos Irlanda del Norte",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/irlanda-del-norte"
+        },
+        {
+          "nombre": "Irlanda del Norte - Premiership",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/irlanda-del-norte/irlanda-del-norte-premiership"
+        },
+        {
+          "nombre": "Northern Ireland - League Cup",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/irlanda-del-norte/northern-ireland-league-cup"
+        }
+      ],
+      "Israel": [
+        {
+          "nombre": "Todos Israel",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/israel"
+        },
+        {
+          "nombre": "Israel Liga Leumit",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/israel/israel-liga-leumit"
+        },
+        {
+          "nombre": "Israel Ligat Ha'Al",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/israel/israel-ligat-haal"
+        },
+        {
+          "nombre": "Israel Liga Alef",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/israel/israel-liga-alef"
+        }
+      ],
+      "Italia": [
+        {
+          "nombre": "Todos Italia",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/italia"
+        },
+        {
+          "nombre": "Italia Copa de Italia",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/italia/italia-copa-de-italia"
+        },
+        {
+          "nombre": "Italia Serie A",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/italia/italia-serie-a"
+        },
+        {
+          "nombre": "Italia Serie B",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/italia/italia-serie-b"
+        },
+        {
+          "nombre": "Italia Serie C",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/italia/italia-serie-c"
+        },
+        {
+          "nombre": "Supercopa de Italia",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/italia/supercopa-de-italia"
+        }
+      ],
+      "Jamaica": [
+        {
+          "nombre": "Jamaica Premier League",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/jamaica/jamaica-premier-league"
+        }
+      ],
+      "Malí": [
+        {
+          "nombre": "Mali Première Division",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/mali/mali-premiere-division"
+        }
+      ],
+      "Mauritania": [
+        {
+          "nombre": "Mauritania Super D1",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/mauritania/mauritania-super-d1"
+        }
+      ],
+      "Mexico": [
+        {
+          "nombre": "Todos Mexico",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/mexico"
+        },
+        {
+          "nombre": "México Liga de Expansión MX",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/mexico/mexico-liga-de-expansion-mx"
+        },
+        {
+          "nombre": "Mexico Liga MX",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/mexico/mexico-liga-mx"
+        }
+      ],
+      "Mundial": [
+        {
+          "nombre": "Todos mundial",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/mundial"
+        },
+        {
+          "nombre": "Eliminatorias - UEFA",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/mundial/eliminatorias-uefa"
+        },
+        {
+          "nombre": "Eliminatorias CONMEBOL",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/mundial/eliminatorias-conmebol"
+        },
+        {
+          "nombre": "Mundial",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/mundial/mundial"
+        }
+      ],
+      "Mundial de Clubes": [
+        {
+          "nombre": "Mundial de Clubes FIFA",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/mundial-de-clubes/mundial-de-clubes-fifa"
+        }
+      ],
+      "Nations League": [
+        {
+          "nombre": "UEFA Nations League",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/nations-league/uefa-nations-league"
+        }
+      ],
+      "Países Bajos": [
+        {
+          "nombre": "Todos Países Bajos",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/paises-bajos"
+        },
+        {
+          "nombre": "Eredivisie Holandesa",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/paises-bajos/eredivisie-holandesa"
+        },
+        {
+          "nombre": "Keuken Kampioen Divisie Holandesa",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/paises-bajos/keuken-kampioen-divisie-holandesa"
+        },
+        {
+          "nombre": "Países Bajos KNVB Beker",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/paises-bajos/paises-bajos-knvb-beker"
+        }
+      ],
+      "Polonia": [
+        {
+          "nombre": "Polonia Ekstraklasa",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/polonia/polonia-ekstraklasa"
+        }
+      ],
+      "Portugal": [
+        {
+          "nombre": "Todos Portugal",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/portugal"
+        },
+        {
+          "nombre": "Copa de Portugal",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/portugal/copa-de-portugal"
+        },
+        {
+          "nombre": "Portugal - League Cup",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/portugal/portugal-league-cup"
+        },
+        {
+          "nombre": "Portugal - Liga 3",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/portugal/portugal-liga-3"
+        },
+        {
+          "nombre": "Portugal Liga 2",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/portugal/portugal-liga-2"
+        },
+        {
+          "nombre": "Portugal Primeira Liga",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/portugal/portugal-primeira-liga"
+        }
+      ],
+      "Qatar": [
+        {
+          "nombre": "Qatar - Stars League",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/qatar/qatar-stars-league"
+        }
+      ],
+      "República Checa": [
+        {
+          "nombre": "Republica Checa Liga 1",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/republica-checa/republica-checa-liga-1"
+        }
+      ],
+      "Rumania": [
+        {
+          "nombre": "Rumania Liga I",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/rumania/rumania-liga-i"
+        }
+      ],
+      "Senegal": [
+        {
+          "nombre": "Senegal Ligue 2",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/senegal/senegal-ligue-2"
+        }
+      ],
+      "South Africa": [
+        {
+          "nombre": "Sudáfrica PSL",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/south-africa/sudafrica-psl"
+        }
+      ],
+      "Suecia": [
+        {
+          "nombre": "Todos Suecia",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/suecia"
+        },
+        {
+          "nombre": "Copa de Suecia",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/suecia/copa-de-suecia"
+        },
+        {
+          "nombre": "Suecia Allsvenskan",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/suecia/suecia-allsvenskan"
+        }
+      ],
+      "Suiza": [
+        {
+          "nombre": "Suiza Super Liga",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/suiza/suiza-super-liga"
+        }
+      ],
+      "Tailandia": [
+        {
+          "nombre": "Taliandia Liga 1",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/tailandia/taliandia-liga-1"
+        }
+      ],
+      "Turquia": [
+        {
+          "nombre": "Todos Turquia",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/turquia"
+        },
+        {
+          "nombre": "Copa de Turquía",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/turquia/copa-de-turquia"
+        },
+        {
+          "nombre": "Turquía Liga 1",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/turquia/turquia-liga-1"
+        },
+        {
+          "nombre": "Turquía Superliga",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/turquia/turquia-superliga"
+        },
+        {
+          "nombre": "Turquía Superliga apuestas de equipos",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/turquia/turquia-superliga-apuestas-de-equipos"
+        },
+        {
+          "nombre": "Turquía Superliga semanal",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/turquia/turquia-superliga-semanal"
+        }
+      ],
+      "Uganda": [
+        {
+          "nombre": "Uganda Premier League",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/uganda/uganda-premier-league"
+        }
+      ]
+    }
+  }
+}

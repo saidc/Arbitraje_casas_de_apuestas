@@ -1,0 +1,248 @@
+{
+  "TENIS":{
+      "categoryId": 11,
+      "enlace": "https://www.betsson.co/apuestas-deportivas/tenis?tab=allLeagues",
+      "Eventos & Ligas":{
+      "Grand Slam": [
+        {
+          "nombre": "Todos Grand Slam",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/tenis/grand-slam"
+        },
+        {
+          "competitionId": 391,
+          "nombre": "Australian Open Femenino",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/tenis/grand-slam/australian-open-femenino",
+          "enlace_partido_especifico": "https://www.betsson.co/apuestas-deportivas/tenis/grand-slam/australian-open-femenino?tab=liveAndUpcoming&eventId=f-h2cJISGD3U-it4K7_2OMmw&eti=0&fs=true&mtg=all",
+          "partidos":
+            {
+              "enlace": "https://www.betsson.co/api/sb/v1/widgets/events-table/v2?categoryIds=11&competitionIds=391&eventPhase=All&eventSortBy=StartDate"
+            }
+        },
+        {
+          "competitionId": 106,
+          "nombre": "Australian Open Masculino",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/tenis/grand-slam/australian-open-masculino",
+          "partidos": 
+            {
+              "enlace": "https://www.betsson.co/api/sb/v1/widgets/events-table/v2?categoryIds=11&competitionIds=106&eventPhase=Live&eventSortBy=StartDate&maxMarketCount=3&pageNumber=1&regionIds=505"
+            }
+        },
+        {
+          "nombre": "Paris GS Femenino",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/tenis/grand-slam/paris-gs-femenino",
+          "partidos": 
+            {
+              "enlace": ""
+            }
+        },
+        {
+          "nombre": "Paris GS Masculino",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/tenis/grand-slam/paris-gs-masculino",
+          "partidos": 
+            {
+              "enlace": ""
+            }
+        },
+        {
+          "nombre": "US Open - Femenino",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/tenis/grand-slam/us-open-femenino",
+          "partidos": 
+            {
+              "enlace": ""
+            }
+        },
+        {
+          "nombre": "US Open Masculino",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/tenis/grand-slam/us-open-masculino",
+          "partidos": 
+            {
+              "enlace": ""
+            }
+        },
+        {
+          "nombre": "Wimbledon Femenino",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/tenis/grand-slam/wimbledon-femenino",
+          "partidos":
+            {
+              "enlace": ""
+            }
+        },
+        {
+          "nombre": "Wimbledon Masculino",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/tenis/grand-slam/wimbledon-masculino",
+          "partidos":
+            {
+              "enlace": ""
+            }
+        }
+      ],
+      "ATP": [
+        {
+          "nombre": "Todos ATP",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/tenis/atp",
+          "partidos": 
+            {
+              "enlace": ""
+            }
+        },
+        {
+          "competitionId": 22918,
+          "nombre": "ATP Adelaide",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/tenis/atp/atp-adelaide",
+          "partidos": 
+            {
+              "enlace": "https://www.betsson.co/api/sb/v1/widgets/events-table/v2?categoryIds=11&competitionIds=22918&eventPhase=Prematch&eventSortBy=StartDate&maxMarketCount=3&pageNumber=1&startsBefore=2025-01-11T04:59:59Z&startsOnOrAfter=2025-01-10T05:00:00Z"
+            }
+        },
+        {
+          "competitionId": 21300,
+          "nombre": "ATP Adelaide - Doubles",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/tenis/atp/atp-adelaide-doubles",
+          "partidos": 
+            {
+              "enlace": "https://www.betsson.co/api/sb/v1/widgets/events-table/v2?categoryIds=11&competitionIds=21300&eventPhase=Prematch&eventSortBy=StartDate&maxMarketCount=3&pageNumber=1&startsBefore=2025-01-10T04:59:59Z&startsOnOrAfter=2025-01-09T05:00:00Z"
+            }
+        },
+        {
+          "competitionId": 900,
+          "nombre": "ATP Auckland",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/tenis/atp/atp-auckland",
+          "partidos": 
+            {
+              "enlace": "https://www.betsson.co/api/sb/v1/widgets/events-table/v2?categoryIds=11&competitionIds=900&eventPhase=Prematch&eventSortBy=StartDate&maxMarketCount=3&pageNumber=1&startsBefore=2025-01-10T04:59:59Z&startsOnOrAfter=2025-01-09T05:00:00Z"
+            }
+        },
+        {
+          "competitionId": 8900,
+          "nombre": "ATP Auckland - Doubles",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/tenis/atp/atp-auckland-doubles",
+          "partidos": 
+            {
+              "enlace": "https://www.betsson.co/api/sb/v1/widgets/events-table/v2?categoryIds=11&competitionIds=8900&eventPhase=Prematch&eventSortBy=StartDate&maxMarketCount=3&pageNumber=1&startsBefore=2025-01-10T04:59:59Z&startsOnOrAfter=2025-01-09T05:00:00Z"
+            }
+        },
+        {
+          "enlace": "https://www.betsson.co/apuestas-deportivas/tenis/atp/especiales"
+        }
+      ],
+      "WTA": [
+        {
+          "nombre": "Todos WTA",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/tenis/wta",
+          "partidos": 
+            {
+              "enlace": ""
+            }
+        },
+        {
+          "nombre": "Specials",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/tenis/wta/specials",
+          "partidos": 
+            {
+              "enlace": ""
+            }
+        },
+        {
+          "competitionId": 21294,
+          "nombre": "WTA Adelaide",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/tenis/wta/wta-adelaide",
+          "partidos": 
+            {
+              "enlace": "https://www.betsson.co/api/sb/v1/widgets/events-table/v2?categoryIds=11&competitionIds=21294&eventPhase=Prematch&eventSortBy=StartDate&maxMarketCount=3&pageNumber=1&startsBefore=2025-01-11T04:59:59Z&startsOnOrAfter=2025-01-10T05:00:00Z"
+            }
+        },
+        {
+          "competitionId": 21295,
+          "nombre": "WTA Adelaide - Doubles",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/tenis/wta/wta-adelaide-doubles",
+          "partidos": 
+            {
+              "enlace": "https://www.betsson.co/api/sb/v1/widgets/events-table/v2?categoryIds=11&competitionIds=21295&eventPhase=Prematch&eventSortBy=StartDate&maxMarketCount=3&pageNumber=1&startsBefore=2025-01-10T04:59:59Z&startsOnOrAfter=2025-01-09T05:00:00Z"
+            }
+        },
+        {
+          "competitionId": 901,
+          "nombre": "WTA Hobart",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/tenis/wta/wta-hobart",
+          "partidos": 
+            {
+              "enlace": "https://www.betsson.co/api/sb/v1/widgets/events-table/v2?categoryIds=11&competitionIds=901&eventPhase=Prematch&eventSortBy=StartDate&maxMarketCount=3&pageNumber=1&startsBefore=2025-01-11T04:59:59Z&startsOnOrAfter=2025-01-10T05:00:00Z"
+            }
+        },
+        {
+          "competitionId": 5421,
+          "nombre": "WTA Hobart - Doubles",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/tenis/wta/wta-hobart-doubles",
+          "partidos": 
+            {
+              "enlace": "https://www.betsson.co/api/sb/v1/widgets/events-table/v2?categoryIds=11&competitionIds=5421&eventPhase=Prematch&eventSortBy=StartDate&maxMarketCount=3&pageNumber=1&startsBefore=2025-01-10T04:59:59Z&startsOnOrAfter=2025-01-09T05:00:00Z"
+            }
+        }
+      ],
+      "Challengers": [
+        {
+          "nombre": "Todos Challengers",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/tenis/challengers",
+          "partidos": 
+            {
+              "enlace": ""
+            }
+        },
+        {
+          "competitionId": 25174,
+          "nombre": "ATP Challenger Nonthaburi 2",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/tenis/challengers/atp-challenger-nonthaburi-2",
+          "partidos": 
+            {
+              "enlace": "https://www.betsson.co/api/sb/v1/widgets/events-table/v2?categoryIds=11&competitionIds=25174&eventPhase=Prematch&eventSortBy=StartDate&maxMarketCount=3&pageNumber=1&startsBefore=2025-01-10T04:59:59Z&startsOnOrAfter=2025-01-09T05:00:00Z"
+            }
+        },
+        {
+          "competitionId": 25176,
+          "nombre": "ATP Challenger Nonthaburi 2 - Doubles",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/tenis/challengers/atp-challenger-nonthaburi-2-doubles",
+          "partidos": 
+            {
+              "enlace": "https://www.betsson.co/api/sb/v1/widgets/events-table/v2?categoryIds=11&competitionIds=25176&eventPhase=Prematch&eventSortBy=StartDate&maxMarketCount=3&pageNumber=1&startsBefore=2025-01-11T04:59:59Z&startsOnOrAfter=2025-01-10T05:00:00Z"
+            }
+        },
+        {
+          "competitionId": 3385,
+          "nombre": "ATP Challenger Nottingham",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/tenis/challengers/atp-challenger-nottingham",
+          "partidos": 
+            {
+              "enlace": "https://www.betsson.co/api/sb/v1/widgets/events-table/v2?categoryIds=11&competitionIds=3385&eventPhase=Prematch&eventSortBy=StartDate&maxMarketCount=3&pageNumber=1&startsBefore=2025-01-11T04:59:59Z&startsOnOrAfter=2025-01-10T05:00:00Z"
+            }
+        },
+        {
+          "competitionId": 9570,
+          "nombre": "ATP Challenger Nottingham - Doubles",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/tenis/challengers/atp-challenger-nottingham-doubles",
+          "partidos": 
+            {
+              "enlace": "https://www.betsson.co/api/sb/v1/widgets/events-table/v2?categoryIds=11&competitionIds=9570&eventPhase=Prematch&eventSortBy=StartDate&maxMarketCount=3&pageNumber=1&startsBefore=2025-01-11T04:59:59Z&startsOnOrAfter=2025-01-10T05:00:00Z"
+            }
+        },
+        {
+          "competitionId": 23122,
+          "nombre": "ATP Challenger Oeiras",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/tenis/challengers/atp-challenger-oeiras",
+          "partidos": 
+            {
+              "enlace": "https://www.betsson.co/api/sb/v1/widgets/events-table/v2?categoryIds=11&competitionIds=23122&eventPhase=Prematch&eventSortBy=StartDate&maxMarketCount=3&pageNumber=1&startsBefore=2025-01-11T04:59:59Z&startsOnOrAfter=2025-01-10T05:00:00Z"
+            }
+        },
+        {
+          "competitionId": 23130,
+          "nombre": "ATP Challenger Oeiras - Doubles",
+          "enlace": "https://www.betsson.co/apuestas-deportivas/tenis/challengers/atp-challenger-oeiras-doubles",
+          "partidos": 
+            {
+              "enlace": "https://www.betsson.co/api/sb/v1/widgets/events-table/v2?categoryIds=11&competitionIds=23130&eventPhase=Prematch&eventSortBy=StartDate&maxMarketCount=3&pageNumber=1&startsBefore=2025-01-11T04:59:59Z&startsOnOrAfter=2025-01-10T05:00:00Z"
+            }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,75 @@
+{
+    "TENIS DE MESA":{
+        "categoryId": 138,
+        "enlace": "https://www.betsson.co/apuestas-deportivas/tenis-de-mesa/internacionales?tab=competitionsAndLeagues",
+        "Eventos & Ligas":{
+            "Setka Cup": [
+                {
+                    "competitionId": 21479,
+                    "nombre": "Setka Cup",
+                    "enlace": "",
+                    "partidos":
+                        {
+                            "enlace": "https://www.betsson.co/api/sb/v1/widgets/events-table/v2?categoryIds=138&competitionIds=21479&eventPhase=All&eventSortBy=StartDate&maxMarketCount=2&pageNumber=1&regionIds=1"
+                        }
+                    
+                }
+            ],
+            "Czech Liga Pro": [
+                {
+                    "competitionId": 26430,
+                    "nombre": "Czech Liga Pro",
+                    "enlace": "",
+                    "partidos": 
+                        {
+                            "enlace": "https://www.betsson.co/api/sb/v1/widgets/events-table/v2?categoryIds=138&competitionIds=26430&eventPhase=All&eventSortBy=StartDate&maxMarketCount=2&pageNumber=1&regionIds=1"
+                        }
+                }
+            ],
+            "TT Serie Élite": [
+                {
+                    "competitionId": 25678,
+                    "nombre": "TT Serie Élite",
+                    "enlace": "",
+                    "partidos": 
+                        {
+                            "enlace": "https://www.betsson.co/api/sb/v1/widgets/events-table/v2?categoryIds=138&competitionIds=25678&eventPhase=All&eventSortBy=StartDate&maxMarketCount=2&pageNumber=1&regionIds=1"
+                        }
+                }
+            ],
+            "TT Cup": [
+                {
+                    "competitionId": 25676,
+                    "nombre": "TT Cup",
+                    "enlace": "",
+                    "partidos": 
+                        {
+                            "enlace": "https://www.betsson.co/api/sb/v1/widgets/events-table/v2?categoryIds=138&competitionIds=25676&eventPhase=All&eventSortBy=StartDate&maxMarketCount=2&pageNumber=1&regionIds=1"
+                        }
+                }
+            ],
+            "Setka Cup Women": [
+                {
+                    "competitionId": 21605,
+                    "nombre": "Setka Cup Women",
+                    "enlace": "",
+                    "partidos": 
+                        {
+                            "enlace": "https://www.betsson.co/api/sb/v1/widgets/events-table/v2?categoryIds=138&competitionIds=21605&eventPhase=All&eventSortBy=StartDate&maxMarketCount=2&pageNumber=1&regionIds=1"
+                        }
+                }
+            ],
+            "WTT Star Contender Doha": [
+                {
+                    "competitionId": 27169,
+                    "nombre": "WTT Star Contender Doha",
+                    "enlace": "",
+                    "partidos": 
+                        {
+                            "enlace": "https://www.betsson.co/api/sb/v1/widgets/events-table/v2?categoryIds=138&competitionIds=27169&eventPhase=All&eventSortBy=StartDate&maxMarketCount=2&pageNumber=1&regionIds=490"
+                        }
+                }
+            ]
+        }
+    }
+}
