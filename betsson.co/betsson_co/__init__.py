@@ -66,3 +66,5 @@ def consultar_balance(session_token):
         return response.json()["balance"]
     else:
         return {"error": "El sessionToken no es válido o ha expirado", "status": response.status_code, "response": response.json()}
+
+

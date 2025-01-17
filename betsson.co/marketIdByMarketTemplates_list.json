@@ -1,0 +1,303 @@
+[
+    {    "marketTemplateId":"MW3W",          
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-MW3W" ]
+    }, { "marketTemplateId":"PCB3",           
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-PCB3-114761678", 
+                                                    "m-f-QFVna7cEe0CZ2TQ3m_aeEw-PCB3-114761672", 
+                                                    "m-f-QFVna7cEe0CZ2TQ3m_aeEw-PCB3-114761685", 
+                                                    "m-f-QFVna7cEe0CZ2TQ3m_aeEw-PCB3-114761680", 
+                                                    "m-f-QFVna7cEe0CZ2TQ3m_aeEw-PCB3-114761671", 
+                                                    "m-f-QFVna7cEe0CZ2TQ3m_aeEw-PCB3-114761674", 
+                                                    "m-f-QFVna7cEe0CZ2TQ3m_aeEw-PCB3-114761690", 
+                                                    "m-f-QFVna7cEe0CZ2TQ3m_aeEw-PCB3-114761673", 
+                                                    "m-f-QFVna7cEe0CZ2TQ3m_aeEw-PCB3-114761675", 
+                                                    "m-f-QFVna7cEe0CZ2TQ3m_aeEw-PCB3-114761683", 
+                                                    "m-f-QFVna7cEe0CZ2TQ3m_aeEw-PCB3-114761679", 
+                                                    "m-f-QFVna7cEe0CZ2TQ3m_aeEw-PCB3-114761667", 
+                                                    "m-f-QFVna7cEe0CZ2TQ3m_aeEw-PCB3-114761676", 
+                                                    "m-f-QFVna7cEe0CZ2TQ3m_aeEw-PCB3-114761681", 
+                                                    "m-f-QFVna7cEe0CZ2TQ3m_aeEw-PCB3-114761666", 
+                                                    "m-f-QFVna7cEe0CZ2TQ3m_aeEw-PCB3-114761682", 
+                                                    "m-f-QFVna7cEe0CZ2TQ3m_aeEw-PCB3-114761687", 
+                                                    "m-f-QFVna7cEe0CZ2TQ3m_aeEw-PCB3-114761688", 
+                                                    "m-f-QFVna7cEe0CZ2TQ3m_aeEw-PCB3-114761691", 
+                                                    "m-f-QFVna7cEe0CZ2TQ3m_aeEw-PCB3-114761686" ]
+    }, { "marketTemplateId":"M3WHCP",         
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-M3WHCP--2", 
+                                                    "m-f-QFVna7cEe0CZ2TQ3m_aeEw-M3WHCP--4", 
+                                                    "m-f-QFVna7cEe0CZ2TQ3m_aeEw-M3WHCP--3", 
+                                                    "m-f-QFVna7cEe0CZ2TQ3m_aeEw-M3WHCP--1" ]
+    }, { "marketTemplateId":"MTG2W25",        
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-MTG2W-2.5" ]
+    }, { "marketTemplateId":"1HTG",           
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-1HTG-3.5", 
+                                                        "groupKey:accordion.football.goals",
+                                                        "tabKey:sub-tab.football.first-half",
+                                                    "m-f-QFVna7cEe0CZ2TQ3m_aeEw-1HTG-2.5", 
+                                                        "groupKey:accordion.football.goals",
+                                                        "tabKey:sub-tab.football.first-half",
+                                                    "m-f-QFVna7cEe0CZ2TQ3m_aeEw-1HTG-1.5", 
+                                                        "groupKey:accordion.football.goals",
+                                                        "tabKey:sub-tab.football.first-half",
+                                                    "m-f-QFVna7cEe0CZ2TQ3m_aeEw-1HTG-0.5",
+                                                        "groupKey:accordion.football.goals",
+                                                        "tabKey:sub-tab.football.first-half",
+                                                ]
+    }, { "marketTemplateId":"T2HGOU",         
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-T2HGOU-0.5", 
+                                                        "tabKeysub-tab.football.second-half",
+                                                    "m-f-QFVna7cEe0CZ2TQ3m_aeEw-T2HGOU-2.5", 
+                                                        "tabKeysub-tab.football.second-half",
+                                                    "m-f-QFVna7cEe0CZ2TQ3m_aeEw-T2HGOU-4.5", 
+                                                        "tabKeysub-tab.football.second-half",
+                                                    "m-f-QFVna7cEe0CZ2TQ3m_aeEw-T2HGOU-3.5", 
+                                                        "tabKeysub-tab.football.second-half",
+                                                    "m-f-QFVna7cEe0CZ2TQ3m_aeEw-T2HGOU-1.5", 
+                                                        "tabKeysub-tab.football.second-half"
+                                                ]
+    }, { "marketTemplateId":"BTTS",           
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-BTTS" ]
+    }, { "marketTemplateId":"DC",             
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-DC" ]
+    }, { "marketTemplateId":"MW2W",           
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-MW2W" ]
+    }, { "marketTemplateId":"HNB",            
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-HNB" ]
+    }, { "marketTemplateId":"ANB",            
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-ANB" ]
+    }, { "marketTemplateId":"HTFTFB",         
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-HTFTFB" ]
+    }, { "marketTemplateId":"FTCSR",          
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-FTCSR" ]
+    }, { "marketTemplateId":"MAHCP",          
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-MAHCP--2",
+                                                        "tabKey:sub-tab.football.fulltime",
+                                                    "m-f-QFVna7cEe0CZ2TQ3m_aeEw-MAHCP--2.25", 
+                                                        "tabKey:sub-tab.football.fulltime",
+                                                    "m-f-QFVna7cEe0CZ2TQ3m_aeEw-MAHCP--1.75", 
+                                                        "tabKey:sub-tab.football.fulltime",
+                                                    "m-f-QFVna7cEe0CZ2TQ3m_aeEw-MAHCP--1.5", 
+                                                        "tabKey:sub-tab.football.fulltime",
+                                                    "m-f-QFVna7cEe0CZ2TQ3m_aeEw-MAHCP--2.5",
+                                                        "tabKey:sub-tab.football.fulltime"
+                                                ]
+    }, { "marketTemplateId":"MTG2W",          
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-MTG2W-0.5", 
+                                                    "m-f-QFVna7cEe0CZ2TQ3m_aeEw-MTG2W-3.5", 
+                                                    "m-f-QFVna7cEe0CZ2TQ3m_aeEw-MTG2W-1.5", 
+                                                    "m-f-QFVna7cEe0CZ2TQ3m_aeEw-MTG2W-5.5", 
+                                                    "m-f-QFVna7cEe0CZ2TQ3m_aeEw-MTG2W-4.5", 
+                                                    "m-f-QFVna7cEe0CZ2TQ3m_aeEw-MTG2W-6.5" ]
+    }, { "marketTemplateId":"HTG",            
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-HTG-2.5", 
+                                                    "m-f-QFVna7cEe0CZ2TQ3m_aeEw-HTG-1.5", 
+                                                    "m-f-QFVna7cEe0CZ2TQ3m_aeEw-HTG-3.5" ]
+    }, { "marketTemplateId":"ATG",            
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-ATG-0.5", 
+                                                    "m-f-QFVna7cEe0CZ2TQ3m_aeEw-ATG-1.5" ]
+    }, { "marketTemplateId":"GIBN",           
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-GIBN" ]
+    }, { "marketTemplateId":"GIBH",           
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-GIBH" ]
+    }, { "marketTemplateId":"TTSG",           
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-TTSG-1" ]
+    }, { "marketTemplateId":"TTSLG",          
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-TTSLG" ]
+    }, { "marketTemplateId":"BTTSBH",         
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-BTTSBH" ]
+    }, { "marketTemplateId":"BTTSND",         
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-BTTSND" ]
+    }, { "marketTemplateId":"BTTS1H",         
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-BTTS1H" ]
+    }, { "marketTemplateId":"BTTS2H",         
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-BTTS2H" ]
+    }, { "marketTemplateId":"HFTCS",          
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-HFTCS" ]
+    }, { "marketTemplateId":"MW3W1H",         
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-MW3W1H" ]
+    }, { "marketTemplateId":"MW3W2H",         
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-MW3W2H" ]
+    }, { "marketTemplateId":"MWOU",           
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-MWOU-2.5" ]
+    }, { "marketTemplateId":"MWOU",           
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-MWOU-1.5" ]
+    }, { "marketTemplateId":"MWOU",           
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-MWOU-3.5" ]
+    }, { "marketTemplateId":"MWBTTS",         
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-MWBTTS" ]
+    }, { "marketTemplateId":"BTTSOU",         
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-BTTSOU-2.5" ]
+    }, { "marketTemplateId":"HTRAOU",         
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-HTRAOU-2.5" ]
+    }, { "marketTemplateId":"HTRAOU",         
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-HTRAOU-1.5" ]
+    }, { "marketTemplateId":"HTRAOU",         
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-HTRAOU-3.5" ]
+    }, { "marketTemplateId":"HTRABBTS",       
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-HTRABBTS" ]
+    }, { "marketTemplateId":"MW2WHCPOU3P5",   
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-MW2WHCPOU3P5--1.5" ]
+    }, { "marketTemplateId":"HWTN",           
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-HWTN" ]
+    }, { "marketTemplateId":"HTCS",           
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-HTCS" ]
+    }, { "marketTemplateId":"ATCS",           
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-ATCS" ]
+    }, { "marketTemplateId":"HSH",            
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-HSH" ]
+    }, { "marketTemplateId":"RT",             
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-RT-3" ]
+    }, { "marketTemplateId":"RT",             
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-RT-2" ]
+    }, { "marketTemplateId":"MGH",            
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-MGH-2" ]
+    }, { "marketTemplateId":"MGH",            
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-MGH-1" ]
+    }, { "marketTemplateId":"MGH",            
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-MGH-4" ]
+    }, { "marketTemplateId":"MGH",            
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-MGH-3" ]
+    }, { "marketTemplateId":"MGH",            
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-MGH-5" ]
+    }, { "marketTemplateId":"NOTTS",          
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-NOTTS" ]
+    }, { "marketTemplateId":"WTTS",           
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-WTTS" ]
+    }, { "marketTemplateId":"HTTS",           
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-HTTS" ]
+    }, { "marketTemplateId":"ATTS",           
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-ATTS" ]
+    }, { "marketTemplateId":"HTSBH",          
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-HTSBH" ]
+    }, { "marketTemplateId":"ATSBH",          
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-ATSBH" ]
+    }, { "marketTemplateId":"MRALM",          
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-MRALM-5" ]
+    }, { "marketTemplateId":"MRALM",          
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-MRALM-30" ]
+    }, { "marketTemplateId":"MRALM",          
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-MRALM-10" ]
+    }, { "marketTemplateId":"MRALM",          
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-MRALM-15" ]
+    }, { "marketTemplateId":"MRALM",          
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-MRALM-25" ]
+    }, { "marketTemplateId":"MRALM",          
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-MRALM-20" ]
+    }, { "marketTemplateId":"TGOUA5M",        
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-TGOUA5M-0.5" ]
+    }, { "marketTemplateId":"TGOUA10M",       
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-TGOUA10M-0.5" ]
+    }, { "marketTemplateId":"TGOUA15M",       
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-TGOUA15M-1.5", 
+                                                    "m-f-QFVna7cEe0CZ2TQ3m_aeEw-TGOUA15M-0.5" ]
+    }, { "marketTemplateId":"TGOUA20M",       
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-TGOUA20M-1.5", 
+                                                    "m-f-QFVna7cEe0CZ2TQ3m_aeEw-TGOUA20M-0.5" ]
+    }, { "marketTemplateId":"TGOUA25M",       
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-TGOUA25M-1.5", 
+                                                    "m-f-QFVna7cEe0CZ2TQ3m_aeEw-TGOUA25M-0.5" ]
+    }, { "marketTemplateId":"TGOUA30M",       
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-TGOUA30M-0.5", 
+                                                    "m-f-QFVna7cEe0CZ2TQ3m_aeEw-TGOUA30M-2.5", 
+                                                    "m-f-QFVna7cEe0CZ2TQ3m_aeEw-TGOUA30M-1.5" ]
+    }, { "marketTemplateId":"TOFG",           
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-TOFG" ]
+    }, { "marketTemplateId":"HTGT",           
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-HTGT-1" ]
+    }, { "marketTemplateId":"ATGT",           
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-ATGT-1" ]
+    }, { "marketTemplateId":"TOG1OU",         
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-TOG1OU-30" ]
+    }, { "marketTemplateId":"HTTOG1OU",       
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-HTTOG1OU-30" ]
+    }, { "marketTemplateId":"ATTOG1OU",       
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-ATTOG1OU-30" ]
+    }, { "marketTemplateId":"TOG2OU",         
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-TOG2OU-50" ]
+    }, { "marketTemplateId":"HTTOG2OU",       
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-HTTOG2OU-50" ]
+    }, { "marketTemplateId":"ATTOG2OU",       
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-ATTOG2OU-50" ]
+    }, { "marketTemplateId":"TOG3OU",         
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-TOG3OU-70" ]
+    }, { "marketTemplateId":"HTTOG3OU",       
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-HTTOG3OU-70" ]
+    }, { "marketTemplateId":"MGT",            
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-MGT-1" ]
+    }, { "marketTemplateId":"GIF10M",         
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-GIF10M" ]
+    }, { "marketTemplateId":"GSIM",           
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-GSIM-1" ]
+    }, { "marketTemplateId":"TGR",            
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-TGR" ]
+    }, { "marketTemplateId":"HTTGR",          
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-HTTGR" ]
+    }, { "marketTemplateId":"ATTGR",          
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-ATTGR" ]
+    }, { "marketTemplateId":"TGRB",           
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-TGRB" ]
+    }, { "marketTemplateId":"TGRA",           
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-TGRA" ]
+    }, { "marketTemplateId":"TGRR",           
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-TGRR" ]
+    }, { "marketTemplateId":"HTGR",           
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-HTGR" ]
+    }, { "marketTemplateId":"ATGR",           
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-ATGR" ]
+    }, { "marketTemplateId":"TG3W",           
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-TG3W-2" ]
+    }, { "marketTemplateId":"OENG",           
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-OENG" ]
+    }, { "marketTemplateId":"HOENG",          
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-HOENG" ]
+    }, { "marketTemplateId":"AOENG",          
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-AOENG" ]
+    }, { "marketTemplateId":"HTOENG",         
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-HTOENG" ]
+    }, { "marketTemplateId":"1HFG",           
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-1HFG" ]
+    }, { "marketTemplateId":"1HHTGOU",        
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-1HHTGOU-2.5", 
+                                                    "m-f-QFVna7cEe0CZ2TQ3m_aeEw-1HHTGOU-1.5", 
+                                                    "m-f-QFVna7cEe0CZ2TQ3m_aeEw-1HHTGOU-0.5" ]
+    }, { "marketTemplateId":"1HATGOU",        
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-1HATGOU-1.5", 
+                                                    "m-f-QFVna7cEe0CZ2TQ3m_aeEw-1HATGOU-0.5" ]
+    }, { "marketTemplateId":"2HHTGOU",        
+         "marketIds":                            [  "m-f-QFVna7cEe0CZ2TQ3m_aeEw-2HHTGOU-0.5", 
+                                                    "m-f-QFVna7cEe0CZ2TQ3m_aeEw-2HHTGOU-3.5", 
+                                                    "m-f-QFVna7cEe0CZ2TQ3m_aeEw-2HHTGOU-1.5", 
+                                                    "m-f-QFVna7cEe0CZ2TQ3m_aeEw-2HHTGOU-2.5" ]
+    }, { "marketTemplateId":"2HATGOU",        
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-2HATGOU-1.5", 
+                                                    "m-f-QFVna7cEe0CZ2TQ3m_aeEw-2HATGOU-0.5" ]
+    }, { "marketTemplateId":"HGR",            
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-HGR" ]
+    }, { "marketTemplateId":"1HG3W",          
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-1HG3W-1" ]
+    }, { "marketTemplateId":"2HG3W",          
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-2HG3W-1" ]
+    }, { "marketTemplateId":"TTSG1H",         
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-TTSG1H-1" ]
+    }, { "marketTemplateId":"TTSG2H",         
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-TTSG2H-1" ]
+    }, { "marketTemplateId":"HWEH",           
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-HWEH" ]
+    }, { "marketTemplateId":"AWEH",           
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-AWEH" ]
+    }, { "marketTemplateId":"HTWBH",          
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-HTWBH" ]
+    }, { "marketTemplateId":"HTWFB",          
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-HTWFB" ]
+    }, { "marketTemplateId":"1HG",            
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-1HG" ]
+    }, { "marketTemplateId":"1AG",            
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-1AG" ]
+    }, { "marketTemplateId":"WM",             
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-WM" ]
+    }, { "marketTemplateId":"WM10",           
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-WM10" ]
+    }, { "marketTemplateId":"MWM",            
+         "marketIds":                            [   "m-f-QFVna7cEe0CZ2TQ3m_aeEw-MWM" ]
+    }
+ ]
