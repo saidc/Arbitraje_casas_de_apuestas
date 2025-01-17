@@ -58,13 +58,14 @@ if response:
                                                                 # añadimos el marketTemplateId y market Ids a la lista de apuestas
                                                                 apuestas_list[f"{eventId}"][marketTemplateId] = {
                                                                     "marketTemplateId": marketTemplateId, 
-                                                                    "marketIds": []
+                                                                    "marketIds": {}
                                                                     #"marketIds": [ {f"{marketId}":{"marketId":marketId}} for marketId in marketIds ]
                                                                     }
                                                                 for marketId in marketIds:
-                                                                    apuestas_list[f"{eventId}"][marketTemplateId]["marketIds"].append({f"{marketId}":{"marketId":marketId}})
+                                                                    apuestas_list[f"{eventId}"][marketTemplateId]["marketIds"][marketId] = {"marketId":marketId}
                                                                     # para cada marketId se le asigna su respectivo maketTemplateId
                                                                     marketTemplateId_for_every_marketId[marketId] = marketTemplateId
+                                                                #print(marketTemplateId_for_every_marketId)
                                                         #verificamos si market_data contiene "data" 
                                                         if "data" in market_data:
                                                             market_data_data = market_data["data"]
@@ -136,27 +137,63 @@ if response:
                                                                                     #recorremos la lista de selections
                                                                                     for selection in market_data_data["selections"]:
                                                                                         #verificamos si market contiene "marketId"
-                                                                                        marketId = market["marketId"] if "marketId" in market else None
-                                                                                        selection_marketTemplateId = marketTemplateId_for_every_marketId[marketId]
-                                                                                        #verificamos si marketId esta en la lista de apuestas_list
-                                                                                        if marketId in apuestas_list[f"{eventId}"][selection_marketTemplateId]["marketIds"]:
-                                                                                            #verificamos si market contiene "odds"
-                                                                                            
-                                                                                            #verificamos si market contiene "alternateLabel"
-                                                                                            #verificamos si market contiene "status"
-                                                                                            #verificamos si market contiene "sortOrder"
-                                                                                            #verificamos si market contiene "participantId"
-                                                                                            #verificamos si market contiene "participantLabel"
-                                                                                            #verificamos si market contiene "selectionTemplateId"
-                                                                                            #verificamos si market contiene "participant"
-                                                                                            #verificamos si market contiene "id"
-                                                                                            #verificamos si market contiene "label"
-                                                                                            pass
+                                                                                        marketId = selection["marketId"] if "marketId" in selection else None
+                                                                                        selection_marketTemplateId = marketTemplateId_for_every_marketId[marketId] if marketId in marketTemplateId_for_every_marketId else None
+                                                                                        #print(f"marketId: {marketId}, selection_marketTemplateId: {selection_marketTemplateId} ")
+                                                                                        if selection_marketTemplateId:
+                                                                                            #verificamos si marketId esta en la lista de apuestas_list
+                                                                                            if marketId in apuestas_list[f"{eventId}"][selection_marketTemplateId]["marketIds"]:
+                                                                                                #verificamos si market contiene "odds"
+                                                                                                odds = selection["odds"] if "odds" in selection else None
+                                                                                                #verificamos si market contiene "alternateLabel"
+                                                                                                alternateLabel = selection["alternateLabel"] if "alternateLabel" in selection else None
+                                                                                                #verificamos si market contiene "status"
+                                                                                                status = selection["status"] if "status" in selection else None
+                                                                                                #verificamos si market contiene "sortOrder"
+                                                                                                sortOrder = selection["sortOrder"] if "sortOrder" in selection else None
+                                                                                                #verificamos si market contiene "participantId"
+                                                                                                participantId = selection["participantId"] if "participantId" in selection else None
+                                                                                                #verificamos si market contiene "participantLabel"
+                                                                                                participantLabel = selection["participantLabel"] if "participantLabel" in selection else None
+                                                                                                #verificamos si market contiene "selectionTemplateId"
+                                                                                                selectionTemplateId = selection["selectionTemplateId"] if "selectionTemplateId" in selection else None
+                                                                                                #verificamos si market contiene "participant"
+                                                                                                participant = selection["participant"] if "participant" in selection else None
+                                                                                                #verificamos si market contiene "id"
+                                                                                                selectionId = selection["id"] if "id" in selection else None
+                                                                                                #verificamos si market contiene "label"
+                                                                                                label = selection["label"] if "label" in selection else None
+                                                                                                # añadimos la informacion de apuestas a la lista de apuestas
+                                                                                                if "apuestas" not in apuestas_list[f"{eventId}"][selection_marketTemplateId]["marketIds"][marketId]:
+                                                                                                    apuestas_list[f"{eventId}"][selection_marketTemplateId]["marketIds"][marketId]["apuestas"] = []
+                                                                                                # añadimos la informacion de apuestas a la lista de apuestas
+                                                                                                apuestas_list[f"{eventId}"][selection_marketTemplateId]["marketIds"][marketId]["apuestas"].append({
+                                                                                                    "odds": odds,
+                                                                                                    "alternateLabel": alternateLabel,
+                                                                                                    "status": status,
+                                                                                                    "sortOrder": sortOrder,
+                                                                                                    "participantId": participantId,
+                                                                                                    "participantLabel": participantLabel,
+                                                                                                    "selectionTemplateId": selectionTemplateId,
+                                                                                                    "participant": participant,
+                                                                                                    "id": selectionId,
+                                                                                                    "label": label
+                                                                                                })
+                                                                                                
+                                                              
 
-                                                                                        
-print("Lista de apuestas cargada")
-# guardar response en un archivo json
-with open('obtener_apuestas.json', 'w') as file:
-    json.dump(response, file)
 
-print("se guardo la lista de apuestas en obtener_apuestas.json")
+#escribir en un archivo json con nombre del ID del evento la informacion de apuestas_list
+with open(f'{eventId}.json', 'w') as file:
+    json.dump(apuestas_list, file)
+
+# escribir en un archivo json marketTemplateId_for_every_marketId
+#with open(f'{eventId}_marketTemplateId_for_every_marketId.json', 'w') as file:
+#    json.dump(marketTemplateId_for_every_marketId, file)
+
+#print("Lista de apuestas cargada")
+## guardar response en un archivo json
+#with open('obtener_apuestas.json', 'w') as file:
+#    json.dump(response, file)
+#
+#print("se guardo la lista de apuestas en obtener_apuestas.json")
