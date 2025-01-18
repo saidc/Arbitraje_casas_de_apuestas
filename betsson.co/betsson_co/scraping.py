@@ -7,6 +7,7 @@ import random
 import json
 import os
 
+FORMATO_FECHA_ACTUAL = "%Y-%m-%d %H:%M:%S"
 
 def make_get_request(url, headers, payload):
     response = requests.request("GET", url, headers=headers, data=payload)
@@ -71,6 +72,7 @@ def obtener_partidos(categoryId,competitionId,eventPhase):
                             if "id" in event:
                                 id = event["id"]
                                 if id in lista_de_partidos:
+                                    
                                     new_event_data = {                                    
                                         "categoryId": event["categoryId"],
                                         "categoryName": event["categoryName"],
@@ -85,6 +87,7 @@ def obtener_partidos(categoryId,competitionId,eventPhase):
                                         "regionTrackingLabel": event["regionTrackingLabel"],
                                         "neutralPath": event["neutralPath"],
                                         "label": event["label"]
+                                        
                                     }
                                     lista_de_partidos[id].update(new_event_data)
                                     #"participants": event[{"label":p["label"],"id":p["id"],"sortOrder":p["sortOrder"]} for p in participants],
@@ -101,6 +104,8 @@ def obtener_partidos(categoryId,competitionId,eventPhase):
     return None
 
 def obtener_partidos_con_apuestas():
+    time_now = datetime.datetime.now()
+
     # leer archivo config_betsson.json 
     with open(betsson_config_file_path, "r") as file:
         betsson_config = json.load(file)
@@ -152,12 +157,12 @@ def obtener_partidos_con_apuestas():
                         lista_de_solicitudes_de_obtener_partidos.append((categoryId, competitionId, eventPhase))
 
     print("Iniciando solicitud de partidos...")
-
+    
+    numero_de_partidos = 0
+    numero_de_solicitudes = 0
     # recorrer la lista de solicitudes de obtener_partidos y tener una barra de progreso de las solicitude de obtener_partidos
     for i, solicitud in enumerate(lista_de_solicitudes_de_obtener_partidos):
         categoryId, competitionId, eventPhase = solicitud
-        print(f"\n\nSolicitud {i+1}/{len(lista_de_solicitudes_de_obtener_partidos)}")
-        print(f"categoryId: {categoryId}, competitionId: {competitionId}, eventPhase: {eventPhase}")
         # Se solicitan los partidos Prematch de la categoria y competencia, ya estructurados
         lista_de_partidos = obtener_partidos(categoryId, competitionId, eventPhase)
         if lista_de_partidos:
@@ -170,179 +175,228 @@ def obtener_partidos_con_apuestas():
             # 1.3 actualizamos el valor de betsson_prematch[categoryId][competitionId] con la lista de partidos obtenidos usando update
             betsson_prematch[categoryId][competitionId].update(lista_de_partidos)
 
+        print(f"Solicitud {i+1}/{len(lista_de_solicitudes_de_obtener_partidos)} #partidos: {len(lista_de_partidos)}")
+        numero_de_partidos += len(lista_de_partidos)
+        numero_de_solicitudes = numero_de_solicitudes + 1 if len(lista_de_partidos) > 0 else numero_de_solicitudes
 
-            # recorrer la lista de partidos obtenidos y obtener las apuestas
-            for id in lista_de_partidos.keys():
-                # obtener el id del evento
-                eventId = lista_de_partidos[id]["eventId"]
-                # Obtenemos las apuestas de un partido
-                apuestas = obtener_apuestas(eventId)
-                if apuestas:
+    # crear una variable de tiempo final para comparar con el tiempo de ejecucion de la funcion obtener_partidos_con_apuestas
+    time_final = datetime.datetime.now()
+
+    # calcular el tiempo de ejecucion en segundos
+    time_execution = ( time_final - time_now ).total_seconds()
+    # tiempo de ejecucion en segundos 
+    print("Tiempo de obtener partidos: ", time_execution, "segundos")
+    
+    contador = 0
+    # creamos una copia de betsson_prematch
+    betsson_prematch_copy = betsson_prematch.copy()
+    print("Iniciando solicitud de apuestas...")
+    for categoryId in betsson_prematch_copy.keys():
+        for competitionId in betsson_prematch_copy[categoryId].keys():
+            contador += 1
+            print(f"\n\nSolicitud {contador}/{numero_de_solicitudes}")
+            print(f"categoryId: {categoryId}, competitionId: {competitionId}, eventPhase: {eventPhase}")
+            lista_de_partidos_keys = betsson_prematch_copy[categoryId][competitionId].keys()
+            for j, id_partido in enumerate(lista_de_partidos_keys):
+                sw_consulta_partido = False
+                # verificar si partido no contine "fecha_de_actualizacion" 
+                if not ("fecha_de_actualizacion" in betsson_prematch_copy[categoryId][competitionId][id_partido]) :
+                    sw_consulta_partido = True
+                    fecha_actual = datetime.datetime.now()
+                    # convertir fecha_actual a string
+                    fecha_actual_str = fecha_actual.strftime(FORMATO_FECHA_ACTUAL)
+                    betsson_prematch_copy[categoryId][competitionId][id_partido]["fecha_de_actualizacion"] = fecha_actual_str
+                    contador += 1
+                else: 
+                    # verificar si partido contiene "fecha_de_actualizacion" y si es mayor a 5 minutos
+                    fecha_de_actualizacion = betsson_prematch_copy[categoryId][competitionId][id_partido]["fecha_de_actualizacion"]
+                    fecha_de_actualizacion = datetime.datetime.strptime(fecha_de_actualizacion, FORMATO_FECHA_ACTUAL)
+                    fecha_actual = datetime.datetime.now()
+                    if (fecha_actual - fecha_de_actualizacion).total_seconds() > 300:
+                        sw_consulta_partido = True
+
+                if sw_consulta_partido:
+                    print(f"    Partido {j+1}/{len(lista_de_partidos_keys)}")
+                    eventId = betsson_prematch_copy[categoryId][competitionId][id_partido]["eventId"]
+                    apuestas = obtener_apuestas(eventId)
+                    if apuestas:
                     # verificamos si contiene data 
-                    if "data" in apuestas:
-                        data = apuestas["data"]
-                        if data:
-                            # verificamos si contiene "widgets"
-                            if "widgets" in data:
-                                widgets = data["widgets"]
-                                if widgets:
-                                    # verificamos si widgets es de tipo lista 
-                                    if isinstance(widgets, list):
-                                        MarketList = None
-                                        # recorremos la lista de widgets
-                                        for widget in widgets:
-                                            # buscamos el widget de tipo MarketList
-                                            if "type" in widget and widget["type"] == "MarketList":
-                                                MarketList = widget
-                                                break
-                                        # verificamos si MarketList es distinto de None
-                                        if MarketList:
-                                            # verificamos si contiene "data"
-                                            if "data" in MarketList:
-                                                market_data = MarketList["data"]
-                                                if market_data:
-                                                    #verificar que data contenga skeleton
-                                                    if "skeleton" in market_data:
-                                                        skeleton = market_data["skeleton"]
-                                                        if skeleton:
-                                                            #verificar que skeleton contenga "marketIdByMarketTemplates"
-                                                            if "marketIdByMarketTemplates" in skeleton:
-                                                                marketIdByMarketTemplates = skeleton["marketIdByMarketTemplates"]
-                                                                if marketIdByMarketTemplates:
-                                                                    #verificar que marketIdByMarketTemplates sea de tipo lista
-                                                                    if isinstance(marketIdByMarketTemplates, list):
-                                                                        marketTemplateId_for_every_marketId = {}
-                                                                        #recorrer la lista de marketIdByMarketTemplates
-                                                                        for marketIdByMarketTemplate in marketIdByMarketTemplates:
-                                                                            #verificar que marketIdByMarketTemplate contenga "marketTemplateId"
-                                                                            marketTemplateId = marketIdByMarketTemplate["marketTemplateId"] if "marketTemplateId" in marketIdByMarketTemplate else None
-                                                                            #verificar que market contenga "marketIds"
-                                                                            marketIds = marketIdByMarketTemplate["marketIds"] if "marketIds" in marketIdByMarketTemplate else None
-                                                                            #verificar que marketIds sea de tipo lista
-                                                                            if marketIds and isinstance(marketIds, list) and marketTemplateId:
-                                                                                # añadimos el marketTemplateId y market Ids a la lista de apuestas en betsson_prematch
-                                                                                betsson_prematch[categoryId][competitionId]["apuestas"] = betsson_prematch[categoryId][competitionId]["apuestas"] if "apuestas" in betsson_prematch[categoryId][competitionId] else {}
-                                                                                betsson_prematch[categoryId][competitionId]["apuestas"][marketTemplateId] = {
-                                                                                    "marketTemplateId": marketTemplateId, 
-                                                                                    "marketIds": {}
-                                                                                    #"marketIds": [ {f"{marketId}":{"marketId":marketId}} for marketId in marketIds ]
-                                                                                }
-                                                                                for marketId in marketIds:
-                                                                                    betsson_prematch[categoryId][competitionId]["apuestas"][marketTemplateId]["marketIds"][marketId] = {
-                                                                                        "marketId": marketId
+                        if "data" in apuestas:
+                            data = apuestas["data"]
+                            if data:
+                                # verificamos si contiene "widgets"
+                                if "widgets" in data:
+                                    widgets = data["widgets"]
+                                    if widgets:
+                                        # verificamos si widgets es de tipo lista 
+                                        if isinstance(widgets, list):
+                                            MarketList = None
+                                            # recorremos la lista de widgets
+                                            for widget in widgets:
+                                                # buscamos el widget de tipo MarketList
+                                                if "type" in widget and widget["type"] == "MarketList":
+                                                    MarketList = widget
+                                                    break
+                                            # verificamos si MarketList es distinto de None
+                                            if MarketList:
+                                                # verificamos si contiene "data"
+                                                if "data" in MarketList:
+                                                    market_data = MarketList["data"]
+                                                    if market_data:
+                                                        #verificar que data contenga skeleton
+                                                        if "skeleton" in market_data:
+                                                            skeleton = market_data["skeleton"]
+                                                            if skeleton:
+                                                                #verificar que skeleton contenga "marketIdByMarketTemplates"
+                                                                if "marketIdByMarketTemplates" in skeleton:
+                                                                    marketIdByMarketTemplates = skeleton["marketIdByMarketTemplates"]
+                                                                    if marketIdByMarketTemplates:
+                                                                        #verificar que marketIdByMarketTemplates sea de tipo lista
+                                                                        if isinstance(marketIdByMarketTemplates, list):
+                                                                            marketTemplateId_for_every_marketId = {}
+                                                                            #recorrer la lista de marketIdByMarketTemplates
+                                                                            for marketIdByMarketTemplate in marketIdByMarketTemplates:
+                                                                                #verificar que marketIdByMarketTemplate contenga "marketTemplateId"
+                                                                                marketTemplateId = marketIdByMarketTemplate["marketTemplateId"] if "marketTemplateId" in marketIdByMarketTemplate else None
+                                                                                #verificar que market contenga "marketIds"
+                                                                                marketIds = marketIdByMarketTemplate["marketIds"] if "marketIds" in marketIdByMarketTemplate else None
+                                                                                #verificar que marketIds sea de tipo lista
+                                                                                if marketIds and isinstance(marketIds, list) and marketTemplateId:
+                                                                                    # añadimos el marketTemplateId y market Ids a la lista de apuestas en betsson_prematch
+                                                                                    betsson_prematch[categoryId][competitionId][id_partido]["apuestas"] = betsson_prematch[categoryId][competitionId][id_partido]["apuestas"] if "apuestas" in betsson_prematch[categoryId][competitionId][id_partido] else {}
+                                                                                    betsson_prematch[categoryId][competitionId][id_partido]["apuestas"][marketTemplateId] = {
+                                                                                        "marketTemplateId": marketTemplateId, 
+                                                                                        "marketIds": {}
+                                                                                        #"marketIds": [ {f"{marketId}":{"marketId":marketId}} for marketId in marketIds ]
                                                                                     }
-                                                                                    # para cada marketId se le asigna su respectivo maketTemplateId
-                                                                                    marketTemplateId_for_every_marketId[marketId] = marketTemplateId
-                                                                        #verificamos si market_data contiene "data"
-                                                                        if "data" in market_data:
-                                                                            market_data_data = market_data["data"]
-                                                                            if market_data_data:
-                                                                                #verificamos si market_data_data contiene "markets"
-                                                                                if "markets" in market_data_data:
-                                                                                    markets = market_data_data["markets"]
-                                                                                    if markets:
-                                                                                        #verificamos si markets es de tipo lista
-                                                                                        if isinstance(markets, list):
-                                                                                            #recorrer la lista de markets
-                                                                                            for market in markets:
-                                                                                                #verificar si market contiene "id"
-                                                                                                marketId = market["id"] if "id" in market else None
-                                                                                                #verificar si market contiene "marketTemplateId"
-                                                                                                market_marketTemplateId = market["marketTemplateId"] if "marketTemplateId" in market else None
-                                                                                                #verificar si market contiene "columnLayout"
-                                                                                                columnLayout = market["columnLayout"] if "columnLayout" in market else None
-                                                                                                #verificamos si market contiene "accordionGroup" y dentro de este "groupKey" y "tabKey"
-                                                                                                accordionGroup = market["accordionGroup"] if "accordionGroup" in market and "groupKey" in market["accordionGroup"] else None
-                                                                                                #verificamos si market contiene "sortOrder"
-                                                                                                sortOrder = market["sortOrder"] if "sortOrder" in market else None
-                                                                                                #verificamos si market contiene "marketFriendlyName"
-                                                                                                marketFriendlyName = market["marketFriendlyName"] if "marketFriendlyName" in market else None
-                                                                                                #verificamos si market contiene "label"
-                                                                                                label = market["label"] if "label" in market else None
-                                                                                                #verificamos si market contiene "status" , el valor mas importante es "Open"
-                                                                                                status = market["status"] if "status" in market else None
-                                                                                                #verificamos si market contiene "lineValue"
-                                                                                                lineValue = market["lineValue"] if "lineValue" in market else None
-                                                                                                #verificamos si market contiene "lineValueRaw"
-                                                                                                lineValueRaw = market["lineValueRaw"] if "lineValueRaw" in market else None
-                                                                                                #verificamos si market_marketTemplateId esta en la lista de apuestas en betsson_prematch
-                                                                                                if market_marketTemplateId in betsson_prematch[categoryId][competitionId]["apuestas"]:
-                                                                                                    #añadimos la informacion de columnLayout a market_marketTemplateId
-                                                                                                    betsson_prematch[categoryId][competitionId]["apuestas"][market_marketTemplateId]["columnLayout"] = columnLayout
-                                                                                                    #verificamos si marketId esta en la lista de apuestas en betsson_prematch
-                                                                                                    if marketId in betsson_prematch[categoryId][competitionId]["apuestas"][market_marketTemplateId]["marketIds"]:
-                                                                                                        if columnLayout:
-                                                                                                            betsson_prematch[categoryId][competitionId]["apuestas"][market_marketTemplateId]["marketIds"][marketId]["columnLayout"] = columnLayout
-                                                                                                        if accordionGroup:
-                                                                                                            betsson_prematch[categoryId][competitionId]["apuestas"][market_marketTemplateId]["marketIds"][marketId]["groupKey"] = accordionGroup["groupKey"]
-                                                                                                            betsson_prematch[categoryId][competitionId]["apuestas"][market_marketTemplateId]["marketIds"][marketId]["tabKey"] = accordionGroup["tabKey"]
-                                                                                                        if sortOrder:
-                                                                                                            betsson_prematch[categoryId][competitionId]["apuestas"][market_marketTemplateId]["marketIds"][marketId]["sortOrder"] = sortOrder
-                                                                                                        if marketFriendlyName:
-                                                                                                            betsson_prematch[categoryId][competitionId]["apuestas"][market_marketTemplateId]["marketIds"][marketId]["marketFriendlyName"] = marketFriendlyName
-                                                                                                        if label:
-                                                                                                            betsson_prematch[categoryId][competitionId]["apuestas"][market_marketTemplateId]["marketIds"][marketId]["label"] = label
-                                                                                                        if status:
-                                                                                                            betsson_prematch[categoryId][competitionId]["apuestas"][market_marketTemplateId]["marketIds"][marketId]["status"] = status
-                                                                                                        if lineValue:
-                                                                                                            betsson_prematch[categoryId][competitionId]["apuestas"][market_marketTemplateId]["marketIds"][marketId]["lineValue"] = lineValue
-                                                                                                        if lineValueRaw:
-                                                                                                            betsson_prematch[categoryId][competitionId]["apuestas"][market_marketTemplateId]["marketIds"][marketId]["lineValueRaw"] = lineValueRaw
-                                                                                            #verificamos si market_data_data contiene "selections"
-                                                                                            if "selections" in market_data_data:
-                                                                                                #verificamos si selections es de tipo lista
-                                                                                                if isinstance(market_data_data["selections"], list):
-                                                                                                    #recorremos la lista de selections
-                                                                                                    for selection in market_data_data["selections"]:
-                                                                                                        #verificamos si market contiene "marketId"
-                                                                                                        marketId = selection["marketId"] if "marketId" in selection else None
-                                                                                                        selection_marketTemplateId = marketTemplateId_for_every_marketId[marketId] if marketId in marketTemplateId_for_every_marketId else None
-                                                                                                        if selection_marketTemplateId:
-                                                                                                            #verificamos si marketId esta en la lista de apuestas en betsson_prematch
-                                                                                                            if marketId in betsson_prematch[categoryId][competitionId]["apuestas"][selection_marketTemplateId]["marketIds"]:
-                                                                                                                #verificamos si selection contiene "odds"
-                                                                                                                odds = selection["odds"] if "odds" in selection else None
-                                                                                                                #verificamos si selection contiene "alternateLabel"
-                                                                                                                alternateLabel = selection["alternateLabel"] if "alternateLabel" in selection else None
-                                                                                                                #verificamos si selection contiene "status"
-                                                                                                                status = selection["status"] if "status" in selection else None
-                                                                                                                #verificamos si selection contiene "sortOrder"
-                                                                                                                sortOrder = selection["sortOrder"] if "sortOrder" in selection else None
-                                                                                                                #verificamos si selection contiene "participantId"
-                                                                                                                participantId = selection["participantId"] if "participantId" in selection else None
-                                                                                                                #verificamos si selection contiene "participantLabel"
-                                                                                                                participantLabel = selection["participantLabel"] if "participantLabel" in selection else None
-                                                                                                                #verificamos si selection contiene "selectionTemplateId"
-                                                                                                                selectionTemplateId = selection["selectionTemplateId"] if "selectionTemplateId" in selection else None
-                                                                                                                #verificamos si selection contiene "participant"
-                                                                                                                participant = selection["participant"] if "participant" in selection else None
-                                                                                                                #verificamos si selection contiene "id"
-                                                                                                                selectionId = selection["id"] if "id" in selection else None
-                                                                                                                #verificamos si selection contiene "label"
-                                                                                                                label = selection["label"] if "label" in selection else None
-                                                                                                                # verificamos si apuestas no esta en la lista de apuestas
-                                                                                                                if "apuestas" not in betsson_prematch[categoryId][competitionId]["apuestas"][selection_marketTemplateId]["marketIds"][marketId]:
-                                                                                                                    betsson_prematch[categoryId][competitionId]["apuestas"][selection_marketTemplateId]["marketIds"][marketId]["apuestas"] = []
+                                                                                    for marketId in marketIds:
+                                                                                        betsson_prematch[categoryId][competitionId][id_partido]["apuestas"][marketTemplateId]["marketIds"][marketId] = {
+                                                                                            "marketId": marketId
+                                                                                        }
+                                                                                        # para cada marketId se le asigna su respectivo maketTemplateId
+                                                                                        marketTemplateId_for_every_marketId[marketId] = marketTemplateId
+                                                                            #verificamos si market_data contiene "data"
+                                                                            if "data" in market_data:
+                                                                                market_data_data = market_data["data"]
+                                                                                if market_data_data:
+                                                                                    #verificamos si market_data_data contiene "markets"
+                                                                                    if "markets" in market_data_data:
+                                                                                        markets = market_data_data["markets"]
+                                                                                        if markets:
+                                                                                            #verificamos si markets es de tipo lista
+                                                                                            if isinstance(markets, list):
+                                                                                                #recorrer la lista de markets
+                                                                                                for market in markets:
+                                                                                                    #verificar si market contiene "id"
+                                                                                                    marketId = market["id"] if "id" in market else None
+                                                                                                    #verificar si market contiene "marketTemplateId"
+                                                                                                    market_marketTemplateId = market["marketTemplateId"] if "marketTemplateId" in market else None
+                                                                                                    #verificar si market contiene "columnLayout"
+                                                                                                    columnLayout = market["columnLayout"] if "columnLayout" in market else None
+                                                                                                    #verificamos si market contiene "accordionGroup" y dentro de este "groupKey" y "tabKey"
+                                                                                                    accordionGroup = market["accordionGroup"] if "accordionGroup" in market and "groupKey" in market["accordionGroup"] else None
+                                                                                                    #verificamos si market contiene "sortOrder"
+                                                                                                    sortOrder = market["sortOrder"] if "sortOrder" in market else None
+                                                                                                    #verificamos si market contiene "marketFriendlyName"
+                                                                                                    marketFriendlyName = market["marketFriendlyName"] if "marketFriendlyName" in market else None
+                                                                                                    #verificamos si market contiene "label"
+                                                                                                    label = market["label"] if "label" in market else None
+                                                                                                    #verificamos si market contiene "status" , el valor mas importante es "Open"
+                                                                                                    status = market["status"] if "status" in market else None
+                                                                                                    #verificamos si market contiene "lineValue"
+                                                                                                    lineValue = market["lineValue"] if "lineValue" in market else None
+                                                                                                    #verificamos si market contiene "lineValueRaw"
+                                                                                                    lineValueRaw = market["lineValueRaw"] if "lineValueRaw" in market else None
+                                                                                                    #verificamos si market_marketTemplateId esta en la lista de apuestas en betsson_prematch
+                                                                                                    if market_marketTemplateId in betsson_prematch[categoryId][competitionId][id_partido]["apuestas"]:
+                                                                                                        fecha_actual = datetime.datetime.now()
+                                                                                                        #convertir fecha_actual a string
+                                                                                                        fecha_actual_str = fecha_actual.strftime(FORMATO_FECHA_ACTUAL)
+                                                                                                        betsson_prematch[categoryId][competitionId][id_partido]["apuestas"][market_marketTemplateId]["fecha_de_actualizacion"] = fecha_actual_str
+                                                                                                        #añadimos la informacion de columnLayout a market_marketTemplateId
+                                                                                                        betsson_prematch[categoryId][competitionId][id_partido]["apuestas"][market_marketTemplateId]["columnLayout"] = columnLayout
+                                                                                                        #verificamos si marketId esta en la lista de apuestas en betsson_prematch
+                                                                                                        if marketId in betsson_prematch[categoryId][competitionId][id_partido]["apuestas"][market_marketTemplateId]["marketIds"]:
+                                                                                                            if columnLayout:
+                                                                                                                betsson_prematch[categoryId][competitionId][id_partido]["apuestas"][market_marketTemplateId]["marketIds"][marketId]["columnLayout"] = columnLayout
+                                                                                                            if accordionGroup:
+                                                                                                                betsson_prematch[categoryId][competitionId][id_partido]["apuestas"][market_marketTemplateId]["marketIds"][marketId]["groupKey"] = accordionGroup["groupKey"]
+                                                                                                                betsson_prematch[categoryId][competitionId][id_partido]["apuestas"][market_marketTemplateId]["marketIds"][marketId]["tabKey"] = accordionGroup["tabKey"]
+                                                                                                            if sortOrder:
+                                                                                                                betsson_prematch[categoryId][competitionId][id_partido]["apuestas"][market_marketTemplateId]["marketIds"][marketId]["sortOrder"] = sortOrder
+                                                                                                            if marketFriendlyName:
+                                                                                                                betsson_prematch[categoryId][competitionId][id_partido]["apuestas"][market_marketTemplateId]["marketIds"][marketId]["marketFriendlyName"] = marketFriendlyName
+                                                                                                            if label:
+                                                                                                                betsson_prematch[categoryId][competitionId][id_partido]["apuestas"][market_marketTemplateId]["marketIds"][marketId]["label"] = label
+                                                                                                            if status:
+                                                                                                                betsson_prematch[categoryId][competitionId][id_partido]["apuestas"][market_marketTemplateId]["marketIds"][marketId]["status"] = status
+                                                                                                            if lineValue:
+                                                                                                                betsson_prematch[categoryId][competitionId][id_partido]["apuestas"][market_marketTemplateId]["marketIds"][marketId]["lineValue"] = lineValue
+                                                                                                            if lineValueRaw:
+                                                                                                                betsson_prematch[categoryId][competitionId][id_partido]["apuestas"][market_marketTemplateId]["marketIds"][marketId]["lineValueRaw"] = lineValueRaw
+                                                                                                #verificamos si market_data_data contiene "selections"
+                                                                                                if "selections" in market_data_data:
+                                                                                                    #verificamos si selections es de tipo lista
+                                                                                                    if isinstance(market_data_data["selections"], list):
+                                                                                                        #recorremos la lista de selections
+                                                                                                        for selection in market_data_data["selections"]:
+                                                                                                            #verificamos si market contiene "marketId"
+                                                                                                            marketId = selection["marketId"] if "marketId" in selection else None
+                                                                                                            selection_marketTemplateId = marketTemplateId_for_every_marketId[marketId] if marketId in marketTemplateId_for_every_marketId else None
+                                                                                                            if selection_marketTemplateId:
+                                                                                                                #verificamos si marketId esta en la lista de apuestas en betsson_prematch
+                                                                                                                if marketId in betsson_prematch[categoryId][competitionId][id_partido]["apuestas"][selection_marketTemplateId]["marketIds"]:
+                                                                                                                    #verificamos si selection contiene "odds"
+                                                                                                                    odds = selection["odds"] if "odds" in selection else None
+                                                                                                                    #verificamos si selection contiene "alternateLabel"
+                                                                                                                    alternateLabel = selection["alternateLabel"] if "alternateLabel" in selection else None
+                                                                                                                    #verificamos si selection contiene "status"
+                                                                                                                    status = selection["status"] if "status" in selection else None
+                                                                                                                    #verificamos si selection contiene "sortOrder"
+                                                                                                                    sortOrder = selection["sortOrder"] if "sortOrder" in selection else None
+                                                                                                                    #verificamos si selection contiene "participantId"
+                                                                                                                    participantId = selection["participantId"] if "participantId" in selection else None
+                                                                                                                    #verificamos si selection contiene "participantLabel"
+                                                                                                                    participantLabel = selection["participantLabel"] if "participantLabel" in selection else None
+                                                                                                                    #verificamos si selection contiene "selectionTemplateId"
+                                                                                                                    selectionTemplateId = selection["selectionTemplateId"] if "selectionTemplateId" in selection else None
+                                                                                                                    #verificamos si selection contiene "participant"
+                                                                                                                    participant = selection["participant"] if "participant" in selection else None
+                                                                                                                    #verificamos si selection contiene "id"
+                                                                                                                    selectionId = selection["id"] if "id" in selection else None
+                                                                                                                    #verificamos si selection contiene "label"
+                                                                                                                    label = selection["label"] if "label" in selection else None
+                                                                                                                    # verificamos si apuestas no esta en la lista de apuestas
+                                                                                                                    if "apuestas" not in betsson_prematch[categoryId][competitionId][id_partido]["apuestas"][selection_marketTemplateId]["marketIds"][marketId]:
+                                                                                                                        betsson_prematch[categoryId][competitionId][id_partido]["apuestas"][selection_marketTemplateId]["marketIds"][marketId]["apuestas"] = []
 
-                                                                                                                # añadimos la informacion de apuestas a la lista de apuestas en betsson_prematch
-                                                                                                                betsson_prematch[categoryId][competitionId]["apuestas"][selection_marketTemplateId]["marketIds"][marketId]["apuestas"].append({
-                                                                                                                    "odds": odds,
-                                                                                                                    "alternateLabel": alternateLabel,
-                                                                                                                    "status": status,
-                                                                                                                    "sortOrder": sortOrder,
-                                                                                                                    "participantId": participantId,
-                                                                                                                    "participantLabel": participantLabel,
-                                                                                                                    "selectionTemplateId": selectionTemplateId,
-                                                                                                                    "participant": participant,
-                                                                                                                    "id": selectionId,
-                                                                                                                    "label": label
-                                                                                                                })
-
+                                                                                                                    # añadimos la informacion de apuestas a la lista de apuestas en betsson_prematch
+                                                                                                                    betsson_prematch[categoryId][competitionId][id_partido]["apuestas"][selection_marketTemplateId]["marketIds"][marketId]["apuestas"].append({
+                                                                                                                        "odds": odds,
+                                                                                                                        "alternateLabel": alternateLabel,
+                                                                                                                        "status": status,
+                                                                                                                        "sortOrder": sortOrder,
+                                                                                                                        "participantId": participantId,
+                                                                                                                        "participantLabel": participantLabel,
+                                                                                                                        "selectionTemplateId": selectionTemplateId,
+                                                                                                                        "participant": participant,
+                                                                                                                        "id": selectionId,
+                                                                                                                        "label": label
+                                                                                                                    })
+                
     # guardamos el archivo json betsson_prematch en betsson_partidos_Prematch_file_path
     with open(betsson_partidos_Prematch_file_path, "w") as file:
         json.dump(betsson_prematch, file)
 
     print("Solicitud de partidos finalizada...")
+    # crear una variable de tiempo final para comparar con el tiempo de ejecucion de la funcion obtener_partidos_con_apuestas
+    time_final = datetime.datetime.now()
+
+    # calcular el tiempo de ejecucion en segundos
+    time_execution = ( time_final - time_now ).total_seconds()
+    # tiempo de ejecucion en segundos 
+    print("Tiempo de ejecucion: ", time_execution, "segundos")
+
     return betsson_prematch
 
 
