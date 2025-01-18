@@ -8,6 +8,7 @@ betsson_config_file_path = "exploracion_manual\config_betsson.json"
 
 betsson_partidos_Prematch_file_path = "exploracion_manual\partidos_Prematch.json"
 
+EVENT_PHASE_PREMATCH = "Prematch"
 # Variables de entorno
 USUARIO = os.getenv("USUARIO")
 PASSWORD = os.getenv("PASSWORD")

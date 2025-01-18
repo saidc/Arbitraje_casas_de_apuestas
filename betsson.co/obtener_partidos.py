@@ -1,5 +1,5 @@
 from betsson_co.scraping import obtener_apuestas, obtener_partidos
-from config import betsson_config_file_path, betsson_partidos_Prematch_file_path
+from config import betsson_config_file_path, betsson_partidos_Prematch_file_path, EVENT_PHASE_PREMATCH
 import datetime
 import random
 import json
@@ -12,10 +12,10 @@ time_now = datetime.datetime.now()
 
 # leer archivo config_betsson.json 
 with open(betsson_config_file_path, "r") as file:
-    config = json.load(file)
+    betsson_config = json.load(file)
 
-Deportes = config["DEPORTES"]
-eventPhase = "Prematch"
+Deportes = betsson_config["DEPORTES"]
+eventPhase = EVENT_PHASE_PREMATCH
 
 # verificar si el archivo json betsson_partidos_Prematch_file_path existe, si no existe se crea
 if not os.path.exists(betsson_partidos_Prematch_file_path):
