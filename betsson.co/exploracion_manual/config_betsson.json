@@ -1065,7 +1065,6 @@
                         "partidos":{
                             "enlace": "https://www.betsson.co/api/sb/v1/widgets/events-table/v2?categoryIds=138&competitionIds=21479&eventPhase=All&eventSortBy=StartDate&maxMarketCount=2&pageNumber=1&regionIds=1"
                         }
-                        
                     }
                 ],
                 "Czech Liga Pro": [
