@@ -8,43 +8,47 @@
                 "Alemania": [
                     
                     {
+                        "competitionId": 16,
                         "nombre": "Alemania 2. Bundesliga",
                         "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/alemania/alemania-2-bundesliga",
                         "partidos":{
-                            "enlace": ""
+                            "enlace": "https://www.betsson.co/api/sb/v1/widgets/events-table/v2?categoryIds=1&competitionIds=16&eventPhase=Prematch&eventSortBy=StartDate"
                         }
                     },
                     {
+                        "competitionId": 15,
                         "nombre": "Alemania Bundesliga",
                         "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/alemania/alemania-bundesliga",
                         "partidos":{
-                            "enlace": ""
+                            "enlace": "https://www.betsson.co/api/sb/v1/widgets/events-table/v2?categoryIds=1&competitionIds=15&eventPhase=Prematch&eventSortBy=StartDate"
                         }
                     },
                     {
+                        "competitionId": 122,
                         "nombre": "Alemania DFB-Pokal",
                         "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/alemania/alemania-dfb-pokal",
                         "partidos":{
-                            "enlace": ""
+                            "enlace": "https://www.betsson.co/api/sb/v1/widgets/events-table/v2?categoryIds=1&competitionIds=122&eventPhase=Prematch&eventSortBy=StartDate"
                         }
                     }
                 ],
                 "Amistosos": [
                     {
+                        "competitionId": 6049,
                         "nombre": "Amistosos de Clubes",
                         "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/amistosos/amistosos-de-clubes",
                         "partidos":{
-                            "enlace": ""
+                            "enlace": "https://www.betsson.co/api/sb/v1/widgets/events-table/v2?categoryIds=1&competitionIds=6049&eventPhase=Prematch&eventSortBy=StartDate"
                         }
                     }
                 ],
                 "Arabia Saudita": [
-                    
                     {
+                        "competitionId": 5010,
                         "nombre": "Saudi Arabia - ProLeague",
                         "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/arabia-saudita/saudi-arabia-proleague",
                         "partidos":{
-                            "enlace": ""
+                            "enlace": "https://www.betsson.co/api/sb/v1/widgets/events-table/v2?categoryIds=1&competitionIds=5010&eventPhase=Prematch&eventSortBy=StartDate"
                         }
                     },
                     {
@@ -190,7 +194,7 @@
                         "nombre": "Champions League",
                         "enlace": "https://www.betsson.co/apuestas-deportivas/futbol/champions-league/champions-league",
                         "partidos":{
-                            "enlace": "https://www.betsson.co/api/sb/v1/widgets/events-table/v2?categoryIds=1&competitionIds=6134&eventPhase=Prematch&eventSortBy=StartDate&maxMarketCount=3&pageNumber=1&startsBefore=2025-01-22T04:59:59Z&startsOnOrAfter=2025-01-21T05:00:00Z"
+                            "enlace": "https://www.betsson.co/api/sb/v1/widgets/events-table/v2?categoryIds=1&competitionIds=6134&eventPhase=Prematch&eventSortBy=StartDate"
                         }
                     }
                 ],
