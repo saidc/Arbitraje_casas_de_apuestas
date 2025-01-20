@@ -41,3 +41,9 @@ BETSSON_HEADERS = {
     'marketcode': 'co',
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36'
 }
+
+BETSSON_HEADERS_LIGAS = {
+  'Brandid': '2d543995-acff-41c1-bc73-9ec46bd70602',
+  'Marketcode': 'co',
+  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36'
+}
