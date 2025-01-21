@@ -2,3 +2,4 @@ betsson.co/.env
 betsson.co/config/__pycache__/
 betsson.co/betsson_co/__pycache__/
 betsson.co/exploracion_manual/__pycache__/
+venv/
