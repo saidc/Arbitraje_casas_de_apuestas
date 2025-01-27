@@ -1,0 +1,137 @@
+{
+    "betsson": {
+        "1": {
+            "categoryId": "1",
+            "categoryName": "futbol"
+        },
+        "2": {
+            "categoryId": "2",
+            "categoryName": "hockey-sobre-hielo"
+        },
+        "3": {
+            "categoryId": "3",
+            "categoryName": "balonmano"
+        },
+        "4": {
+            "categoryId": "4",
+            "categoryName": "baloncesto"
+        },
+        "5": {
+            "categoryId": "5",
+            "categoryName": "bandy"
+        },
+        "6": {
+            "categoryId": "6",
+            "categoryName": "floorball"
+        },
+        "7": {
+            "categoryId": "7",
+            "categoryName": "liga-de-rugby"
+        },
+        "8": {
+            "categoryId": "8",
+            "categoryName": "rugby-union"
+        },
+        "9": {
+            "categoryId": "9",
+            "categoryName": "voley"
+        },
+        "10": {
+            "categoryId": "10",
+            "categoryName": "futbol-americano"
+        },
+        "11": {
+            "categoryId": "11",
+            "categoryName": "tenis"
+        },
+        "15": {
+            "categoryId": "15",
+            "categoryName": "golf"
+        },
+        "16": {
+            "categoryId": "16",
+            "categoryName": "formula-1"
+        },
+        "18": {
+            "categoryId": "18",
+            "categoryName": "speedway"
+        },
+        "19": {
+            "categoryId": "19",
+            "categoryName": "beisbol"
+        },
+        "26": {
+            "categoryId": "26",
+            "categoryName": "cricket"
+        },
+        "28": {
+            "categoryId": "28",
+            "categoryName": "ciclismo"
+        },
+        "30": {
+            "categoryId": "30",
+            "categoryName": "boxeo"
+        },
+        "31": {
+            "categoryId": "31",
+            "categoryName": "economia-y-politica"
+        },
+        "32": {
+            "categoryId": "32",
+            "categoryName": "musica"
+        },
+        "34": {
+            "categoryId": "34",
+            "categoryName": "dardos"
+        },
+        "39": {
+            "categoryId": "39",
+            "categoryName": "waterpolo"
+        },
+        "43": {
+            "categoryId": "43",
+            "categoryName": "reglas-australianas"
+        },
+        "46": {
+            "categoryId": "46",
+            "categoryName": "pelicula"
+        },
+        "53": {
+            "categoryId": "53",
+            "categoryName": "artes-marciales-mixtas"
+        },
+        "58": {
+            "categoryId": "58",
+            "categoryName": "futsal"
+        },
+        "67": {
+            "categoryId": "67",
+            "categoryName": "lacrosse"
+        },
+        "72": {
+            "categoryId": "72",
+            "categoryName": "badminton"
+        },
+        "76": {
+            "categoryId": "76",
+            "categoryName": "deportes-de-motor"
+        },
+        "105": {
+            "categoryId": "105",
+            "categoryName": "bolos"
+        },
+        "116": {
+            "categoryId": "116",
+            "categoryName": "deportes-gaelicos"
+        },
+        "119": {
+            "categoryId": "119",
+            "categoryName": "esports"
+        },
+        "138": {
+            "categoryId": "138",
+            "categoryName": "tenis-de-mesa"
+        }
+    }
+
+}
