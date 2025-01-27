@@ -1,0 +1,24 @@
+{
+    "Betsson": {
+        "name": "Betsson",
+        "url":  "https://www.betsson.co/",
+        "deportes_url": "https://www.betsson.co/apuestas-deportivas/",
+        "seleccion_de_deportes":[
+            {
+                "categoryId": "1",
+                "categoryName": "futbol"
+            },
+            {
+                "categoryId": "11",
+                "categoryName": "tenis"
+            },
+            {
+                "categoryId": "138",
+                "categoryName": "tenis-de-mesa"
+            }
+        ],
+        "seleccion_de_apuestas":[]
+        
+    }
+    
+}
