@@ -1,5 +1,7 @@
 .env
+Betsson/__pycache__
 betsson.co/config/__pycache__/
-betsson.co/betsson_co/__pycache__/
+Betsson/__pycache__/__init__.cpython-312.pyc
 betsson.co/exploracion_manual/__pycache__/
+betsson.co/betsson_co/__pycache__/
 venv/

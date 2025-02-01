@@ -34,7 +34,6 @@ def get_next_proxy():
     # Si hay un proxy, se obtiene el formato correcto para proxies de lo contrario devolver None 
     return format_proxy(proxy)
 
-
 def is_traffic_error(response_text):
     """Verifica si la respuesta contiene un mensaje de error de tráfico."""
     soup = BeautifulSoup(response_text, "html.parser")
