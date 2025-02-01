@@ -27,6 +27,12 @@ BETSSON_HEADERS = {
 }
 payload = {}
 
+def corrimiento_izquierda(lista):
+    if len(lista) > 1:
+        return lista[1:] + [lista[0]]
+    return lista  # Si la lista tiene 0 o 1 elementos, no hay cambio
+
+
 def format_proxy(proxy):
     """Convierte una cadena IP:PORT:USER:PASSWORD en un diccionario de proxies"""
     ip, port, user, password = proxy.split(":")
@@ -53,4 +59,8 @@ def test_proxies():
     print(f"\nProxies funcionales: {working_proxies}")
 
 
-test_proxies()
+#test_proxies()
+proxy_cycle = PROXIES.copy()
+print(proxy_cycle)
+proxy_cycle = corrimiento_izquierda(proxy_cycle)
+print(proxy_cycle)
