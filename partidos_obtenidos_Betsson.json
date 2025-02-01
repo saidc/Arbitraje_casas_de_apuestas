@@ -1,0 +1,254 @@
+{
+    "f-sjLKVqsKY0WOt2VA4Po9_Q": {
+        "eventId": "f-sjLKVqsKY0WOt2VA4Po9_Q",
+        "categoryId": "1",
+        "categoryName": "F\u00fatbol",
+        "regionId": "14",
+        "regionName": "Alemania",
+        "competitionId": "16",
+        "slug": "futbol/alemania/alemania-2-bundesliga/spvgg-elversberg-karlsruher-sc",
+        "phase": "Prematch",
+        "startDate": "2025-01-31T17:30:00Z",
+        "categoryTrackingLabel": "football",
+        "competitionTrackingLabel": "germany-2.-bundesliga",
+        "regionTrackingLabel": "germany",
+        "neutralPath": "football/germany/germany-2-bundesliga/spvgg-elversberg-karlsruher-sc",
+        "label": "SpVgg Elversberg - Karlsruher SC",
+        "participants": [
+            {
+                "label": "SpVgg Elversberg",
+                "id": "224",
+                "sortOrder": 1
+            },
+            {
+                "label": "Karlsruher SC",
+                "id": "798",
+                "sortOrder": 2
+            }
+        ]
+    },
+    "f-ds9M9uzjRkqHO2tniui10Q": {
+        "eventId": "f-ds9M9uzjRkqHO2tniui10Q",
+        "categoryId": "1",
+        "categoryName": "F\u00fatbol",
+        "regionId": "14",
+        "regionName": "Alemania",
+        "competitionId": "16",
+        "slug": "futbol/alemania/alemania-2-bundesliga/1-fc-nurnberg-darmstadt-98",
+        "phase": "Prematch",
+        "startDate": "2025-01-31T17:30:00Z",
+        "categoryTrackingLabel": "football",
+        "competitionTrackingLabel": "germany-2.-bundesliga",
+        "regionTrackingLabel": "germany",
+        "neutralPath": "football/germany/germany-2-bundesliga/1-fc-nurnberg-darmstadt-98",
+        "label": "1. FC N\u00fcrnberg  - Darmstadt 98",
+        "participants": [
+            {
+                "label": "1. FC N\u00fcrnberg ",
+                "id": "776",
+                "sortOrder": 1
+            },
+            {
+                "label": "Darmstadt 98",
+                "id": "215",
+                "sortOrder": 2
+            }
+        ]
+    },
+    "f-HmwjR-ctnEyB_uBcq_O3GQ": {
+        "eventId": "f-HmwjR-ctnEyB_uBcq_O3GQ",
+        "categoryId": "1",
+        "categoryName": "F\u00fatbol",
+        "regionId": "14",
+        "regionName": "Alemania",
+        "competitionId": "16",
+        "slug": "futbol/alemania/alemania-2-bundesliga/eintracht-braunschweig-1-fc-koln",
+        "phase": "Prematch",
+        "startDate": "2025-02-01T12:00:00Z",
+        "categoryTrackingLabel": "football",
+        "competitionTrackingLabel": "germany-2.-bundesliga",
+        "regionTrackingLabel": "germany",
+        "neutralPath": "football/germany/germany-2-bundesliga/eintracht-braunschweig-1-fc-koln",
+        "label": "Eintracht Braunschweig  - 1. FC K\u00f6ln",
+        "participants": [
+            {
+                "label": "Eintracht Braunschweig ",
+                "id": "800",
+                "sortOrder": 1
+            },
+            {
+                "label": "1. FC K\u00f6ln",
+                "id": "775",
+                "sortOrder": 2
+            }
+        ]
+    },
+    "f-PBdiYe9GhUWGyYV4WOliDg": {
+        "eventId": "f-PBdiYe9GhUWGyYV4WOliDg",
+        "categoryId": "1",
+        "categoryName": "F\u00fatbol",
+        "regionId": "14",
+        "regionName": "Alemania",
+        "competitionId": "16",
+        "slug": "futbol/alemania/alemania-2-bundesliga/fortuna-dusseldorf-ssv-ulm-1846",
+        "phase": "Prematch",
+        "startDate": "2025-02-01T12:00:00Z",
+        "categoryTrackingLabel": "football",
+        "competitionTrackingLabel": "germany-2.-bundesliga",
+        "regionTrackingLabel": "germany",
+        "neutralPath": "football/germany/germany-2-bundesliga/fortuna-dusseldorf-ssv-ulm-1846",
+        "label": "Fortuna D\u00fcsseldorf - SSV Ulm 1846",
+        "participants": [
+            {
+                "label": "Fortuna D\u00fcsseldorf",
+                "id": "1427",
+                "sortOrder": 1
+            },
+            {
+                "label": "SSV Ulm 1846",
+                "id": "83319",
+                "sortOrder": 2
+            }
+        ]
+    },
+    "f-Cs_c8fUxbU6Z1gmnUZuz2Q": {
+        "eventId": "f-Cs_c8fUxbU6Z1gmnUZuz2Q",
+        "categoryId": "1",
+        "categoryName": "F\u00fatbol",
+        "regionId": "14",
+        "regionName": "Alemania",
+        "competitionId": "16",
+        "slug": "futbol/alemania/alemania-2-bundesliga/jahn-regensburg-hertha-bsc",
+        "phase": "Prematch",
+        "startDate": "2025-02-01T12:00:00Z",
+        "categoryTrackingLabel": "football",
+        "competitionTrackingLabel": "germany-2.-bundesliga",
+        "regionTrackingLabel": "germany",
+        "neutralPath": "football/germany/germany-2-bundesliga/jahn-regensburg-hertha-bsc",
+        "label": "Jahn Regensburg - Hertha BSC",
+        "participants": [
+            {
+                "label": "Jahn Regensburg",
+                "id": "222",
+                "sortOrder": 1
+            },
+            {
+                "label": "Hertha BSC",
+                "id": "778",
+                "sortOrder": 2
+            }
+        ]
+    },
+    "f-hr5ZAIuFaECa0_bqjYjVTg": {
+        "eventId": "f-hr5ZAIuFaECa0_bqjYjVTg",
+        "categoryId": "1",
+        "categoryName": "F\u00fatbol",
+        "regionId": "14",
+        "regionName": "Alemania",
+        "competitionId": "16",
+        "slug": "futbol/alemania/alemania-2-bundesliga/schalke-04-fc-magdeburg",
+        "phase": "Prematch",
+        "startDate": "2025-02-01T19:30:00Z",
+        "categoryTrackingLabel": "football",
+        "competitionTrackingLabel": "germany-2.-bundesliga",
+        "regionTrackingLabel": "germany",
+        "neutralPath": "football/germany/germany-2-bundesliga/schalke-04-fc-magdeburg",
+        "label": "Schalke 04 - FC Magdeburg",
+        "participants": [
+            {
+                "label": "Schalke 04",
+                "id": "780",
+                "sortOrder": 1
+            },
+            {
+                "label": "FC Magdeburg",
+                "id": "4022",
+                "sortOrder": 2
+            }
+        ]
+    },
+    "f-Rv_H4F8zwUiSM3QIjC9V2w": {
+        "eventId": "f-Rv_H4F8zwUiSM3QIjC9V2w",
+        "categoryId": "1",
+        "categoryName": "F\u00fatbol",
+        "regionId": "14",
+        "regionName": "Alemania",
+        "competitionId": "16",
+        "slug": "futbol/alemania/alemania-2-bundesliga/hamburger-sv-hannover-96",
+        "phase": "Prematch",
+        "startDate": "2025-02-02T12:30:00Z",
+        "categoryTrackingLabel": "football",
+        "competitionTrackingLabel": "germany-2.-bundesliga",
+        "regionTrackingLabel": "germany",
+        "neutralPath": "football/germany/germany-2-bundesliga/hamburger-sv-hannover-96",
+        "label": "Hamburger SV - Hannover 96",
+        "participants": [
+            {
+                "label": "Hamburger SV",
+                "id": "777",
+                "sortOrder": 1
+            },
+            {
+                "label": "Hannover 96",
+                "id": "785",
+                "sortOrder": 2
+            }
+        ]
+    },
+    "f-vIIroq3_t02OlqJa27UZOQ": {
+        "eventId": "f-vIIroq3_t02OlqJa27UZOQ",
+        "categoryId": "1",
+        "categoryName": "F\u00fatbol",
+        "regionId": "14",
+        "regionName": "Alemania",
+        "competitionId": "16",
+        "slug": "futbol/alemania/alemania-2-bundesliga/1-fc-kaiserslautern-preussen-munster",
+        "phase": "Prematch",
+        "startDate": "2025-02-02T12:30:00Z",
+        "categoryTrackingLabel": "football",
+        "competitionTrackingLabel": "germany-2.-bundesliga",
+        "regionTrackingLabel": "germany",
+        "neutralPath": "football/germany/germany-2-bundesliga/1-fc-kaiserslautern-preussen-munster",
+        "label": "1. FC Kaiserslautern - Preussen Munster",
+        "participants": [
+            {
+                "label": "1. FC Kaiserslautern",
+                "id": "779",
+                "sortOrder": 1
+            },
+            {
+                "label": "Preussen Munster",
+                "id": "1387",
+                "sortOrder": 2
+            }
+        ]
+    },
+    "f-fF2Dt5QTG0SdhLZ1tntFVg": {
+        "eventId": "f-fF2Dt5QTG0SdhLZ1tntFVg",
+        "categoryId": "1",
+        "categoryName": "F\u00fatbol",
+        "regionId": "14",
+        "regionName": "Alemania",
+        "competitionId": "16",
+        "slug": "futbol/alemania/alemania-2-bundesliga/sc-paderborn-07-greuther-furth",
+        "phase": "Prematch",
+        "startDate": "2025-02-02T12:30:00Z",
+        "categoryTrackingLabel": "football",
+        "competitionTrackingLabel": "germany-2.-bundesliga",
+        "regionTrackingLabel": "germany",
+        "neutralPath": "football/germany/germany-2-bundesliga/sc-paderborn-07-greuther-furth",
+        "label": "SC Paderborn 07 - Greuther F\u00fcrth",
+        "participants": [
+            {
+                "label": "SC Paderborn 07",
+                "id": "803",
+                "sortOrder": 1
+            },
+            {
+                "label": "Greuther F\u00fcrth",
+                "id": "795",
+                "sortOrder": 2
+            }
+        ]
+    }
+}

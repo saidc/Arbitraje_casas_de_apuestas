@@ -1,88 +1,133 @@
-import json 
-from config import casas_de_apuestas_path, catalogo_de_deportes_path
+from config import PROXIES
+from bs4 import BeautifulSoup
+import requests
+import json
+import time
+import itertools
+# Lista de proxies disponibles
+#PROXIES = [
+#    "91.235.158.209:7578:user253212:zs9cdf",
+#    "91.235.158.131:7578:user253212:zs9cdf",
+#    "91.235.158.177:7578:user253212:zs9cdf",
+#    "91.235.158.176:7578:user253212:zs9cdf",
+#    "91.235.158.237:7578:user253212:zs9cdf",
+#    "91.235.158.149:7578:user253212:zs9cdf",
+#    "91.235.158.210:7578:user253212:zs9cdf",
+#    "91.235.158.129:7578:user253212:zs9cdf",
+#    "91.235.158.3:7578:user253212:zs9cdf",
+#    "91.235.158.90:7578:user253212:zs9cdf",
+#]
+print("PROXIES: ", PROXIES)
 
-with open(casas_de_apuestas_path, "r") as file:
-    casas_de_apuestas = json.load(file)
+# Crear un iterador circular para rotar proxies
+proxy_cycle = itertools.cycle(PROXIES)
 
-with open(catalogo_de_deportes_path, "r") as file:
-    catalogo_de_deportes = json.load(file)
+def format_proxy(proxy):
+    """Convierte una cadena IP:PORT:USER:PASSWORD en un diccionario de proxies"""
+    ip, port, user, password = proxy.split(":")
+    proxy_url = f"http://{user}:{password}@{ip}:{port}"
+    return {"http": proxy_url, "https": proxy_url}
 
-# 0.1) Recorre listado de casas de apuestas
-#      obtener los keys de las casas de apuestas
-for casa_de_apuesta_key in casas_de_apuestas.keys():
-    # obtener el valor de la casa de apuesta
-    casa_de_apuesta_actual = casas_de_apuestas[casa_de_apuesta_key]
-    name = casa_de_apuesta_actual["name"]
-    # verificar si catalogo_de_deportes tiene el key name
-    if name not in catalogo_de_deportes:
-        # si no esta en el catalogo de deportes se añade el key name con un diccionario vacio
-        catalogo_de_deportes[name] = {"name": name,"Catalogo_de_deportes": {}}
+def get_next_proxy():
+    """Devuelve el siguiente proxy de la lista."""
+    proxy = next(proxy_cycle)
+    return format_proxy(proxy)
 
-    # obtener catalogo de deportes de la casa de apuesta actual usando name 
-    catalogo_deporte_actual = catalogo_de_deportes[name]
+def test_proxies():
+    """Prueba cada proxy en la lista y muestra cuál funciona."""
+    working_proxies = []
+    for proxy in PROXIES:
+        proxy_dict = format_proxy(proxy)
+        try:
+            print(f"Probando proxy: {proxy}")
+            response = requests.get("http://httpbin.org/ip", proxies=proxy_dict, timeout=5)
+            if response.status_code == 200:
+                print(f"✅ Proxy funcional: {proxy}")
+                working_proxies.append(proxy)
+            else:
+                print(f"❌ Proxy rechazado: {proxy}")
+        except Exception as e:
+            print(f"❌ Proxy fallido: {proxy} -> {e}")
 
-    # obtener seleccion_de_deportes de la casa de apuesta actual y verificar si es de tipo lista de lo contrario lista vacia  
-    seleccion_de_deportes = casa_de_apuesta_actual["seleccion_de_deportes"] if isinstance(casa_de_apuesta_actual["seleccion_de_deportes"], list) else []
-    # crea una lista vacia de ids de deportes seleccionados para almacenar los ids de deportes seleccionados
-    lista_de_ids_de_deportes_seleccionados = [v["categoryId"] for v in seleccion_de_deportes] if len(seleccion_de_deportes)>0 else []
+    print(f"\nProxies funcionales: {working_proxies}")
 
-    # crear una copia de catalogo_de_deportes
-    catalogo_de_deportes_cp = catalogo_de_deportes.copy()
-    # recorrer el catalogo de deportes actualizado
-    deportes_seleccionados = {k:v for k, v in catalogo_de_deportes_cp[name]["Catalogo_de_deportes"].items() if len(lista_de_ids_de_deportes_seleccionados)==0 or (k in lista_de_ids_de_deportes_seleccionados and "regionIds" in v)}
-    #print(deportes_seleccionados)
+def is_traffic_error(response_text):
+    """Verifica si la respuesta contiene un mensaje de error de tráfico."""
+    soup = BeautifulSoup(response_text, "html.parser")
 
-    ds = []
+    error_tags = soup.find_all("h2")
+    for tag in error_tags:
+        if "request could not be satisfied" in tag.text.lower():
+            return True
 
-    for k,v in deportes_seleccionados.items():
-        for k2,v2 in v["regionIds"].items():
-            for k3,v3 in v2["competitionIds"].items():
-                ds.append({
-                    "categoryId":v["categoryId"],
-                    "regionId":v2["regionId"],
-                    "competitionId":v3["competitionId"],
-                    })
-    
-    print(ds)
-    #deportes_seleccionados = [list(v["regionIds"].values()) for k,v in deportes_seleccionados.items() if "regionIds" in v ]
-    #deportes_seleccionados = [list(item["competitionIds"].values()) for sublist in deportes_seleccionados for item in sublist]
-    #deportes_seleccionados = [list(item["eventIds"].values()) for sublist in deportes_seleccionados for item in sublist]
+    if "too much traffic" in soup.text.lower():
+        return True
 
-a = { 
-        "a": {
-            "regionIds":{
-                "1":{"competitionIds": {
-                    "1":"a11",
-                    "2":"a12"
-                    }
-                },
-                "2":{"competitionIds": {
-                    "1":"a21",
-                    "2":"a22"
-                    }
-                }
-            }
-        } ,
-        "b": {
-            "regionIds":{
-                "1":{"competitionIds": {
-                    "1":"b11",
-                    "2":"b12"}
-                },
-                "2":{"competitionIds": {
-                    "1":"b21",
-                    "2":"b22"}
-                },
-            }
-        } ,
-    }
+    return False
+
+def make_get_request(url, headers, payload, max_retries=10, wait_time=10, min_interval=0.1):
+    """
+    Realiza una solicitud GET con proxies y reintentos en caso de errores por tráfico.
+    :param url: URL de la solicitud
+    :param headers: Headers de la solicitud
+    :param payload: Datos de la solicitud
+    :param max_retries: Número máximo de intentos en caso de error
+    :param wait_time: Tiempo de espera entre intentos en segundos (incremental)
+    :param min_interval: Tiempo mínimo de espera entre solicitudes para evitar bloqueos
+    :return: Respuesta en formato JSON si tiene éxito, None si falla permanentemente
+    """
+    retries = 0
+    proxy = get_next_proxy()
+
+    while retries <= max_retries:
+        time.sleep(min_interval)  # Espera mínima entre solicitudes
+        try:
+            response = requests.get(url, headers=headers, data=payload, proxies=proxy, timeout=10)
+            
+            if response.status_code == 200:
+                return response.json()
+
+            if is_traffic_error(response.text):
+                print(f"Error {response.status_code} por tráfico. Cambiando de proxy y reintentando...")
+                proxy = get_next_proxy()
+                time.sleep(wait_time)
+                wait_time *= 2  # Incremento exponencial del tiempo de espera
+                retries += 1
+                continue
+            else:
+                print(f"Error {response.status_code} desconocido: {response.text}")
+                return None
+        except requests.exceptions.RequestException as e:
+            print(f"Error de conexión con proxy {proxy}: {e}\n")
+            proxy = get_next_proxy()
+            retries += 1
+            continue
+
+    print("Número máximo de intentos alcanzado. No se pudo obtener una respuesta válida.")
+    return None
+
+# 1. Prueba qué proxies funcionan
+test_proxies()
+
+# Ejemplo de uso
+url = "https://www.betsson.co/api/sb/v1/widgets/events-table/v2?categoryIds=138&competitionIds=25676&eventPhase=Prematch&eventSortBy=StartDate" # https://www.betsson.co/api/sb/v1/widgets/events-table/v2?categoryIds=138&competitionIds=25676&eventPhase=Prematch&eventSortBy=StartDate
+headers = {"User-Agent": "Mozilla/5.0"}
+
+BETSSON_HEADERS = {
+    'accept': 'application/json, text/plain, */*',
+    'brandid': '2d543995-acff-41c1-bc73-9ec46bd70602',
+    'cloudfront-viewer-country': 'CO',
+    'marketcode': 'co',
+    'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36'
+}
+
+payload = {}
+
+response = make_get_request(url, BETSSON_HEADERS, payload)
+if response:
+    print("Respuesta exitosa:", response)
+else:
+    print("No se pudo obtener una respuesta válida.")
 
 """
-b = [list(v["regionIds"].values()) for k, v in a.items() if "regionIds" in v]
-print(b)
-b = [ list(item["competitionIds"].values()) for sublist in b for item in sublist]
-print(b)
-# unir todas las lista de listas
-b = [item for sublist in b for item in sublist]
-print(b)
 """
