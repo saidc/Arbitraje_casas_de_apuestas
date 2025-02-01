@@ -16,6 +16,7 @@ def make_get_request(url, headers, payload):
     else:
         return None
 
+
 def obtener_apuestas(b_p, categoryId,competitionId, id_partido, eventId):
     betsson_prematch = b_p.copy()
     link = f"https://www.betsson.co/api/sb/v1/widgets/view/v1?configurationKey=sportsbook.event.v2&eventId={eventId}&excludedWidgetKeys=sportsbook.events-table-mini"
@@ -30,13 +31,12 @@ def obtener_apuestas(b_p, categoryId,competitionId, id_partido, eventId):
             if data:
                 # verificamos si contiene "widgets"
                 if "widgets" in data:
-                    widgets = data["widgets"]
-                    if widgets:
+                    if data["widgets"] and isinstance(data["widgets"], list):
                         # verificamos si widgets es de tipo lista 
-                        if isinstance(widgets, list):
+                        if isinstance(data["widgets"], list):
                             MarketList = None
                             # recorremos la lista de widgets
-                            for widget in widgets:
+                            for widget in data["widgets"]:
                                 # buscamos el widget de tipo MarketList
                                 if "type" in widget and widget["type"] == "MarketList":
                                     MarketList = widget
@@ -45,21 +45,20 @@ def obtener_apuestas(b_p, categoryId,competitionId, id_partido, eventId):
                             if MarketList:
                                 # verificamos si contiene "data"
                                 if "data" in MarketList:
-                                    market_data = MarketList["data"]
-                                    if market_data:
+                                    # verificamos si data es distinto de None
+                                    if MarketList["data"]:
                                         #verificar que data contenga skeleton
-                                        if "skeleton" in market_data:
-                                            skeleton = market_data["skeleton"]
-                                            if skeleton:
+                                        if "skeleton" in MarketList["data"]:
+                                            skeleton = MarketList["data"]["skeleton"]
+                                            if MarketList["data"]["skeleton"]:
                                                 #verificar que skeleton contenga "marketIdByMarketTemplates"
-                                                if "marketIdByMarketTemplates" in skeleton:
-                                                    marketIdByMarketTemplates = skeleton["marketIdByMarketTemplates"]
-                                                    if marketIdByMarketTemplates:
+                                                if "marketIdByMarketTemplates" in MarketList["data"]["skeleton"]:
+                                                    if MarketList["data"]["skeleton"]["marketIdByMarketTemplates"]:
                                                         #verificar que marketIdByMarketTemplates sea de tipo lista
-                                                        if isinstance(marketIdByMarketTemplates, list):
+                                                        if isinstance(MarketList["data"]["skeleton"]["marketIdByMarketTemplates"], list):
                                                             marketTemplateId_for_every_marketId = {}
                                                             #recorrer la lista de marketIdByMarketTemplates
-                                                            for marketIdByMarketTemplate in marketIdByMarketTemplates:
+                                                            for marketIdByMarketTemplate in MarketList["data"]["skeleton"]["marketIdByMarketTemplates"]:
                                                                 #verificar que marketIdByMarketTemplate contenga "marketTemplateId"
                                                                 marketTemplateId = marketIdByMarketTemplate["marketTemplateId"] if "marketTemplateId" in marketIdByMarketTemplate else None
                                                                 #verificar que market contenga "marketIds"
@@ -79,13 +78,13 @@ def obtener_apuestas(b_p, categoryId,competitionId, id_partido, eventId):
                                                                         }
                                                                         # para cada marketId se le asigna su respectivo maketTemplateId
                                                                         marketTemplateId_for_every_marketId[marketId] = marketTemplateId
-                                                            #verificamos si market_data contiene "data"
-                                                            if "data" in market_data:
-                                                                market_data_data = market_data["data"]
-                                                                if market_data_data:
-                                                                    #verificamos si market_data_data contiene "markets"
-                                                                    if "markets" in market_data_data:
-                                                                        markets = market_data_data["markets"]
+                                                            #verificamos si MarketList["data"] contiene "data"
+                                                            if "data" in MarketList["data"]:
+                                                                #verificamos si MarketList["data"]["data"] contiene "markets"
+                                                                if MarketList["data"]["data"]:
+                                                                    #verificamos si MarketList["data"]["data"] contiene "markets"
+                                                                    if "markets" in MarketList["data"]["data"]:
+                                                                        markets = MarketList["data"]["data"]["markets"]
                                                                         if markets:
                                                                             #verificamos si markets es de tipo lista
                                                                             if isinstance(markets, list):
@@ -138,12 +137,12 @@ def obtener_apuestas(b_p, categoryId,competitionId, id_partido, eventId):
                                                                                                 betsson_prematch[categoryId][competitionId][id_partido]["apuestas"][market_marketTemplateId]["marketIds"][marketId]["lineValue"] = lineValue
                                                                                             if lineValueRaw:
                                                                                                 betsson_prematch[categoryId][competitionId][id_partido]["apuestas"][market_marketTemplateId]["marketIds"][marketId]["lineValueRaw"] = lineValueRaw
-                                                                                #verificamos si market_data_data contiene "selections"
-                                                                                if "selections" in market_data_data:
+                                                                                #verificamos si MarketList["data"]["data"] contiene "selections"
+                                                                                if "selections" in MarketList["data"]["data"]:
                                                                                     #verificamos si selections es de tipo lista
-                                                                                    if isinstance(market_data_data["selections"], list):
+                                                                                    if isinstance(MarketList["data"]["data"]["selections"], list):
                                                                                         #recorremos la lista de selections
-                                                                                        for selection in market_data_data["selections"]:
+                                                                                        for selection in MarketList["data"]["data"]["selections"]:
                                                                                             #verificamos si market contiene "marketId"
                                                                                             marketId = selection["marketId"] if "marketId" in selection else None
                                                                                             selection_marketTemplateId = marketTemplateId_for_every_marketId[marketId] if marketId in marketTemplateId_for_every_marketId else None
