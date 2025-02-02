@@ -3,6 +3,7 @@ from datetime import timedelta
 import datetime
 import json 
 import os
+import concurrent.futures
 
 TIEMPO_DE_ACTUALIZACION = 5 # minutos
 
@@ -45,7 +46,7 @@ for casa_de_apuesta_key in casas_de_apuestas.keys():
         # colocar un try catch para manejar errores en caso de que no exista el from {name} import {name}_scraping
         try:
             # dado la variable name obtener un import con el valor de la variable name.config ejemplo from Betsson.config import scraping
-            exec(f"from {name} import {name}_EVENT_PHASE_PREMATCH, {name}_scraping, actualizar_catalogo_deportes_de_{name}, obtener_partidos_{name}, obtener_apuestas_{name}")
+            exec(f"from {name} import {name}_EVENT_PHASE_PREMATCH, {name}_scraping, actualizar_catalogo_deportes_de_{name}, obtener_partidos_{name}, obtener_apuestas_{name}, request_obtener_partidos_{name}, procesar_respuesta_obtener_partidos_{name}")
             # ahora ejecuta la funcion importada con una de entrada, y guarda el resultado de la ejecucion de la funcion 
             exec(f"actualizacion_de_catalogo_deportes = {name}_scraping(scraping_deportes_url)")
         except Exception as e:
@@ -74,7 +75,9 @@ for casa_de_apuesta_key in casas_de_apuestas.keys():
             deportes_seleccionados = {k:v for k, v in catalogo_de_deportes[name]["Catalogo_de_deportes"].items() if len(lista_de_ids_de_deportes_seleccionados)==0 or (k in lista_de_ids_de_deportes_seleccionados and "regionIds" in v)}            
             
 # 4) Generar lista de solicitudes para obtener los partidos que estan dentro de los Deportes y apuestas seleccionados
+            # crear una lista vacia para guardar las solicitudes de los partidos de la casa de apuesta actual
             lista_de_solicitudes = []
+            # crear una lista vacia para guardar los partidos que se van a revisar si ya se han vencido o requieren actualizacion
             partidos_por_revisar = []
             # se recorre los deportes seleccionados
             for k,v in deportes_seleccionados.items():
@@ -100,142 +103,192 @@ for casa_de_apuesta_key in casas_de_apuestas.keys():
 
             
 # 5) Hacer solicitudes para obtener los partidos que estan dentro de los Deportes y apuestas seleccionados
-            contador = 0
+            
             # crear una lista vacia para guardar los partidos que se van a consultar las apuestas
             lista_de_partidos_por_consultar_apuestas = []
-            # recorrer la lista de solicitudes para obtener los partidos
-            for i, solicitud in enumerate(lista_de_solicitudes):
-                print(i)    
-                categoryId = solicitud["categoryId"]
-                regionId = solicitud["regionId"]
-                competitionId = solicitud["competitionId"]
-                # crea una variable lista_de_partidos que obtiene el resultado de la solicitud de los partidos de la casa de apuesta actual
-                lista_de_partidos = None
-                try:
-                    # ahora ejecuta la funcion importada con una de entrada, y guarda el resultado de la ejecucion de la funcion
-                    exec(f"lista_de_partidos = obtener_partidos_{name}(categoryId,competitionId,{name}_EVENT_PHASE_PREMATCH)")
-                except Exception as e:
-                    print(f"error en la actualizacion del catalogo de deportes de {name} con el error {e}")
+
+            # crearemos un listado que obtiene las respuestas de las solicitudes de los partidos de la casa de apuesta actual
+            lista_de_request_de_partidos = []
+            MAX_THREADS = 4
+            # Usar ThreadPoolExecutor para paralelizar las solicitudes
+            with concurrent.futures.ThreadPoolExecutor(MAX_THREADS) as executor:
+                futures = {}
+                # recorrer la lista de solicitudes para realizar las solicitudes de los partidos usando hilos para agilizar el proceso 
+                for i, solicitud in enumerate(lista_de_solicitudes):
+                    categoryId = solicitud["categoryId"]
+                    regionId = solicitud["regionId"]
+                    competitionId = solicitud["competitionId"]
+                    # inicializar future en None para verificar si se ejecuto correctamente la solicitud
+                    future = None
+                    try:
+                        # ahora ejecuta la funcion request_obtener_partidos_{name} usando hilos para agilizar el proceso
+                        exec(f"future = executor.submit(request_obtener_partidos_{name}, categoryId, regionId, competitionId, {name}_EVENT_PHASE_PREMATCH, i, len(lista_de_solicitudes))")                    
+                    except Exception as e:
+                        print(f"error al hacer la solicitud {i} de la competencia {competitionId} de la region {regionId} del deporte {categoryId} de la casa de apuesta {name} con el error {e}")
+                    # verificar si future es diferente de None, indicando que se ejecuto correctamente la solicitud y se puede guardar en un diccionario de solicitudes futuras
+                    if future:
+                        # guardar el future en un diccionario con el indice de la solicitud
+                        futures[future] = i
                 
+                # recorrer los futures para obtener los resultados de las solicitudes de los partidos de la casa de apuesta actual
+                for future in concurrent.futures.as_completed(futures):
+                    # obtener el resultado de la solicitud
+                    result = future.result()
+                    # verificar si result es diferente de None
+                    if result:
+                        # agregar el resultado a la lista de request de partidos, para luego procesar la respuesta
+                        lista_de_request_de_partidos.append(result)
+            
 # 6) Actualizar Catalogo de Deportes con los partidos que estan dentro de los Deportes y apuestas seleccionados
-                if lista_de_partidos:
-                    # verificar que eventIds exista en el catalogo de deportes
-                    catalogo_de_deportes[name]["Catalogo_de_deportes"][categoryId]["regionIds"][regionId]["competitionIds"][competitionId]["eventIds"] = catalogo_de_deportes[name]["Catalogo_de_deportes"][categoryId]["regionIds"][regionId]["competitionIds"][competitionId]["eventIds"] if "eventIds" in catalogo_de_deportes[name]["Catalogo_de_deportes"][categoryId]["regionIds"][regionId]["competitionIds"][competitionId] else {}
-                    # obtener los keys de los partidos obtenidos en eventIds del catalogo de deportes
-                    keys_eventIds = catalogo_de_deportes[name]["Catalogo_de_deportes"][categoryId]["regionIds"][regionId]["competitionIds"][competitionId]["eventIds"].keys()
-                    # obtener los keys del listado de partidos obtenidos
-                    keys_lista_de_partidos = lista_de_partidos.keys()
-                    # actualizar el listado de partidos obtenidos solo con los que no aparezcan en el catalogo de deportes
-                    lista_de_partidos = {k:v for k,v in lista_de_partidos.items() if k not in keys_eventIds}
-                    # actualiza el catalogo de deportes con los partidos obtenidos
-                    catalogo_de_deportes[name]["Catalogo_de_deportes"][categoryId]["regionIds"][regionId]["competitionIds"][competitionId]["eventIds"].update(lista_de_partidos)
+                contador = 0
+                # recoremos la lista de request de partidos para obtener las respuestas y realizar el procesado de la respuesta
+                for i, respuesta_json in enumerate(lista_de_request_de_partidos):
+                    print(i)
+                    categoryId = respuesta_json["categoryId"]
+                    regionId = respuesta_json["regionId"]
+                    competitionId = respuesta_json["competitionId"]
+                    eventPhase = respuesta_json["eventPhase"]
+                    response = respuesta_json["response"]
+                    
+                    # crea una variable lista_de_partidos que obtiene el resultado de la solicitud de los partidos de la casa de apuesta actual
+                    lista_de_partidos = None 
+                    try:
+                        # ahora ejecuta la funcion importada procesar_respuesta_obtener_partidos_{name}
+                        exec(f"lista_de_partidos = procesar_respuesta_obtener_partidos_{name}(response)")
+                    except Exception as e:
+                        print(f"error en la actualizacion del catalogo de deportes de {name} con el error {e}")
+
+                    if lista_de_partidos:
+                        # verificar que eventIds exista en el catalogo de deportes
+                        catalogo_de_deportes[name]["Catalogo_de_deportes"][categoryId]["regionIds"][regionId]["competitionIds"][competitionId]["eventIds"] = catalogo_de_deportes[name]["Catalogo_de_deportes"][categoryId]["regionIds"][regionId]["competitionIds"][competitionId]["eventIds"] if "eventIds" in catalogo_de_deportes[name]["Catalogo_de_deportes"][categoryId]["regionIds"][regionId]["competitionIds"][competitionId] else {}
+                        # obtener los keys de los partidos obtenidos en eventIds del catalogo de deportes
+                        keys_eventIds = catalogo_de_deportes[name]["Catalogo_de_deportes"][categoryId]["regionIds"][regionId]["competitionIds"][competitionId]["eventIds"].keys()
+                        # obtener los keys del listado de partidos obtenidos
+                        keys_lista_de_partidos = lista_de_partidos.keys()
+                        # actualizar el listado de partidos obtenidos solo con los que no aparezcan en el catalogo de deportes
+                        lista_de_partidos = {k:v for k,v in lista_de_partidos.items() if k not in keys_eventIds}
+                        # actualiza el catalogo de deportes con los partidos obtenidos
+                        catalogo_de_deportes[name]["Catalogo_de_deportes"][categoryId]["regionIds"][regionId]["competitionIds"][competitionId]["eventIds"].update(lista_de_partidos)
+                    
+                    else:
+                        # si no se obtiene la lista de partidos se aumenta el contador para saber cuantos partidos no se obtuvieron
+                        contador += 1
+                    # imprimir el numero de solicitud actual y el total de solicitudes para saber en que solicitud se encuentra
+                    print(f"Solicitud {i+1-contador}/{len(lista_de_request_de_partidos)-contador} ")
+                     
+# guarda el catalogo de deportes actualizado en el archivo catalogo_de_deportes.json
+with open(catalogo_de_deportes_path, "w") as file:
+    json.dump(catalogo_de_deportes, file, indent=4)
+print("se ha actualizado el catalogo de deportes")
+
+"""
 # 7) Recorrer Catalogo de Deportes 
 # 7.1) Generar lista de solicitudes para obtener apuestas de los partidos que estan dentro de los Deportes y apuestas seleccionados
-                    # guardar en una lista los partidos que se van a consultar las apuestas
-                    for key_partido in lista_de_partidos.keys():
-                        lista_de_partidos_por_consultar_apuestas.append({
-                            "categoryId":categoryId,
-                            "regionId":regionId,
-                            "competitionId":competitionId,
-                            "eventId":key_partido,
-                            "startDate":lista_de_partidos[key_partido]["startDate"] if "startDate" in lista_de_partidos[key_partido] else None
-                        })
+                        # guardar en una lista los partidos que se van a consultar las apuestas
+                        for key_partido in lista_de_partidos.keys():
+                            lista_de_partidos_por_consultar_apuestas.append({
+                                "categoryId":categoryId,
+                                "regionId":regionId,
+                                "competitionId":competitionId,
+                                "eventId":key_partido,
+                                "startDate":lista_de_partidos[key_partido]["startDate"] if "startDate" in lista_de_partidos[key_partido] else None
+                            })
 
-                    # recorrer el catalogo de deportes para verificar si hay partidos que no han sido actualizados en mas de 5 minutos
-                    for eventId in keys_eventIds:
-                        eventId_value = catalogo_de_deportes[name]["Catalogo_de_deportes"][categoryId]["regionIds"][regionId]["competitionIds"][competitionId]["eventIds"][eventId]
-                        startDate = eventId_value["startDate"] if "startDate" in eventId_value else None
-                        # verificar que no este vencido 
-                        if startDate:
-                            # convertir startDate a datetime con formato "2025-01-31T17:30:00Z"
-                            startDate = datetime.datetime.strptime(startDate, "%Y-%m-%dT%H:%M:%SZ")
-                            # verificar si startDate es mayor a la fecha actual porque si es menor ya se vencio y no se debe consultar apuestas, sino que se debe eliminar del catalogo de deportes y guardar en el archivo partidos_jugados.json
-                            if startDate > datetime.datetime.now():
-                                # mirar cuando fue la ultima actualizacion del eventId
-                                if "lastUpdate" in eventId_value:
-                                    # obtener el valor de lastUpdate
-                                    lastUpdate = eventId_value["lastUpdate"]
-                                    # convertir lastUpdate a datetime con formato "2025-01-31T17:30:00Z"
-                                    lastUpdate = datetime.datetime.strptime(lastUpdate, "%Y-%m-%dT%H:%M:%SZ")
-                                    # verificar si lastUpdate es mayor a 5 minutos de la fecha actual para añadir a la lista de partidos por consultar o actualizar apuestas
-                                    if lastUpdate < datetime.datetime.now() - timedelta(minutes=TIEMPO_DE_ACTUALIZACION):
-                                        # verificar si eventId no esta en la lista de partidos por consultar apuestas para evitar consultas duplicadas
-                                        existe_eventId = True in [True for partido in lista_de_partidos_por_consultar_apuestas if partido["eventId"]==eventId]
-                                        # si no esta en la lista de partidos por consultar apuestas se añade
-                                        if not existe_eventId:
+                        # recorrer el catalogo de deportes para verificar si hay partidos que no han sido actualizados en mas de 5 minutos
+                        for eventId in keys_eventIds:
+                            eventId_value = catalogo_de_deportes[name]["Catalogo_de_deportes"][categoryId]["regionIds"][regionId]["competitionIds"][competitionId]["eventIds"][eventId]
+                            startDate = eventId_value["startDate"] if "startDate" in eventId_value else None
+                            # verificar que no este vencido 
+                            if startDate:
+                                # convertir startDate a datetime con formato "2025-01-31T17:30:00Z"
+                                startDate = datetime.datetime.strptime(startDate, "%Y-%m-%dT%H:%M:%SZ")
+                                # verificar si startDate es mayor a la fecha actual porque si es menor ya se vencio y no se debe consultar apuestas, sino que se debe eliminar del catalogo de deportes y guardar en el archivo partidos_jugados.json
+                                if startDate > datetime.datetime.now():
+                                    # mirar cuando fue la ultima actualizacion del eventId
+                                    if "lastUpdate" in eventId_value:
+                                        # obtener el valor de lastUpdate
+                                        lastUpdate = eventId_value["lastUpdate"]
+                                        # convertir lastUpdate a datetime con formato "2025-01-31T17:30:00Z"
+                                        lastUpdate = datetime.datetime.strptime(lastUpdate, "%Y-%m-%dT%H:%M:%SZ")
+                                        # verificar si lastUpdate es mayor a 5 minutos de la fecha actual para añadir a la lista de partidos por consultar o actualizar apuestas
+                                        if lastUpdate < datetime.datetime.now() - timedelta(minutes=TIEMPO_DE_ACTUALIZACION):
+                                            # verificar si eventId no esta en la lista de partidos por consultar apuestas para evitar consultas duplicadas
+                                            existe_eventId = True in [True for partido in lista_de_partidos_por_consultar_apuestas if partido["eventId"]==eventId]
                                             # si no esta en la lista de partidos por consultar apuestas se añade
-                                            lista_de_partidos_por_consultar_apuestas.append({
-                                                "categoryId":categoryId,
-                                                "regionId":regionId,
-                                                "competitionId":competitionId,
-                                                "eventId":eventId,
-                                                "startDate":eventId_value["startDate"] if "startDate" in eventId_value else None
-                                            })
+                                            if not existe_eventId:
+                                                # si no esta en la lista de partidos por consultar apuestas se añade
+                                                lista_de_partidos_por_consultar_apuestas.append({
+                                                    "categoryId":categoryId,
+                                                    "regionId":regionId,
+                                                    "competitionId":competitionId,
+                                                    "eventId":eventId,
+                                                    "startDate":eventId_value["startDate"] if "startDate" in eventId_value else None
+                                                })
+                            
+                    else:
+                        # si no se obtiene la lista de partidos se aumenta el contador para saber cuantos partidos no se obtuvieron
+                        contador += 1
+                    # imprimir el numero de solicitud actual y el total de solicitudes para saber en que solicitud se encuentra
+                    print(f"Solicitud {i+1-contador}/{len(lista_de_solicitudes)-contador} ")
                         
-                else:
-                    # si no se obtiene la lista de partidos se aumenta el contador para saber cuantos partidos no se obtuvieron
-                    contador += 1
-                # imprimir el numero de solicitud actual y el total de solicitudes para saber en que solicitud se encuentra
-                print(f"Solicitud {i+1-contador}/{len(lista_de_solicitudes)-contador} ")
-                    
-            # verificar si el archivo partidos_jugados.json existe
-            if not os.path.exists(partidos_jugados_path):
-                # si no existe el archivo se crea con un diccionario vacio
-                with open(partidos_jugados_path, "w") as file:
-                    json.dump({}, file, indent=4)
-                    
-            # leer el archivo partidos_jugados.json
-            with open(partidos_jugados_path, "r") as file:
-                partidos_jugados_file = json.load(file)
+                # verificar si el archivo partidos_jugados.json existe
+                if not os.path.exists(partidos_jugados_path):
+                    # si no existe el archivo se crea con un diccionario vacio
+                    with open(partidos_jugados_path, "w") as file:
+                        json.dump({}, file, indent=4)
+                        
+                # leer el archivo partidos_jugados.json
+                with open(partidos_jugados_path, "r") as file:
+                    partidos_jugados_file = json.load(file)
             
 # 7.2) Buscar partidos que ya se han vencido y eliminarlos ( se eliminan y se guardan en un archivo json de partidos ya jugados )
-            for i, partido in enumerate(partidos_por_revisar):
-                categoryId = partido["categoryId"]
-                regionId = partido["regionId"]
-                competitionId = partido["competitionId"]
-                eventId = partido["eventId"]
-                startDate = partido["startDate"]
-                # convertir startDate a datetime con formato "2025-01-31T17:30:00Z"
-                startDate = datetime.datetime.strptime(startDate, "%Y-%m-%dT%H:%M:%SZ")
-                # verificar si startDate es menor a la fecha actual para eliminar el partido del catalogo de deportes y guardarlo en el archivo partidos_jugados.json
-                if startDate < datetime.datetime.now():
-                    # verificar si el key name existe en el archivo partidos_jugados.json
-                    if name not in partidos_jugados_file:
-                        # si no existe el key name se crea con un diccionario vacio
-                        partidos_jugados_file[name] = {}
-                    # verificar si el key categoryId existe en el key name del archivo partidos_jugados.json
-                    if categoryId not in partidos_jugados_file[name]:
-                        # si no existe el key categoryId se crea con un diccionario vacio
-                        partidos_jugados_file[name][categoryId] = {}
-                    # verificar si el key regionId existe en el key categoryId del archivo
-                    if regionId not in partidos_jugados_file[name][categoryId]:
-                        # si no existe el key regionId se crea con un diccionario vacio
-                        partidos_jugados_file[name][categoryId][regionId] = {}
-                    # verificar si el key competitionId existe en el key regionId del archivo
-                    if competitionId not in partidos_jugados_file[name][categoryId][regionId]:
-                        # si no existe el key competitionId se crea con un diccionario vacio
-                        partidos_jugados_file[name][categoryId][regionId][competitionId] = {}
-                    # verificar si el key eventId existe en el key competitionId del archivo
-                    if eventId not in partidos_jugados_file[name][categoryId][regionId][competitionId]:
-                        # si no existe el key eventId se crea con un diccionario vacio
-                        partidos_jugados_file[name][categoryId][regionId][competitionId][eventId] = {}
-                    
-                    # guardar el partido en el archivo partidos_jugados.json
-                    partidos_jugados_file[name][categoryId][regionId][competitionId][eventId] = catalogo_de_deportes[name]["Catalogo_de_deportes"][categoryId]["regionIds"][regionId]["competitionIds"][competitionId]["eventIds"][eventId]
+                for i, partido in enumerate(partidos_por_revisar):
+                    categoryId = partido["categoryId"]
+                    regionId = partido["regionId"]
+                    competitionId = partido["competitionId"]
+                    eventId = partido["eventId"]
+                    startDate = partido["startDate"]
+                    # convertir startDate a datetime con formato "2025-01-31T17:30:00Z"
+                    startDate = datetime.datetime.strptime(startDate, "%Y-%m-%dT%H:%M:%SZ")
+                    # verificar si startDate es menor a la fecha actual para eliminar el partido del catalogo de deportes y guardarlo en el archivo partidos_jugados.json
+                    if startDate < datetime.datetime.now():
+                        # verificar si el key name existe en el archivo partidos_jugados.json
+                        if name not in partidos_jugados_file:
+                            # si no existe el key name se crea con un diccionario vacio
+                            partidos_jugados_file[name] = {}
+                        # verificar si el key categoryId existe en el key name del archivo partidos_jugados.json
+                        if categoryId not in partidos_jugados_file[name]:
+                            # si no existe el key categoryId se crea con un diccionario vacio
+                            partidos_jugados_file[name][categoryId] = {}
+                        # verificar si el key regionId existe en el key categoryId del archivo
+                        if regionId not in partidos_jugados_file[name][categoryId]:
+                            # si no existe el key regionId se crea con un diccionario vacio
+                            partidos_jugados_file[name][categoryId][regionId] = {}
+                        # verificar si el key competitionId existe en el key regionId del archivo
+                        if competitionId not in partidos_jugados_file[name][categoryId][regionId]:
+                            # si no existe el key competitionId se crea con un diccionario vacio
+                            partidos_jugados_file[name][categoryId][regionId][competitionId] = {}
+                        # verificar si el key eventId existe en el key competitionId del archivo
+                        if eventId not in partidos_jugados_file[name][categoryId][regionId][competitionId]:
+                            # si no existe el key eventId se crea con un diccionario vacio
+                            partidos_jugados_file[name][categoryId][regionId][competitionId][eventId] = {}
+                        
+                        # guardar el partido en el archivo partidos_jugados.json
+                        partidos_jugados_file[name][categoryId][regionId][competitionId][eventId] = catalogo_de_deportes[name]["Catalogo_de_deportes"][categoryId]["regionIds"][regionId]["competitionIds"][competitionId]["eventIds"][eventId]
 
-                    # eliminar el partido del catalogo de deportes
-                    del catalogo_de_deportes[name]["Catalogo_de_deportes"][categoryId]["regionIds"][regionId]["competitionIds"][competitionId]["eventIds"][eventId]
-                    # imprimir el partido eliminado para saber que se ha eliminado correctamente
-                    print(f"Partido {i+1}/{len(partidos_por_revisar)} eliminado")
+                        # eliminar el partido del catalogo de deportes
+                        del catalogo_de_deportes[name]["Catalogo_de_deportes"][categoryId]["regionIds"][regionId]["competitionIds"][competitionId]["eventIds"][eventId]
+                        # imprimir el partido eliminado para saber que se ha eliminado correctamente
+                        print(f"Partido {i+1}/{len(partidos_por_revisar)} eliminado")
 
-            # guardar el archivo partidos_jugados.json
-            with open(partidos_jugados_path, "w") as file:
-                json.dump(partidos_jugados_file, file, indent=4)
+                # guardar el archivo partidos_jugados.json
+                with open(partidos_jugados_path, "w") as file:
+                    json.dump(partidos_jugados_file, file, indent=4)
 
 # 8) Hacer solicitudes para obtener las apuestas de los partidos que estan dentro de los Deportes y apuestas seleccionados
-            contador2 = 0
-            # recorrer la lista de partidos por consultar apuestas
-            for i, partido in enumerate(lista_de_partidos_por_consultar_apuestas):
+                contador2 = 0
+                # recorrer la lista de partidos por consultar apuestas
+                for i, partido in enumerate(lista_de_partidos_por_consultar_apuestas):
                 print(i)
                 categoryId = partido["categoryId"]
                 regionId = partido["regionId"]
@@ -264,11 +317,13 @@ for casa_de_apuesta_key in casas_de_apuestas.keys():
                 print(f"Solicitud {i+1-contador2}/{len(lista_de_partidos_por_consultar_apuestas)-contador2} ")
 
 """
+
 """
 # guarda el catalogo de deportes actualizado en el archivo catalogo_de_deportes.json
 with open(catalogo_de_deportes_path, "w") as file:
     json.dump(catalogo_de_deportes, file, indent=4)
 print("se ha actualizado el catalogo de deportes")
+"""
 
 
 # Despues de finalizado ciclo de recorrer el listado de casa de apuestas
