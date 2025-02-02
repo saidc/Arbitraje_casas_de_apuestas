@@ -7,12 +7,17 @@ import datetime
 import requests
 import time 
 import json
+import threading
+
+global proxy_cycle, proxies_usados, VALOR_MAXIMO_DE_USO, VALOR_MAXIMO_DE_TIMEOUT 
 
 Betsson_EVENT_PHASE_PREMATCH = "Prematch"
 FORMATO_FECHA_ACTUAL = "%Y-%m-%dT%H:%M:%SZ"
 
+VALOR_MAXIMO_DE_USO = 100
+VALOR_MAXIMO_DE_TIMEOUT = 300 # 5 MINUTOS
+
 # Crear un iterador circular para rotar proxies
-global proxy_cycle, proxies_usados
 proxy_cycle = PROXIES.copy()
 # variable para seguimiento del uso de proxys
 proxies_usados = {}
@@ -26,6 +31,9 @@ def format_proxy(proxy):
     """Convierte una cadena IP:PORT:USER:PASSWORD en un diccionario de proxies"""
     if proxy is None:
         return None
+    if proxy == "LOCAL":
+        return "LOCAL"
+
     # Separar la cadena en sus componentes IP, PORT, USER, PASSWORD usando ":" como separador
     ip, port, user, password = proxy.split(":")
     # Formatear la cadena en el formato correcto para proxies
@@ -36,45 +44,61 @@ def format_proxy(proxy):
 def get_next_proxy():
     """Devuelve el siguiente proxy de la lista."""
     global proxy_cycle, proxies_usados
-    #for 
-    while len(proxy_cycle) > 0:
-        # Obtener el primer proxy de la lista y eliminarlo de lo contrario devolver None
-        proxy = proxy_cycle.pop(0) if len(proxy_cycle) > 0 else None
-        if proxy not in proxies_usados:
-            # se entiende que el proxy no a sido usado antes entonces se procede a usar
-            return format_proxy(proxy) , proxy
-        else:
-            # se verifica si el proxy tiene la opcion available de disponibilidad
+
+    for proxy in proxy_cycle:
+        if proxy in proxies_usados:
             if "available" in proxies_usados[proxy]:
-                # se verifica si esta disponible
                 if proxies_usados[proxy]["available"]:
-                    # se entiende que el proxy sigue disponible 
                     return format_proxy(proxy) , proxy
+        else:
+            proxies_usados[proxy] = {"available": True, "lastupdate": time.time(), "uses_count": 0, "max_timeout": time.time() + VALOR_MAXIMO_DE_TIMEOUT, "1_timeout": time.time() + 1}
+            return format_proxy(proxy) , proxy
     return None,None
 
-def actualizar_proxies_usados(proxy_id):
-    global proxies_usados
-    VALOR_MAXIMO_DE_USO = 100
-    VALOR_MAXIMO_DE_TIMEOUT = 300 # 5 MINUTOS
-
+def actualizar_proxie_usado(proxy_id):
+    global proxies_usados, VALOR_MAXIMO_DE_USO, VALOR_MAXIMO_DE_TIMEOUT 
+    
     # verificar si el proxi usado actualmente esta en los proxyes usados
     if proxy_id not in proxies_usados:
-        proxies_usados[proxy_id] = {}
+        proxies_usados[proxy_id] = {"available": True, "lastupdate": time.time(), "uses_count": 0, "max_timeout": time.time() + VALOR_MAXIMO_DE_TIMEOUT, "1_timeout": time.time() + 1}
     
     # asignar la fecha de ultimo uso del proxy
-    proxies_usados[proxy_id]["lastuse"] = time.time()
-    # verifica si el contador de usos del proxy existe de lo contrario se crea en 1 
+    proxies_usados[proxy_id]["lastupdate"] = time.time()
+    # verifica si el contador de usos del proxy existe y se aumenta en 1, de lo contrario se crea y se le asigna el valor de 1 
     proxies_usados[proxy_id]["uses_count"] = 1 if "uses_count" not in proxies_usados[proxy_id] else proxies_usados[proxy_id]["uses_count"] + 1
     
-    # verifica si esta en proxies_usados[proxy_id] para saber si han pasado VALOR_MAXIMO_DE_TIMEOUT segundos 
+    # verifica si max_timeout no existe, se crea con un valor de VALOR_MAXIMO_DE_TIMEOUT a futuro del tiempo actual, de lo contrario se deja el valor actual 
     proxies_usados[proxy_id]["max_timeout"] = time.time() + VALOR_MAXIMO_DE_TIMEOUT if "max_timeout" not in proxies_usados[proxy_id] else proxies_usados[proxy_id]["max_timeout"]
-    proxies_usados[proxy_id]["1_timeout"]   = time.time() + 1   if "1_timeout"   not in proxies_usados[proxy_id] else proxies_usados[proxy_id]["1_timeout"]
+    # verificar si 1_timeout no existe para asignarle 1 segundo mas adelante, de lo contrario le deja el mismo valor
+    proxies_usados[proxy_id]["1_timeout"]   = time.time() + 1   if "1_timeout" not in proxies_usados[proxy_id] else proxies_usados[proxy_id]["1_timeout"]
     # verifica si el proxy esta diponible viendo si tiene mas de VALOR_MAXIMO_DE_USO usos en menos de 5 minutos
-    proxies_usados[proxy_id]["available"] = True if "available" not in proxies_usados[proxy_id] else not( proxies_usados[proxy_id]["uses_count"] > VALOR_MAXIMO_DE_USO and proxies_usados[proxy_id]["max_timeout"] - time.time() > 0 )
+    proxies_usados[proxy_id]["available"] = True if "available" not in proxies_usados[proxy_id] else not( proxies_usados[proxy_id]["uses_count"] >= VALOR_MAXIMO_DE_USO and proxies_usados[proxy_id]["max_timeout"] - time.time() > 0 )
+    # verifica si max_timeout ha terminado para 
     if proxies_usados[proxy_id]["max_timeout"] - time.time() <= 0:
+        # asigno a max_timeout el valor a futuro de VALOR_MAXIMO_DE_TIMEOUT
         proxies_usados[proxy_id]["max_timeout"] = time.time() + VALOR_MAXIMO_DE_TIMEOUT
+        # reinicio el numero de usos a 1
         proxies_usados[proxy_id]["uses_count"] = 1
+        # y colocamos el proxi como disponible actualmente 
         proxies_usados[proxy_id]["available"] = True
+
+def temporizador_de_avilitador_de_proxy(proxy_id):
+    global proxies_usados, VALOR_MAXIMO_DE_USO, VALOR_MAXIMO_DE_TIMEOUT 
+    print(f"el proxy {proxy_id} Esta bloqueado y entra en periodo de espera")
+    
+    # asignar la fecha de ultimo uso del proxy
+    proxies_usados[proxy_id]["lastupdate"] = time.time()
+    # indicamos el tiempo que debe de esperar el proxy para poder volver activarse
+    proxies_usados[proxy_id]["max_timeout"] = time.time() + VALOR_MAXIMO_DE_TIMEOUT if "max_timeout" not in proxies_usados[proxy_id] else proxies_usados[proxy_id]["max_timeout"]
+    # proxies_usados[proxy_id]["available"] 
+    # asignar la fecha de ultimo uso del proxy 
+    # proxies_usados[proxy_id]["lastupdate"] 
+    while proxies_usados[proxy_id]["max_timeout"] - time.time() > 0:
+        # hacer que se espere VALOR_MAXIMO_DE_TIMEOUT en el hilo actual
+        time.sleep( VALOR_MAXIMO_DE_TIMEOUT )
+    # se habilita el proxi de nuevo
+    proxies_usados[proxy_id]["available"] = True
+    print(f"el proxy {proxy_id} puede usarse nuevamente")
 
 def is_traffic_error(response_text):
     """Verifica si la respuesta contiene un mensaje de error de tráfico."""
@@ -106,23 +130,24 @@ def make_get_request(url, headers, payload, max_retries=10, wait_time=20, min_in
     # obtener el tiempo actual, como tiempo de inicio para medir el tiempo de ejecucion de la funcion
     start_time = time.time()
     global proxy_cycle, proxies_usados
-    # Obtener el siguiente proxy de la lista
-    proxy, proxy_id = get_next_proxy()
-    #print(f"Usando proxy {proxy} para la solicitud: \n{url}")
     # Inicializar el número de reintentos
     retries = 0
     while retries <= max_retries:
         # Esperar antes de hacer la solicitud para evitar solicitudes demasiado frecuentes
         time.sleep(min_interval) 
+
+        # Obtener el siguiente proxy disponible de la lista
+        proxy, proxy_id = get_next_proxy()
         try:
-            if proxy is None:
+            if proxy is None or proxy_id == "LOCAL":
                 # Realizar la solicitud GET cuando no hay proxies disponibles
                 response = requests.get(url, headers=headers, data=payload, timeout=10)
             else:
                 # Realizar la solicitud GET cuando hay proxies disponibles
                 response = requests.get(url, headers=headers, data=payload, proxies=proxy, timeout=10)
-                # actualizar los proxyes usados
-                actualizar_proxies_usados(proxy_id)
+
+            # actualiza el proxyes actual
+            actualizar_proxie_usado(proxy_id)
                 
             # Verificar si la solicitud fue exitosa
             if response.status_code == 200:
@@ -131,40 +156,33 @@ def make_get_request(url, headers, payload, max_retries=10, wait_time=20, min_in
                 # calcular el tiempo de ejecucion de una solicitud exitosa
                 tiempo_de_ejecucion = end_time - start_time
                 print(f"✅ {tiempo_de_ejecucion} Respuesta exitosa de la solicitud: {url} con proxy {proxy}\n")
-                # Reiniciar el ciclo de proxies
-                proxy_cycle = PROXIES.copy()
-                # hacer corrimiento de los datos a la izquierda
-                proxy_cycle = corrimiento_izquierda(proxy_cycle)     
-
+                
                 # Devolver la respuesta en formato JSON
                 return response.json()
-
-            if is_traffic_error(response.text):
-                proxies_usados[proxy_id]["available"] = False 
-                # Si hay un error de tráfico, cambiar de proxy y reintenta la solicitud
-                proxy, proxy_id = get_next_proxy()
-                # Si se agotan los proxies, esperar y reintentar
-                if proxy is None:
-                    # Esperar un tiempo exponencial antes de reintentar
-                    time.sleep(wait_time)
-                    # Incrementar el tiempo de espera exponencialmente
-                    wait_time *= 2 
-                    # Incrementar el número de reintentos
-                    retries += 1
-                    print(f"❌ Error {response.status_code} por tráfico. Se agotaron los proxies. Reintentando en {wait_time} segundos...")
-                else:
-                    print(f"❌ Error {response.status_code} por tráfico. Cambiando de proxy { proxy } y reintentando...")
+            # Si se agotan los proxies, esperar y reintentar
+            elif proxy is None and proxy_id is None:
+                print(f"❌ Error {response.status_code} Se agotaron los proxies. se esperaran {wait_time} segundos...")
+                # Esperar un tiempo exponencial antes de reintentar
+                time.sleep(wait_time)
+                # Incrementar el tiempo de espera exponencialmente
+                wait_time *= 2 
+                # Incrementar el número de reintentos
+                retries += 1
             else:
-                print(f"❌ Error {response.status_code} desconocido: {response.text}")
-                # Reiniciar el ciclo de proxies
-                proxy_cycle = PROXIES.copy()
-                return None
+                if is_traffic_error(response.text):
+                    # indicamos que el proxy actual esta bloqueado por lo que este proxy tiene que esperar VALOR_MAXIMO_DE_TIMEOUT 
+                    proxies_usados[proxy_id]["available"] = False 
+                    # crear un hilo que cuente el tiempo de espera para el proxy actual, si el hilo principal se cierra el hilo secundario tambien
+                    #threading.Thread(target=temporizador_de_avilitador_de_proxy, args=(proxy_id,)).start()
+                    threading.Thread(target=temporizador_de_avilitador_de_proxy, args=(proxy_id,), daemon=True).start()
+                    # Si hay un error de tráfico, cambiar de proxy y reintenta la solicitud
+                    print(f"❌ Error {response.status_code} por tráfico. Cambiando de proxy {proxy}...")
+                else:
+                    print(f"❌ Error {response.status_code} desconocido: {response.text}")
+                    return None
         except requests.exceptions.RequestException as e:
-            print(f"❌ Error de solicitud {e}")
-            proxy, proxy_id = get_next_proxy()
+            print(f"❌ Error de solicitud {e} se hara un nuevo intento...")
             retries += 1
-    # Reiniciar el ciclo de proxies
-    proxy_cycle = PROXIES.copy()
     # obtener el tiempo final para medir el tiempo de ejecucion de una solicitud exitosa
     end_time = time.time()
     # calcular el tiempo de ejecucion de una solicitud exitosa
@@ -448,7 +466,12 @@ def obtener_apuestas_Betsson(Betsson_catalog, categoryId, regionId, competitionI
                                                                                     })
                                                                         return catalogo_de_Betsson
     return None
-                                     
+
+def request_obtener_partidos_Betsson(categoryId,competitionId,eventPhase):
+    link = f"https://www.betsson.co/api/sb/v1/widgets/events-table/v2?categoryIds={categoryId}&competitionIds={competitionId}&eventPhase={eventPhase}&eventSortBy=StartDate"
+    response = make_get_request(link, BETSSON_HEADERS, {})
+    return response
+
 def obtener_partidos_Betsson(categoryId,competitionId,eventPhase):
     #rango_de_fechas = generar_rango_fechas()
     #link = "https://www.betsson.co/api/sb/v1/widgets/events-table/v2?categoryIds=138&competitionIds=26430&eventPhase=All&eventSortBy=StartDate&maxMarketCount=3&pageNumber=1&regionIds=1"
