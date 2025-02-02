@@ -5,7 +5,9 @@ import json
 import os
 import concurrent.futures
 
-TIEMPO_DE_ACTUALIZACION = 5 # minutos
+
+TIEMPO_DE_ACTUALIZACION = 30 # minutos
+FORMATO_DE_FECHA = "%Y-%m-%dT%H:%M:%SZ"
 
 # 0) obtener listado de casa de apuestas ( Betsson, Rivalo, wplay, Codere, etc ) y catalogo de deportes
 with open(casas_de_apuestas_path, "r") as file:
@@ -23,6 +25,9 @@ with open(catalogo_de_deportes_path, "r") as file:
 # 0.1) Recorre listado de casas de apuestas
 #      obtener los keys de las casas de apuestas
 for casa_de_apuesta_key in casas_de_apuestas.keys():
+    # crear una variable de tiempo de inicio para saber cuanto tiempo se demora en actualizar la casa de apuesta actual
+    casa_de_apuesta_start_time = datetime.datetime.now()
+
     # obtener el valor de la casa de apuesta
     casa_de_apuesta_actual = casas_de_apuestas[casa_de_apuesta_key]
     # obtener el nombre de la casa de apuesta
@@ -46,7 +51,7 @@ for casa_de_apuesta_key in casas_de_apuestas.keys():
         # colocar un try catch para manejar errores en caso de que no exista el from {name} import {name}_scraping
         try:
             # dado la variable name obtener un import con el valor de la variable name.config ejemplo from Betsson.config import scraping
-            exec(f"from {name} import {name}_EVENT_PHASE_PREMATCH, {name}_scraping, actualizar_catalogo_deportes_de_{name}, obtener_partidos_{name}, obtener_apuestas_{name}, request_obtener_partidos_{name}, procesar_respuesta_obtener_partidos_{name}")
+            exec(f"from {name} import {name}_EVENT_PHASE_PREMATCH, {name}_scraping, actualizar_catalogo_deportes_de_{name}, obtener_partidos_{name}, obtener_apuestas_{name}, request_obtener_partidos_{name}, procesar_respuesta_obtener_partidos_{name}, request_obtener_apuestas_{name}, procesar_request_obtener_apuestas_{name}")
             # ahora ejecuta la funcion importada con una de entrada, y guarda el resultado de la ejecucion de la funcion 
             exec(f"actualizacion_de_catalogo_deportes = {name}_scraping(scraping_deportes_url)")
         except Exception as e:
@@ -103,7 +108,6 @@ for casa_de_apuesta_key in casas_de_apuestas.keys():
 
             
 # 5) Hacer solicitudes para obtener los partidos que estan dentro de los Deportes y apuestas seleccionados
-            
             # crear una lista vacia para guardar los partidos que se van a consultar las apuestas
             lista_de_partidos_por_consultar_apuestas = []
 
@@ -112,6 +116,7 @@ for casa_de_apuesta_key in casas_de_apuestas.keys():
             MAX_THREADS = 4
             # Usar ThreadPoolExecutor para paralelizar las solicitudes
             with concurrent.futures.ThreadPoolExecutor(MAX_THREADS) as executor:
+                # crear un diccionario vacio para guardar los futures de las solicitudes de los partidos
                 futures = {}
                 # recorrer la lista de solicitudes para realizar las solicitudes de los partidos usando hilos para agilizar el proceso 
                 for i, solicitud in enumerate(lista_de_solicitudes):
@@ -153,7 +158,7 @@ for casa_de_apuesta_key in casas_de_apuestas.keys():
                     # crea una variable lista_de_partidos que obtiene el resultado de la solicitud de los partidos de la casa de apuesta actual
                     lista_de_partidos = None 
                     try:
-                        # ahora ejecuta la funcion importada procesar_respuesta_obtener_partidos_{name}
+                        # ahora ejecuta la funcion importada procesar_respuesta_obtener_partidos_{name} con la respuesta de los partidos
                         exec(f"lista_de_partidos = procesar_respuesta_obtener_partidos_{name}(response)")
                     except Exception as e:
                         print(f"error en la actualizacion del catalogo de deportes de {name} con el error {e}")
@@ -170,18 +175,6 @@ for casa_de_apuesta_key in casas_de_apuestas.keys():
                         # actualiza el catalogo de deportes con los partidos obtenidos
                         catalogo_de_deportes[name]["Catalogo_de_deportes"][categoryId]["regionIds"][regionId]["competitionIds"][competitionId]["eventIds"].update(lista_de_partidos)
                     
-                    else:
-                        # si no se obtiene la lista de partidos se aumenta el contador para saber cuantos partidos no se obtuvieron
-                        contador += 1
-                    # imprimir el numero de solicitud actual y el total de solicitudes para saber en que solicitud se encuentra
-                    print(f"Solicitud {i+1-contador}/{len(lista_de_request_de_partidos)-contador} ")
-                     
-# guarda el catalogo de deportes actualizado en el archivo catalogo_de_deportes.json
-with open(catalogo_de_deportes_path, "w") as file:
-    json.dump(catalogo_de_deportes, file, indent=4)
-print("se ha actualizado el catalogo de deportes")
-
-"""
 # 7) Recorrer Catalogo de Deportes 
 # 7.1) Generar lista de solicitudes para obtener apuestas de los partidos que estan dentro de los Deportes y apuestas seleccionados
                         # guardar en una lista los partidos que se van a consultar las apuestas
@@ -194,23 +187,25 @@ print("se ha actualizado el catalogo de deportes")
                                 "startDate":lista_de_partidos[key_partido]["startDate"] if "startDate" in lista_de_partidos[key_partido] else None
                             })
 
-                        # recorrer el catalogo de deportes para verificar si hay partidos que no han sido actualizados en mas de 5 minutos
+                        # recorrer el catalogo de deportes para verificar si hay partidos que no han sido actualizados en mas del TIEMPO_DE_ACTUALIZACION en minutos
                         for eventId in keys_eventIds:
+                            # obtener el valor de eventId en el catalogo de deportes de la casa de apuesta actual
                             eventId_value = catalogo_de_deportes[name]["Catalogo_de_deportes"][categoryId]["regionIds"][regionId]["competitionIds"][competitionId]["eventIds"][eventId]
+                            # obtener el valor de startDate en eventId_value si existe, para verificar si ya se vencio el partido
                             startDate = eventId_value["startDate"] if "startDate" in eventId_value else None
                             # verificar que no este vencido 
                             if startDate:
-                                # convertir startDate a datetime con formato "2025-01-31T17:30:00Z"
-                                startDate = datetime.datetime.strptime(startDate, "%Y-%m-%dT%H:%M:%SZ")
+                                # convertir startDate a datetime con formato "%Y-%m-%dT%H:%M:%SZ"
+                                startDate = datetime.datetime.strptime(startDate, FORMATO_DE_FECHA)
                                 # verificar si startDate es mayor a la fecha actual porque si es menor ya se vencio y no se debe consultar apuestas, sino que se debe eliminar del catalogo de deportes y guardar en el archivo partidos_jugados.json
                                 if startDate > datetime.datetime.now():
                                     # mirar cuando fue la ultima actualizacion del eventId
                                     if "lastUpdate" in eventId_value:
                                         # obtener el valor de lastUpdate
                                         lastUpdate = eventId_value["lastUpdate"]
-                                        # convertir lastUpdate a datetime con formato "2025-01-31T17:30:00Z"
-                                        lastUpdate = datetime.datetime.strptime(lastUpdate, "%Y-%m-%dT%H:%M:%SZ")
-                                        # verificar si lastUpdate es mayor a 5 minutos de la fecha actual para añadir a la lista de partidos por consultar o actualizar apuestas
+                                        # convertir lastUpdate a datetime con formato "%Y-%m-%dT%H:%M:%SZ"
+                                        lastUpdate = datetime.datetime.strptime(lastUpdate, FORMATO_DE_FECHA)
+                                        # verificar si lastUpdate es mayor al TIEMPO_DE_ACTUALIZACION en minutos de la fecha actual para añadir a la lista de partidos por consultar o actualizar apuestas
                                         if lastUpdate < datetime.datetime.now() - timedelta(minutes=TIEMPO_DE_ACTUALIZACION):
                                             # verificar si eventId no esta en la lista de partidos por consultar apuestas para evitar consultas duplicadas
                                             existe_eventId = True in [True for partido in lista_de_partidos_por_consultar_apuestas if partido["eventId"]==eventId]
@@ -229,8 +224,8 @@ print("se ha actualizado el catalogo de deportes")
                         # si no se obtiene la lista de partidos se aumenta el contador para saber cuantos partidos no se obtuvieron
                         contador += 1
                     # imprimir el numero de solicitud actual y el total de solicitudes para saber en que solicitud se encuentra
-                    print(f"Solicitud {i+1-contador}/{len(lista_de_solicitudes)-contador} ")
-                        
+                    print(f"Solicitud {i+1-contador}/{len(lista_de_request_de_partidos)-contador} ")
+                     
                 # verificar si el archivo partidos_jugados.json existe
                 if not os.path.exists(partidos_jugados_path):
                     # si no existe el archivo se crea con un diccionario vacio
@@ -249,7 +244,7 @@ print("se ha actualizado el catalogo de deportes")
                     eventId = partido["eventId"]
                     startDate = partido["startDate"]
                     # convertir startDate a datetime con formato "2025-01-31T17:30:00Z"
-                    startDate = datetime.datetime.strptime(startDate, "%Y-%m-%dT%H:%M:%SZ")
+                    startDate = datetime.datetime.strptime(startDate, FORMATO_DE_FECHA)
                     # verificar si startDate es menor a la fecha actual para eliminar el partido del catalogo de deportes y guardarlo en el archivo partidos_jugados.json
                     if startDate < datetime.datetime.now():
                         # verificar si el key name existe en el archivo partidos_jugados.json
@@ -284,46 +279,82 @@ print("se ha actualizado el catalogo de deportes")
                 # guardar el archivo partidos_jugados.json
                 with open(partidos_jugados_path, "w") as file:
                     json.dump(partidos_jugados_file, file, indent=4)
+                print("se han eliminado los partidos que ya se han vencido")
 
 # 8) Hacer solicitudes para obtener las apuestas de los partidos que estan dentro de los Deportes y apuestas seleccionados
-                contador2 = 0
-                # recorrer la lista de partidos por consultar apuestas
-                for i, partido in enumerate(lista_de_partidos_por_consultar_apuestas):
-                print(i)
-                categoryId = partido["categoryId"]
-                regionId = partido["regionId"]
-                competitionId = partido["competitionId"]
-                eventId = partido["eventId"]
-                startDate = partido["startDate"]
-                # crea una variable lista_de_apuestas que obtiene el resultado de la solicitud de las apuestas de la casa de apuesta actual
-                lista_de_apuestas = None
-                # catalogo_de_deportes[name]["Catalogo_de_deportes"][categoryId]["regionIds"][regionId]["competitionIds"][competitionId]["eventIds"][eventId]
-                try:
-                    # obtener el catalogo de deportes de la casa de apuesta actual
-                    Betsson_catalog = catalogo_de_deportes[name]
-                    # ahora ejecuta la funcion importada con una de entrada, y guarda el resultado de la ejecucion de la funcion
-                    exec(f"lista_de_apuestas = obtener_apuestas_{name}(Betsson_catalog, categoryId, regionId, competitionId, eventId)")
-                except Exception as e:
-                    print(f"error en la actualizacion del catalogo de deportes de {name} con el error {e}")
+                lista_de_request_de_apuestas = []
+                # Usar ThreadPoolExecutor para paralelizar las solicitudes
+                with concurrent.futures.ThreadPoolExecutor(MAX_THREADS) as executor2:
+                    # crear un diccionario vacio para guardar los futures de las solicitudes de las apuestas
+                    futures = {}
+                    # recorrer la lista de partidos por consultar apuestas
+                    for i, partido in enumerate(lista_de_partidos_por_consultar_apuestas):
+                        
+                        categoryId = partido["categoryId"]
+                        regionId = partido["regionId"]
+                        competitionId = partido["competitionId"]
+                        eventId = partido["eventId"]
+                        startDate = partido["startDate"]
+                        # inicializar future en None para verificar si se ejecuto correctamente la solicitud
+                        future = None
+                        try:
+                            # ahora ejecuta la funcion obtener_apuestas_{name} usando hilos para agilizar el proceso
+                            exec(f"future = executor2.submit(request_obtener_apuestas_{name}, catalogo_de_deportes[name], categoryId, regionId, competitionId, eventId, i, len(lista_de_partidos_por_consultar_apuestas))")
+                        except Exception as e:
+                            print(f"error al hacer la solicitud {i} de las apuestas del partido {eventId} de la competencia {competitionId} de la region {regionId} del deporte {categoryId} de la casa de apuesta {name} con el error {e}")
+                        # verificar si future es diferente de None, indicando que se ejecuto correctamente la solicitud y se puede guardar en un diccionario de solicitudes futuras
+                        if future:
+                            # guardar el future en un diccionario con el indice de la solicitud
+                            futures[future] = i
+                    # recorrer los futures para obtener los resultados de las solicitudes de las apuestas de los partidos de la casa de apuesta actual
+                    for future in concurrent.futures.as_completed(futures):
+                        # obtener el resultado de la solicitud
+                        result = future.result()
+                        # verificar si result es diferente de None
+                        if result:
+                            # agregar el resultado a la lista de request de apuestas, para luego procesar la respuesta
+                            lista_de_request_de_apuestas.append(result)
                 
 # 9) Actualizar Catalogo de Deportes con apuestas de Deportes y apuestas seleccionados
-                # verificar si lista_de_apuestas es diferente de None
-                if lista_de_apuestas:
-                    # se actualiza el catalogo de deportes con las apuestas obtenidas
-                    catalogo_de_deportes[name].update(lista_de_apuestas)
-                else:
-                    # si no se obtiene la lista de apuestas se aumenta el contador para saber cuantas apuestas no se obtuvieron
-                    contador2 += 1
-                print(f"Solicitud {i+1-contador2}/{len(lista_de_partidos_por_consultar_apuestas)-contador2} ")
+                contador2 = 0
+                # recorrer la lista de request de apuestas para obtener las respuestas y realizar el procesado de la respuesta
+                for i, respuesta_json in enumerate(lista_de_request_de_apuestas):
+                    print(i)
+                    # obtener el catalogo de deportes de la casa de apuesta actual
+                    Betsson_catalog = catalogo_de_deportes[name]
+                    categoryId = respuesta_json["categoryId"]
+                    regionId = respuesta_json["regionId"]
+                    competitionId = respuesta_json["competitionId"]
+                    eventId = respuesta_json["eventId"]
+                    response = respuesta_json["response"]
+                    # crea una variable lista_de_apuestas que obtiene el resultado de la solicitud de las apuestas de la casa de apuesta actual
+                    lista_de_apuestas = None
+                    try:
+                        # ahora ejecuta la funcion importada procesar_request_obtener_apuestas_{name} con la respuesta de las apuestas
+                        exec(f"lista_de_apuestas = procesar_request_obtener_apuestas_{name}(Betsson_catalog, categoryId, regionId, competitionId, eventId, response)")
+                    except Exception as e:
+                        print(f"error en la actualizacion del catalogo de deportes de {name} con el error {e}")
+                    
+                    # verificar si lista_de_apuestas es diferente de None
+                    if lista_de_apuestas:
+                        # se actualiza el catalogo de deportes con las apuestas obtenidas
+                        catalogo_de_deportes[name].update(lista_de_apuestas)
+                    else:
+                        # si no se obtiene la lista de apuestas se aumenta el contador para saber cuantas apuestas no se obtuvieron
+                        contador2 += 1
+                    print(f"Solicitud {i+1-contador2}/{len(lista_de_partidos_por_consultar_apuestas)-contador2} ")
 
-"""
+                print("se han actualizado las apuestas de los partidos ✅")
+    # crear una variable de tiempo final para saber cuanto tiempo se demoro en actualizar la casa de apuesta actual
+    casa_de_apuesta_end_time = datetime.datetime.now()
+    # imprimir el tiempo que se demoro en actualizar la casa de apuesta actual
+    print(f"se ha demorado {casa_de_apuesta_end_time - casa_de_apuesta_start_time} en actualizar la casa de apuesta {name}")
 
-"""
 # guarda el catalogo de deportes actualizado en el archivo catalogo_de_deportes.json
 with open(catalogo_de_deportes_path, "w") as file:
     json.dump(catalogo_de_deportes, file, indent=4)
+
 print("se ha actualizado el catalogo de deportes")
-"""
 
 
 # Despues de finalizado ciclo de recorrer el listado de casa de apuestas
