@@ -299,7 +299,7 @@ for casa_de_apuesta_key in casas_de_apuestas.keys():
                         future = None
                         try:
                             # ahora ejecuta la funcion obtener_apuestas_{name} usando hilos para agilizar el proceso
-                            exec(f"future = executor2.submit(request_obtener_apuestas_{name}, catalogo_de_deportes[name], categoryId, regionId, competitionId, eventId, i, len(lista_de_partidos_por_consultar_apuestas))")
+                            exec(f"future = executor2.submit(request_obtener_apuestas_{name}, categoryId, regionId, competitionId, eventId, i, len(lista_de_partidos_por_consultar_apuestas))")
                         except Exception as e:
                             print(f"error al hacer la solicitud {i} de las apuestas del partido {eventId} de la competencia {competitionId} de la region {regionId} del deporte {categoryId} de la casa de apuesta {name} con el error {e}")
                         # verificar si future es diferente de None, indicando que se ejecuto correctamente la solicitud y se puede guardar en un diccionario de solicitudes futuras
@@ -321,7 +321,7 @@ for casa_de_apuesta_key in casas_de_apuestas.keys():
                 for i, respuesta_json in enumerate(lista_de_request_de_apuestas):
                     print(i)
                     # obtener el catalogo de deportes de la casa de apuesta actual
-                    Betsson_catalog = catalogo_de_deportes[name]
+                    Betsson_catalog = catalogo_de_deportes[name] 
                     categoryId = respuesta_json["categoryId"]
                     regionId = respuesta_json["regionId"]
                     competitionId = respuesta_json["competitionId"]
@@ -350,7 +350,7 @@ for casa_de_apuesta_key in casas_de_apuestas.keys():
     # imprimir el tiempo que se demoro en actualizar la casa de apuesta actual
     print(f"se ha demorado {casa_de_apuesta_end_time - casa_de_apuesta_start_time} en actualizar la casa de apuesta {name}")
 
-# guarda el catalogo de deportes actualizado en el archivo catalogo_de_deportes.json
+# guarda el catalogo de deportes actualizado en el archivo catalogo_de_deportes.json, en la que ocupe menos espacio en el archivo
 with open(catalogo_de_deportes_path, "w") as file:
     json.dump(catalogo_de_deportes, file, indent=4)
 
