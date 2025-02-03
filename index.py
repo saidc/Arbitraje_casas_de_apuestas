@@ -4,7 +4,7 @@ import datetime
 import json 
 import os
 import concurrent.futures
-
+ 
 
 TIEMPO_DE_ACTUALIZACION = 30 # minutos
 FORMATO_DE_FECHA = "%Y-%m-%dT%H:%M:%SZ"
@@ -51,7 +51,7 @@ for casa_de_apuesta_key in casas_de_apuestas.keys():
         # colocar un try catch para manejar errores en caso de que no exista el from {name} import {name}_scraping
         try:
             # dado la variable name obtener un import con el valor de la variable name.config ejemplo from Betsson.config import scraping
-            exec(f"from {name} import {name}_EVENT_PHASE_PREMATCH, {name}_scraping, actualizar_catalogo_deportes_de_{name}, obtener_partidos_{name}, obtener_apuestas_{name}, request_obtener_partidos_{name}, procesar_respuesta_obtener_partidos_{name}, request_obtener_apuestas_{name}, procesar_request_obtener_apuestas_{name}")
+            exec(f"from casas_de_apuestas.{name} import {name}_EVENT_PHASE_PREMATCH, {name}_scraping, actualizar_catalogo_deportes_de_{name}, obtener_partidos_{name}, obtener_apuestas_{name}, request_obtener_partidos_{name}, procesar_respuesta_obtener_partidos_{name}, request_obtener_apuestas_{name}, procesar_request_obtener_apuestas_{name}")
             # ahora ejecuta la funcion importada con una de entrada, y guarda el resultado de la ejecucion de la funcion 
             exec(f"actualizacion_de_catalogo_deportes = {name}_scraping(scraping_deportes_url)")
         except Exception as e:
