@@ -1,0 +1,855 @@
+[
+    {
+        "624398897": {
+            "id": "624398897",
+            "name": "Resultado Tiempo Completo",
+            "tipo_de_contenido": "table",
+            "contenido": {
+                "table": "div"
+            }
+        }
+    },
+    {
+        "624530332": {
+            "id": "624530332",
+            "name": "Se clasificar\u00e1",
+            "tipo_de_contenido": "table",
+            "contenido": {
+                "table": "div"
+            }
+        }
+    },
+    {
+        "624398872": {
+            "id": "624398872",
+            "name": "Doble Oportunidad",
+            "tipo_de_contenido": "ul",
+            "contenido": {
+                "ul": "div"
+            }
+        }
+    },
+    {
+        "624398859": {
+            "id": "624398859",
+            "name": "Ambos Equipos Anotan",
+            "tipo_de_contenido": "table",
+            "contenido": {
+                "table": "div"
+            }
+        }
+    },
+    {
+        "624414233,624414236,624414234,624414235,624414237": {
+            "id": "624414233,624414236,624414234,624414235,624414237",
+            "name": "\nTotal Goles M\u00e1s/Menos de\n",
+            "tipo_de_contenido": "div",
+            "contenido": {
+                "div": "div"
+            }
+        }
+    },
+    {
+        "624414323,624414324,624414325": {
+            "id": "624414323,624414324,624414325",
+            "name": "\n1ra Mitad Total de Goles m\u00e1s/Menos de\n",
+            "tipo_de_contenido": "div",
+            "contenido": {
+                "div": "div"
+            }
+        }
+    },
+    {
+        "624398934": {
+            "id": "624398934",
+            "name": "Resultado Final con m\u00e1s/Menos de (1.5)",
+            "tipo_de_contenido": "ul",
+            "contenido": {
+                "ul": "div"
+            }
+        }
+    },
+    {
+        "624398936": {
+            "id": "624398936",
+            "name": "Resultado Final con m\u00e1s/Menos de (2.5)",
+            "tipo_de_contenido": "ul",
+            "contenido": {
+                "ul": "div"
+            }
+        }
+    },
+    {
+        "624398937": {
+            "id": "624398937",
+            "name": "Resultado Final con m\u00e1s/Menos de (3.5)",
+            "tipo_de_contenido": "ul",
+            "contenido": {
+                "ul": "div"
+            }
+        }
+    },
+    {
+        "624398938": {
+            "id": "624398938",
+            "name": "Resultado del partido / Ambos anotan",
+            "tipo_de_contenido": "ul",
+            "contenido": {
+                "ul": "div"
+            }
+        }
+    },
+    {
+        "624398876": {
+            "id": "624398876",
+            "name": "Doble Oportunidad y Total de Goles mas/menos (1.5)",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398876&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398877": {
+            "id": "624398877",
+            "name": "Doble Oportunidad y Total de Goles mas/menos (2.5)",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398877&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398878": {
+            "id": "624398878",
+            "name": "Doble Oportunidad y Total de Goles mas/menos (3.5)",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398878&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398940": {
+            "id": "624398940",
+            "name": "Pr\u00f3ximo Equipo en Anotar (Gol 1)",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398940&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398889": {
+            "id": "624398889",
+            "name": "1ra Mitad Resultado",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398889&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398868": {
+            "id": "624398868",
+            "name": "Marcador Correcto",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398868&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398879": {
+            "id": "624398879",
+            "name": "Empate No Accion",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398879&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398912": {
+            "id": "624398912",
+            "name": "1ra Mitad/Tiempo Completo",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398912&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624414332,624414329,624414328,624414330": {
+            "id": "624414332,624414329,624414328,624414330",
+            "name": "\nHandicap Resultado Partido\n",
+            "tipo_de_contenido": "table",
+            "contenido": {
+                "table": "div"
+            }
+        }
+    },
+    {
+        "624414364,624414362,624414321,624414363": {
+            "id": "624414364,624414362,624414321,624414363",
+            "name": "\nHandicap Asi\u00e1tico\n",
+            "tipo_de_contenido": "table",
+            "contenido": {
+                "table": "div"
+            }
+        }
+    },
+    {
+        "624414239,624414361,624414241,624414238,624414240": {
+            "id": "624414239,624414361,624414241,624414238,624414240",
+            "name": "\nTotal Goles Asiatico\n",
+            "tipo_de_contenido": "div",
+            "contenido": {
+                "div": "div"
+            }
+        }
+    },
+    {
+        "624398941": {
+            "id": "624398941",
+            "name": "Siguiente equipo en anotar - Primer Mitad (Gol 1)",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398941&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624399001": {
+            "id": "624399001",
+            "name": "Gana ambas mitades",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624399001&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624399002": {
+            "id": "624399002",
+            "name": "Gana cualquier mitad",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624399002&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398874": {
+            "id": "624398874",
+            "name": "Doble Oportunidad y Ambos Equipos Anotan",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398874&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624399000": {
+            "id": "624399000",
+            "name": "Total Goles Par/Impar",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624399000&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398858": {
+            "id": "624398858",
+            "name": "Ambos anotan / M\u00e1s/Menos (2.5)",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398858&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398998": {
+            "id": "624398998",
+            "name": "Total goles Exacto",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398998&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398894": {
+            "id": "624398894",
+            "name": "1er Equipo en anotar",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398894&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398939": {
+            "id": "624398939",
+            "name": "Clasificaci\u00f3n del siguiente gol (Gol 1)",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398939&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624399005": {
+            "id": "624399005",
+            "name": "Margen de Victoria",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624399005&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398944": {
+            "id": "624398944",
+            "name": "N\u00famero de equipos en anotar",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398944&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398922": {
+            "id": "624398922",
+            "name": "Celtic Total Goles",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398922&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398848": {
+            "id": "624398848",
+            "name": "Bayern Munich Total Goles",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398848&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398925": {
+            "id": "624398925",
+            "name": "Celtic anota 2 o m\u00e1s Goles",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398925&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398850": {
+            "id": "624398850",
+            "name": "Bayern Munich anota 2 o m\u00e1s Goles",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398850&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398851": {
+            "id": "624398851",
+            "name": "Bayern Munich anota 3 o m\u00e1s Goles",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398851&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398852": {
+            "id": "624398852",
+            "name": "Bayern Munich anota 4 o m\u00e1s Goles",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398852&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398864": {
+            "id": "624398864",
+            "name": "Sin Goles Recibidos",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398864&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398865": {
+            "id": "624398865",
+            "name": "Bayern Munich Sin Goles Recibidos",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398865&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398933": {
+            "id": "624398933",
+            "name": "\u00daltimo equipo en anotar",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398933&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398931": {
+            "id": "624398931",
+            "name": "Celtic Total Goles Par/Impar",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398931&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398856": {
+            "id": "624398856",
+            "name": "Bayern Munich Total Goles Par/Impar",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398856&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624414355,624414358,624414356,624414357,624414359": {
+            "id": "624414355,624414358,624414356,624414357,624414359",
+            "name": "\nHandicap Asi\u00e1tico Total Goles 1ra Mitad\n",
+            "tipo_de_contenido": "table",
+            "contenido": {
+                "table": "div"
+            }
+        }
+    },
+    {
+        "624419026": {
+            "id": "624419026",
+            "name": "Handicap Asi\u00e1tico Medio Tiempo (Marcador Actual 0:0) (0 / +0.5)",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624419026&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624414365": {
+            "id": "624414365",
+            "name": "Handicap Asi\u00e1tico Medio Tiempo (Marcador Actual 0:0) (+0.5)",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624414365&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398945": {
+            "id": "624398945",
+            "name": "M\u00e1s de 1.5 goles en ambas mitades",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398945&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398861": {
+            "id": "624398861",
+            "name": "Ambos Equipos anotar\u00e1n en la 1er Mitad",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398861&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398901": {
+            "id": "624398901",
+            "name": "Se anotar\u00e1n goles en ambas mitades",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398901&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624414341": {
+            "id": "624414341",
+            "name": "\n1\u00aa Mitad m\u00e1s/Menos de Celtic Total Goles\n",
+            "tipo_de_contenido": "table",
+            "contenido": {
+                "table": "div"
+            }
+        }
+    },
+    {
+        "624414339,624414338,624414340": {
+            "id": "624414339,624414338,624414340",
+            "name": "\n1\u00aa Mitad m\u00e1s/Menos de Bayern Munich Total Goles\n",
+            "tipo_de_contenido": "div",
+            "contenido": {
+                "div": "div"
+            }
+        }
+    },
+    {
+        "624398893": {
+            "id": "624398893",
+            "name": "Total Goles 1\u00aa Mitad Par/Impar",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398893&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398904": {
+            "id": "624398904",
+            "name": "Mitad con m\u00e1s Goles",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398904&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398991": {
+            "id": "624398991",
+            "name": "Equipo que anotar\u00e1 en ambas mitades",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398991&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398902": {
+            "id": "624398902",
+            "name": "Se anotar\u00e1 gol en la 1er mitad",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398902&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398886": {
+            "id": "624398886",
+            "name": "Marcador Correcto 1er Tiempo",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398886&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398892": {
+            "id": "624398892",
+            "name": "1er mitad Total de Goles",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398892&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398906": {
+            "id": "624398906",
+            "name": "Doble Oportunidad 1\u00aa Mitad",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398906&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398910": {
+            "id": "624398910",
+            "name": "1ra Mitad Doble Oportunidad y Ambos Equipos anotan en 1ra Mitad",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398910&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398875": {
+            "id": "624398875",
+            "name": "Doble Oportunidad Tiempo Completo y 1er Mitad Ambos Equipos Anotan",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398875&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398914": {
+            "id": "624398914",
+            "name": "Medio Tiempo/Tiempo Completo y M\u00e1s/Menos (3.5)",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398914&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398913": {
+            "id": "624398913",
+            "name": "Medio Tiempo/Tiempo Completo Doble Oportunidad",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398913&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624414326,624414327": {
+            "id": "624414326,624414327",
+            "name": "\nHandicap Primera Mitad\n",
+            "tipo_de_contenido": "table",
+            "contenido": {
+                "table": "div"
+            }
+        }
+    },
+    {
+        "624398895": {
+            "id": "624398895",
+            "name": "1er, Equipo en anotar en el 1er. Tiempo",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398895&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398888": {
+            "id": "624398888",
+            "name": "Primera Mitad Celtic Total Goles",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398888&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398883": {
+            "id": "624398883",
+            "name": "Primera Mitad Bayern Munich Total Goles",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398883&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398911": {
+            "id": "624398911",
+            "name": "Apuesta sin Empate 1\u00aa Mitad",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398911&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398891": {
+            "id": "624398891",
+            "name": "1ra Mitad Resultado y 1ra Mitad Total de Goles m\u00e1s/Menos de (1.5)",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398891&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398890": {
+            "id": "624398890",
+            "name": "1ra Mitad Resultado y Ambos Equipos anotan en 1ra Mitad",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398890&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398860": {
+            "id": "624398860",
+            "name": "Ambos Equipos anotar\u00e1n en Ambas Mitades",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398860&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398884": {
+            "id": "624398884",
+            "name": "Ambos Equipos anotan en 1ra Mitad y m\u00e1s/Menos de goles 1er Mitad (1.5)",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398884&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398916": {
+            "id": "624398916",
+            "name": "Mitad con m\u00e1s anotaci\u00f3nes de Celtic",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398916&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398915": {
+            "id": "624398915",
+            "name": "Mitad con m\u00e1s anotaci\u00f3nes de Bayern Munich",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398915&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398887": {
+            "id": "624398887",
+            "name": "Primera mitad local no apuesta",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398887&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398882": {
+            "id": "624398882",
+            "name": "Primera mitad visitante no apuesta",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398882&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398905": {
+            "id": "624398905",
+            "name": "Resultado 1er Mitad o Tiempo Completo",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398905&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624414352,624414353,624414354": {
+            "id": "624414352,624414353,624414354",
+            "name": "\n2\u00aa Mitad - m\u00e1s/Menos de\n",
+            "tipo_de_contenido": "table",
+            "contenido": {
+                "table": "div"
+            }
+        }
+    },
+    {
+        "624398988": {
+            "id": "624398988",
+            "name": "2da Mitad Total Goles",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398988&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398863": {
+            "id": "624398863",
+            "name": "Ambos Equipos anotar\u00e1n en la 2da Mitad",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398863&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398903": {
+            "id": "624398903",
+            "name": "Se anotar\u00e1 gol en 2da mitad",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398903&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624414349": {
+            "id": "624414349",
+            "name": "\n2\u00aa Mitad - m\u00e1s/Menos de Celtic Total Goles\n",
+            "tipo_de_contenido": "table",
+            "contenido": {
+                "table": "div"
+            }
+        }
+    },
+    {
+        "624414347,624414346,624414348": {
+            "id": "624414347,624414346,624414348",
+            "name": "\n2\u00aa Mitad - m\u00e1s/Menos de Bayern Munich Total Goles\n",
+            "tipo_de_contenido": "table",
+            "contenido": {
+                "table": "div"
+            }
+        }
+    },
+    {
+        "624398984": {
+            "id": "624398984",
+            "name": "2da Mitad Celtic Total Goles",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398984&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398976": {
+            "id": "624398976",
+            "name": "2da Mitad Bayern Munich Total Goles",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398976&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398989": {
+            "id": "624398989",
+            "name": "Total Goles 2\u00aa Mitad Par/Impar",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398989&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398977": {
+            "id": "624398977",
+            "name": "2da Mitad Marcador Correcto",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398977&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624414333,624414334": {
+            "id": "624414333,624414334",
+            "name": "\nHandicap 2da Mitad\n",
+            "tipo_de_contenido": "table",
+            "contenido": {
+                "table": "div"
+            }
+        }
+    },
+    {
+        "624398896": {
+            "id": "624398896",
+            "name": "1er, Equipo en anotar en la 2da. Mitad",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398896&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398987": {
+            "id": "624398987",
+            "name": "Resultado 2da Mitad",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398987&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398981": {
+            "id": "624398981",
+            "name": "2da Mitad Doble Oportunidad y 2da Mitad Ambos Equipos Anotan",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398981&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398985": {
+            "id": "624398985",
+            "name": "Resultado 2da Mitad y 2da Mitad Ambos Equipos Anotan",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398985&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624414360,624414320": {
+            "id": "624414360,624414320",
+            "name": "\nTotal de Goles 2da Mitad - Asi\u00e1tico\n",
+            "tipo_de_contenido": "table",
+            "contenido": {
+                "table": "div"
+            }
+        }
+    },
+    {
+        "624398982": {
+            "id": "624398982",
+            "name": "Empate no acci\u00f3n Segunda Mitad",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398982&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398986": {
+            "id": "624398986",
+            "name": "Resultado 2da Mitad y 2da Mitad Total de Goles M\u00e1s de/Menos de (1.5)",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398986&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398983": {
+            "id": "624398983",
+            "name": "2da Mitad Apuesta sin Equipo Local",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398983&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398975": {
+            "id": "624398975",
+            "name": "2da Mitad Apuesta sin Equipo Visitante",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398975&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398920": {
+            "id": "624398920",
+            "name": "Apuesta sin Equipo Local",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398920&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398845": {
+            "id": "624398845",
+            "name": "Apuesta sin Equipo Visitante",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398845&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398974": {
+            "id": "624398974",
+            "name": "Tipo de Jugada",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398974&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398997": {
+            "id": "624398997",
+            "name": "Gana sin recibir gol",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398997&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398932": {
+            "id": "624398932",
+            "name": "Celtic Gana sin recibir gol",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398932&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398857": {
+            "id": "624398857",
+            "name": "Bayern Munich Gana sin recibir gol",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398857&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398946": {
+            "id": "624398946",
+            "name": "Penalti Concedido",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398946&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624399003": {
+            "id": "624399003",
+            "name": "Ganar\u00e1 remontando",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624399003&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398918": {
+            "id": "624398918",
+            "name": "Celtic Empata Despu\u00e9s De Ir Perdiendo",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398918&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398843": {
+            "id": "624398843",
+            "name": "Bayern Munich Empata Despu\u00e9s De Ir Perdiendo",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398843&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398923": {
+            "id": "624398923",
+            "name": "Celtic Ganar\u00e1 remontando",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398923&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398943": {
+            "id": "624398943",
+            "name": "Cuantos equipos llevar\u00e1n ventaja en el partido?",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398943&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398951,624398952,624398953,624398954,624398955,624398956,624398957,624398958": {
+            "id": "624398951,624398952,624398953,624398954,624398955,624398956,624398957,624398958",
+            "name": "\nResultado del partido por minutos\n",
+            "tipo_de_contenido": "table",
+            "contenido": {
+                "table": "div"
+            }
+        }
+    },
+    {
+        "624398994": {
+            "id": "624398994",
+            "name": "Tiempo en que se anotar\u00e1 el proximo gol (Gol 1)",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398994&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398995": {
+            "id": "624398995",
+            "name": "Tiempo en que se anotar\u00e1 el proximo gol Celtic (Gol 1)",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398995&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    },
+    {
+        "624398993": {
+            "id": "624398993",
+            "name": "Tiempo en que se anotar\u00e1 el proximo gol Bayern Munich (Gol 1)",
+            "fetch_url": "/web_nr?use_interactive_correct_score_layout=N&mkt_id=624398993&key=sportsbook.cms.handlers.get_mkt_content"
+        }
+    }
+]

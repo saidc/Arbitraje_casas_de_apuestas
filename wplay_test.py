@@ -5,8 +5,6 @@ from bs4 import BeautifulSoup
 
 from casas_de_apuestas.Wplay.Wplay_config import link_deportes, link_Wplay
 
-
-
 def request_obtener_deportes_Wplay():
     payload = {} 
     headers = {}
@@ -22,6 +20,8 @@ Contador = 0
 
 def procesar_request_obtener_deportes_Wplay(response):
     global Contador
+
+
     # obtener informacion de apuestas de un partido
     def obtener_informacion_de_apuesta(apuesta):
         #obtener de apuesta un atributo data-mkt_id
@@ -31,12 +31,15 @@ def procesar_request_obtener_deportes_Wplay(response):
         # de tag_h6 obtener un hijo con etiqueta span con class="mkt-name" y obtener el texto
         apuesta_name = str(tag_h6.findChild("span", {"class": "mkt-name"}).text)
         #print(apuesta_name)
+
         return {"id": apuesta_id, "name": apuesta_name}
     
     # obtener informacion de apuestas de un partido
     def solicitar_apuestas(partido_id, apuestas_url):
+        global Contador
         payload = {}
         headers = {}
+        print("apuestas_url: ", apuestas_url)
         # Realizamos la peticion GET a la pagina de apuestas
         response = requests.get(apuestas_url, headers=headers, data=payload, timeout=10)
         # si el codigo de respuesta es 200 entonces hacer scraping
@@ -60,9 +63,14 @@ def procesar_request_obtener_deportes_Wplay(response):
                 if len(divs) > 0:
                     divs = divs[0]
                     #print(divs)
+                    #if Contador < 2:
+                    #    # convertir divs en tipo texto y guardar el valor en un archivo html
+                    #    texto_html = str(divs)
+                    #    with open(f"apuestas_{partido_id}.html", "w", encoding="utf-8") as file:
+                    #        file.write(texto_html)
                     # de divs obtener un hijo con etiqueta div
                     apuestas = divs.findChildren("div", recursive=False)
-                    #print(apuestas)
+                    
                     # verificar si apuestas es de tipo lista
                     if isinstance(apuestas, list):
                         # obtener las apuestas de un partido
