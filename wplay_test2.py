@@ -11,19 +11,113 @@ def make_request(url):
     headers = {}
     response = requests.get(url, headers=headers, data=payload, timeout=10)
     return response
-    
+
+def obtener_contenido_de_button(button):
+    #print("button: ", button)
+    if button:
+        # obtener atributo de button llamado title
+        title = button.get("title")
+        # obtener atributo de button llamado value
+        value = button.get("value")
+        # obtener span con class="seln-name" 
+        span = button.findChild("span", {"class": "seln-name"})
+        # verificar si button contiene un span con class="seln-hcap"
+        span_hcap = button.findChild("span", {"class": "seln-hcap"})
+        if span_hcap is not None:
+            # obtener span con class="seln-hcap"
+            span = title
+        else:
+            if span is None: 
+                # obtener span con class="seln-draw-label"
+                span = button.findChild("span", {"class": "seln-draw-label"})
+                span = span.text if span is not None else None
+                if span is None:
+                    # obtener span con class="seln-sort"
+                    span = button.findChild("span", {"class": "seln-sort"})
+                    span = span.text if span is not None else None
+            else:
+                # verificar si span contiene el atributo text 
+                span = span.text
+        # obtener span ocn class="price dec"
+        span_price = button.findChild("span", {"class": "price dec"})
+        if span is not None and span_price is not None:
+            return {"button": str(title), "span": str(span), "span_price": str(span_price.text)}
+    return None
+
 def obtener_contenido_de_table(table):
-    return {"table": table.name}
+    tag_name = str(table.name)
+    # verificar si tag_name no es ul
+    if tag_name != "table":
+        # de table obtener tag hijo con etiqueta table, dado que table es un div
+        table = table.findChild("table")
+        tag_name = str(table.name)
+
+    # verificar si table continene la etiqueta tbody
+    tbody = table.find("tbody")
+    if tbody is not None:
+        # obtener las filas de la tabla
+        rows = tbody.findChildren("tr", recursive=False)
+        # verificar si rows es de tipo lista
+        if isinstance(rows, list):
+            # varible que tiene el numero de filas 
+            num_rows = len(rows)
+            # obtener de cada fila la informacion de cada columna interna de la etiqueta fila
+            rows = [ row.findChildren("td", recursive=False) for row in rows]
+            # obtener el numero de columnas, sabiendo que todas las filas tienen el mismo numero de columnas
+            num_cols = len(rows[0])
+            # obtener el contenido de cada celda de la tabla
+            #contenido = [[col.find("button").text for col in row] for row in rows]
+            if (num_rows == 1 and num_cols == 3) or (num_rows == 1 and num_cols == 2):
+                # obtener el contenido de cada celda de cada columna 
+                contenido = [obtener_contenido_de_button(col.findChild("button")) for col in rows[0]]
+                return {"table": str(tag_name), "contenido": contenido , "num_cols": str(num_cols), "num_rows": str(num_rows)}
+            elif num_rows > 1 :
+                contenido = [[obtener_contenido_de_button(col.findChild("button")) for col in row] for row in rows]
+                return {"table": str(tag_name), "contenido": contenido , "num_cols": str(num_cols), "num_rows": str(num_rows)} 
+        else:
+            print(f"            ❌ Error, rows no es de tipo lista, de la tabla {table.name}")
+    else:
+        print(f"            ❌ Error, tbody es None, de la tabla {table.name}")
+    return None
+
+def obtener_contenido_de_ul(ul):
+    tag_name = str(ul.name)
+    # verificar si tag_name no es ul
+    if tag_name != "ul":
+        # de ul obtener tag hijo con etiqueta ul, dado que ul es un div
+        ul = ul.findChild("ul")
+        tag_name = str(ul.name)
+        
+    # obtener los hijos de ul que sean de tipo li
+    lis = ul.findChildren("li", recursive=False)
+    # verificar si lis es de tipo lista
+    if isinstance(lis, list):
+        # obtener el contenido de cada li buscando un button
+        contenido = [obtener_contenido_de_button(li.findChild("button")) for li in lis]
+        return { "ul":tag_name , "contenido": contenido }
+    else:
+        print(f"            ❌ Error, lis no es de tipo lista, de la lista {ul.name}")
+    return None
 
 def obtener_contenido_de_div(div):
     return {"div": div.name}
 
-def obtener_contenido_de_ul(ul):
-    return {"ul": ul.name}
+# obtener contenido de un tag de apuesta para un partido
+def obtener_tipo_de_tag_de_apuesta(tag_name, tag):
+    if tag_name == "table":
+        tipo_de_contenido = "table"
+        contenido = obtener_contenido_de_table(tag)
+    elif tag_name == "ul":
+        tipo_de_contenido = "ul"
+        contenido = obtener_contenido_de_ul(tag)
+    elif tag_name == "div":
+        tipo_de_contenido = "div"
+        contenido = obtener_contenido_de_div(tag)
+    return tipo_de_contenido, contenido
 
 def obtener_contenido_de_fetch_url(fetch_url):
     global Count
-    if Count < 10:
+    if Count < 20:
         Count += 1
         respond = make_request(fetch_url)
         if respond.status_code == 200:
@@ -44,18 +138,6 @@ def obtener_contenido_de_fetch_url(fetch_url):
             print(f"            ❌ Error de solicitud de fetch_url {fetch_url}")
     return "fetch_url", "None"
 
-# obtener contenido de un tag de apuesta para un partido
-def obtener_tipo_de_tag_de_apuesta(tag_name, tag):
-    if tag_name == "table":
-        tipo_de_contenido = "table"
-        contenido = obtener_contenido_de_table(tag)
-    elif tag_name == "div":
-        tipo_de_contenido = "div"
-        contenido = obtener_contenido_de_div(tag)
-    elif tag_name == "ul":
-        tipo_de_contenido = "ul"
-        contenido = obtener_contenido_de_ul(tag)
-    return tipo_de_contenido, contenido
 
 # obtener informacion de apuestas de un partido
 def obtener_informacion_de_apuesta(apuesta):

@@ -5,7 +5,26 @@
             "name": "Resultado Tiempo Completo",
             "tipo_de_contenido": "table",
             "contenido": {
-                "table": "div"
+                "table": "table",
+                "contenido": [
+                    {
+                        "button": "Celtic ",
+                        "span": "Celtic",
+                        "span_price": "7.00"
+                    },
+                    {
+                        "button": "Empate ",
+                        "span": "Empate",
+                        "span_price": "5.25"
+                    },
+                    {
+                        "button": "Bayern Munich ",
+                        "span": "Bayern Munich",
+                        "span_price": "1.363"
+                    }
+                ],
+                "num_cols": "3",
+                "num_rows": "1"
             }
         }
     },
@@ -15,7 +34,21 @@
             "name": "Se clasificar\u00e1",
             "tipo_de_contenido": "table",
             "contenido": {
-                "table": "div"
+                "table": "table",
+                "contenido": [
+                    {
+                        "button": "Celtic ",
+                        "span": "Celtic",
+                        "span_price": "8.00"
+                    },
+                    {
+                        "button": "Bayern Munich ",
+                        "span": "Bayern Munich",
+                        "span_price": "1.04"
+                    }
+                ],
+                "num_cols": "2",
+                "num_rows": "1"
             }
         }
     },
@@ -25,7 +58,24 @@
             "name": "Doble Oportunidad",
             "tipo_de_contenido": "ul",
             "contenido": {
-                "ul": "div"
+                "ul": "ul",
+                "contenido": [
+                    {
+                        "button": "Celtic/Empate ",
+                        "span": "Celtic/Empate",
+                        "span_price": "2.95"
+                    },
+                    {
+                        "button": "Celtic/Bayern Munich ",
+                        "span": "Celtic/Bayern Munich",
+                        "span_price": "1.111"
+                    },
+                    {
+                        "button": "Bayern Munich/Empate ",
+                        "span": "Bayern Munich/Empate",
+                        "span_price": "1.10"
+                    }
+                ]
             }
         }
     },
@@ -35,7 +85,21 @@
             "name": "Ambos Equipos Anotan",
             "tipo_de_contenido": "table",
             "contenido": {
-                "table": "div"
+                "table": "table",
+                "contenido": [
+                    {
+                        "button": "Si ",
+                        "span": "Si",
+                        "span_price": "1.571"
+                    },
+                    {
+                        "button": "No ",
+                        "span": "No",
+                        "span_price": "2.25"
+                    }
+                ],
+                "num_cols": "2",
+                "num_rows": "1"
             }
         }
     },
@@ -65,7 +129,39 @@
             "name": "Resultado Final con m\u00e1s/Menos de (1.5)",
             "tipo_de_contenido": "ul",
             "contenido": {
-                "ul": "div"
+                "ul": "ul",
+                "contenido": [
+                    {
+                        "button": "Celtic y m\u00e1s 1.5",
+                        "span": "Celtic y m\u00e1s 1.5",
+                        "span_price": "7.00"
+                    },
+                    {
+                        "button": "Celtic y Menos de 1.5",
+                        "span": "Celtic y Menos de 1.5",
+                        "span_price": "19.00"
+                    },
+                    {
+                        "button": "Bayern Munich y m\u00e1s 1.5",
+                        "span": "Bayern Munich y m\u00e1s 1.5",
+                        "span_price": "1.50"
+                    },
+                    {
+                        "button": "Bayern Munich y Menos de 1.5",
+                        "span": "Bayern Munich y Menos de 1.5",
+                        "span_price": "9.00"
+                    },
+                    {
+                        "button": "Empate y m\u00e1s 1.5",
+                        "span": "Empate y m\u00e1s 1.5",
+                        "span_price": "5.50"
+                    },
+                    {
+                        "button": "Empate y Menos de 1.5",
+                        "span": "Empate y Menos de 1.5",
+                        "span_price": "29.00"
+                    }
+                ]
             }
         }
     },
@@ -75,7 +171,39 @@
             "name": "Resultado Final con m\u00e1s/Menos de (2.5)",
             "tipo_de_contenido": "ul",
             "contenido": {
-                "ul": "div"
+                "ul": "ul",
+                "contenido": [
+                    {
+                        "button": "Celtic y m\u00e1s 2.5",
+                        "span": "Celtic y m\u00e1s 2.5",
+                        "span_price": "8.50"
+                    },
+                    {
+                        "button": "Celtic y Menos de 2.5",
+                        "span": "Celtic y Menos de 2.5",
+                        "span_price": "15.00"
+                    },
+                    {
+                        "button": "Bayern Munich y m\u00e1s 2.5",
+                        "span": "Bayern Munich y m\u00e1s 2.5",
+                        "span_price": "1.75"
+                    },
+                    {
+                        "button": "Bayern Munich y Menos de 2.5",
+                        "span": "Bayern Munich y Menos de 2.5",
+                        "span_price": "4.75"
+                    },
+                    {
+                        "button": "Empate y m\u00e1s 2.5",
+                        "span": "Empate y m\u00e1s 2.5",
+                        "span_price": "11.00"
+                    },
+                    {
+                        "button": "Empate y Menos de 2.5",
+                        "span": "Empate y Menos de 2.5",
+                        "span_price": "7.00"
+                    }
+                ]
             }
         }
     },
@@ -85,7 +213,39 @@
             "name": "Resultado Final con m\u00e1s/Menos de (3.5)",
             "tipo_de_contenido": "ul",
             "contenido": {
-                "ul": "div"
+                "ul": "ul",
+                "contenido": [
+                    {
+                        "button": "Celtic y m\u00e1s 3.5",
+                        "span": "Celtic y m\u00e1s 3.5",
+                        "span_price": "15.00"
+                    },
+                    {
+                        "button": "Celtic y Menos de 3.5",
+                        "span": "Celtic y Menos de 3.5",
+                        "span_price": "8.50"
+                    },
+                    {
+                        "button": "Bayern Munich y m\u00e1s 3.5",
+                        "span": "Bayern Munich y m\u00e1s 3.5",
+                        "span_price": "2.50"
+                    },
+                    {
+                        "button": "Bayern Munich y Menos de 3.5",
+                        "span": "Bayern Munich y Menos de 3.5",
+                        "span_price": "2.60"
+                    },
+                    {
+                        "button": "Empate y m\u00e1s 3.5",
+                        "span": "Empate y m\u00e1s 3.5",
+                        "span_price": "11.00"
+                    },
+                    {
+                        "button": "Empate y Menos de 3.5",
+                        "span": "Empate y Menos de 3.5",
+                        "span_price": "7.00"
+                    }
+                ]
             }
         }
     },
@@ -95,7 +255,39 @@
             "name": "Resultado del partido / Ambos anotan",
             "tipo_de_contenido": "ul",
             "contenido": {
-                "ul": "div"
+                "ul": "ul",
+                "contenido": [
+                    {
+                        "button": "Bayern Munich / Si ",
+                        "span": "Bayern Munich / Si",
+                        "span_price": "2.45"
+                    },
+                    {
+                        "button": "Bayern Munich / No ",
+                        "span": "Bayern Munich / No",
+                        "span_price": "2.65"
+                    },
+                    {
+                        "button": "Empate / Si ",
+                        "span": "Empate / Si",
+                        "span_price": "5.50"
+                    },
+                    {
+                        "button": "Celtic / Si ",
+                        "span": "Celtic / Si",
+                        "span_price": "9.00"
+                    },
+                    {
+                        "button": "Celtic / No ",
+                        "span": "Celtic / No",
+                        "span_price": "13.00"
+                    },
+                    {
+                        "button": "Empate / No ",
+                        "span": "Empate / No",
+                        "span_price": "29.00"
+                    }
+                ]
             }
         }
     },
@@ -105,7 +297,39 @@
             "name": "Doble Oportunidad y Total de Goles mas/menos (1.5)",
             "tipo_de_contenido": "ul",
             "contenido": {
-                "ul": "ul"
+                "ul": "ul",
+                "contenido": [
+                    {
+                        "button": "Local/Visitante y menos 1.5",
+                        "span": "Local/Visitante y menos 1.5",
+                        "span_price": "9.00"
+                    },
+                    {
+                        "button": "Local/Visitante y mas 1.5",
+                        "span": "Local/Visitante y mas 1.5",
+                        "span_price": "1.30"
+                    },
+                    {
+                        "button": "Local/Empate y menos 1.5",
+                        "span": "Local/Empate y menos 1.5",
+                        "span_price": "11.00"
+                    },
+                    {
+                        "button": "Local/Empate y mas 1.5",
+                        "span": "Local/Empate y mas 1.5",
+                        "span_price": "3.65"
+                    },
+                    {
+                        "button": "Visitante/Empate y menos 1.5",
+                        "span": "Visitante/Empate y menos 1.5",
+                        "span_price": "7.50"
+                    },
+                    {
+                        "button": "Visitante/Empate y mas 1.5",
+                        "span": "Visitante/Empate y mas 1.5",
+                        "span_price": "1.25"
+                    }
+                ]
             }
         }
     },
@@ -115,7 +339,39 @@
             "name": "Doble Oportunidad y Total de Goles mas/menos (2.5)",
             "tipo_de_contenido": "ul",
             "contenido": {
-                "ul": "ul"
+                "ul": "ul",
+                "contenido": [
+                    {
+                        "button": "Local/Visitante y menos 2.5",
+                        "span": "Local/Visitante y menos 2.5",
+                        "span_price": "4.00"
+                    },
+                    {
+                        "button": "Local/Visitante y mas 2.5",
+                        "span": "Local/Visitante y mas 2.5",
+                        "span_price": "1.533"
+                    },
+                    {
+                        "button": "Local/Empate y menos 2.5",
+                        "span": "Local/Empate y menos 2.5",
+                        "span_price": "5.50"
+                    },
+                    {
+                        "button": "Local/Empate y mas 2.5",
+                        "span": "Local/Empate y mas 2.5",
+                        "span_price": "5.50"
+                    },
+                    {
+                        "button": "Visitante/Empate y menos 2.5",
+                        "span": "Visitante/Empate y menos 2.5",
+                        "span_price": "3.35"
+                    },
+                    {
+                        "button": "Visitante/Empate y mas 2.5",
+                        "span": "Visitante/Empate y mas 2.5",
+                        "span_price": "1.571"
+                    }
+                ]
             }
         }
     },
@@ -125,7 +381,39 @@
             "name": "Doble Oportunidad y Total de Goles mas/menos (3.5)",
             "tipo_de_contenido": "ul",
             "contenido": {
-                "ul": "ul"
+                "ul": "ul",
+                "contenido": [
+                    {
+                        "button": "Local/Visitante y menos 3.5",
+                        "span": "Local/Visitante y menos 3.5",
+                        "span_price": "2.15"
+                    },
+                    {
+                        "button": "Local/Visitante y mas 3.5",
+                        "span": "Local/Visitante y mas 3.5",
+                        "span_price": "2.30"
+                    },
+                    {
+                        "button": "Local/Empate y menos 3.5",
+                        "span": "Local/Empate y menos 3.5",
+                        "span_price": "4.50"
+                    },
+                    {
+                        "button": "Local/Empate y mas 3.5",
+                        "span": "Local/Empate y mas 3.5",
+                        "span_price": "7.00"
+                    },
+                    {
+                        "button": "Visitante/Empate y menos 3.5",
+                        "span": "Visitante/Empate y menos 3.5",
+                        "span_price": "2.10"
+                    },
+                    {
+                        "button": "Visitante/Empate y mas 3.5",
+                        "span": "Visitante/Empate y mas 3.5",
+                        "span_price": "2.20"
+                    }
+                ]
             }
         }
     },
@@ -135,7 +423,26 @@
             "name": "Pr\u00f3ximo Equipo en Anotar (Gol 1)",
             "tipo_de_contenido": "table",
             "contenido": {
-                "table": "table"
+                "table": "table",
+                "contenido": [
+                    {
+                        "button": "Celtic ",
+                        "span": "Celtic",
+                        "span_price": "2.95"
+                    },
+                    {
+                        "button": "Bayern Munich ",
+                        "span": "Bayern Munich",
+                        "span_price": "1.363"
+                    },
+                    {
+                        "button": "No gol ",
+                        "span": "No gol",
+                        "span_price": "29.00"
+                    }
+                ],
+                "num_cols": "3",
+                "num_rows": "1"
             }
         }
     },
@@ -145,7 +452,26 @@
             "name": "1ra Mitad Resultado",
             "tipo_de_contenido": "table",
             "contenido": {
-                "table": "table"
+                "table": "table",
+                "contenido": [
+                    {
+                        "button": "Celtic ",
+                        "span": "Celtic",
+                        "span_price": "5.75"
+                    },
+                    {
+                        "button": "Empate ",
+                        "span": "Empate",
+                        "span_price": "2.70"
+                    },
+                    {
+                        "button": "Bayern Munich ",
+                        "span": "Bayern Munich",
+                        "span_price": "1.727"
+                    }
+                ],
+                "num_cols": "3",
+                "num_rows": "1"
             }
         }
     },
@@ -155,7 +481,238 @@
             "name": "Marcador Correcto",
             "tipo_de_contenido": "table",
             "contenido": {
-                "table": "table"
+                "table": "table",
+                "contenido": [
+                    [
+                        {
+                            "button": " 1-0 ",
+                            "span": "1-0",
+                            "span_price": "19.00"
+                        },
+                        {
+                            "button": " 0-0 ",
+                            "span": "0-0",
+                            "span_price": "29.00"
+                        },
+                        {
+                            "button": " 0-1 ",
+                            "span": "0-1",
+                            "span_price": "9.00"
+                        }
+                    ],
+                    [
+                        {
+                            "button": " 2-0 ",
+                            "span": "2-0",
+                            "span_price": "34.00"
+                        },
+                        {
+                            "button": " 1-1 ",
+                            "span": "1-1",
+                            "span_price": "9.00"
+                        },
+                        {
+                            "button": " 0-2 ",
+                            "span": "0-2",
+                            "span_price": "7.50"
+                        }
+                    ],
+                    [
+                        {
+                            "button": " 2-1 ",
+                            "span": "2-1",
+                            "span_price": "15.00"
+                        },
+                        {
+                            "button": " 2-2 ",
+                            "span": "2-2",
+                            "span_price": "13.00"
+                        },
+                        {
+                            "button": " 1-2 ",
+                            "span": "1-2",
+                            "span_price": "7.00"
+                        }
+                    ],
+                    [
+                        {
+                            "button": " 3-0 ",
+                            "span": "3-0",
+                            "span_price": "71.00"
+                        },
+                        {
+                            "button": " 3-3 ",
+                            "span": "3-3",
+                            "span_price": "34.00"
+                        },
+                        {
+                            "button": " 0-3 ",
+                            "span": "0-3",
+                            "span_price": "8.50"
+                        }
+                    ],
+                    [
+                        {
+                            "button": " 3-1 ",
+                            "span": "3-1",
+                            "span_price": "41.00"
+                        },
+                        {
+                            "button": " 4-4 ",
+                            "span": "4-4",
+                            "span_price": "126.00"
+                        },
+                        {
+                            "button": " 1-3 ",
+                            "span": "1-3",
+                            "span_price": "8.50"
+                        }
+                    ],
+                    [
+                        {
+                            "button": " 3-2 ",
+                            "span": "3-2",
+                            "span_price": "31.00"
+                        },
+                        null,
+                        {
+                            "button": " 2-3 ",
+                            "span": "2-3",
+                            "span_price": "15.00"
+                        }
+                    ],
+                    [
+                        {
+                            "button": " 4-1 ",
+                            "span": "4-1",
+                            "span_price": "101.00"
+                        },
+                        null,
+                        {
+                            "button": " 0-4 ",
+                            "span": "0-4",
+                            "span_price": "13.00"
+                        }
+                    ],
+                    [
+                        {
+                            "button": " 4-2 ",
+                            "span": "4-2",
+                            "span_price": "81.00"
+                        },
+                        null,
+                        {
+                            "button": " 1-4 ",
+                            "span": "1-4",
+                            "span_price": "12.00"
+                        }
+                    ],
+                    [
+                        {
+                            "button": " 4-3 ",
+                            "span": "4-3",
+                            "span_price": "91.00"
+                        },
+                        null,
+                        {
+                            "button": " 2-4 ",
+                            "span": "2-4",
+                            "span_price": "23.00"
+                        }
+                    ],
+                    [
+                        null,
+                        null,
+                        {
+                            "button": " 3-4 ",
+                            "span": "3-4",
+                            "span_price": "51.00"
+                        }
+                    ],
+                    [
+                        null,
+                        null,
+                        {
+                            "button": " 0-5 ",
+                            "span": "0-5",
+                            "span_price": "26.00"
+                        }
+                    ],
+                    [
+                        null,
+                        null,
+                        {
+                            "button": " 1-5 ",
+                            "span": "1-5",
+                            "span_price": "23.00"
+                        }
+                    ],
+                    [
+                        null,
+                        null,
+                        {
+                            "button": " 2-5 ",
+                            "span": "2-5",
+                            "span_price": "41.00"
+                        }
+                    ],
+                    [
+                        null,
+                        null,
+                        {
+                            "button": " 3-5 ",
+                            "span": "3-5",
+                            "span_price": "91.00"
+                        }
+                    ],
+                    [
+                        null,
+                        null,
+                        {
+                            "button": " 0-6 ",
+                            "span": "0-6",
+                            "span_price": "51.00"
+                        }
+                    ],
+                    [
+                        null,
+                        null,
+                        {
+                            "button": " 1-6 ",
+                            "span": "1-6",
+                            "span_price": "51.00"
+                        }
+                    ],
+                    [
+                        null,
+                        null,
+                        {
+                            "button": " 2-6 ",
+                            "span": "2-6",
+                            "span_price": "76.00"
+                        }
+                    ],
+                    [
+                        null,
+                        null,
+                        {
+                            "button": " 0-7 ",
+                            "span": "0-7",
+                            "span_price": "101.00"
+                        }
+                    ],
+                    [
+                        null,
+                        null,
+                        {
+                            "button": " 1-7 ",
+                            "span": "1-7",
+                            "span_price": "91.00"
+                        }
+                    ]
+                ],
+                "num_cols": "3",
+                "num_rows": "19"
             }
         }
     },
@@ -165,7 +722,21 @@
             "name": "Empate No Accion",
             "tipo_de_contenido": "table",
             "contenido": {
-                "table": "table"
+                "table": "table",
+                "contenido": [
+                    {
+                        "button": "Celtic ",
+                        "span": "Celtic",
+                        "span_price": "5.00"
+                    },
+                    {
+                        "button": "Bayern Munich ",
+                        "span": "Bayern Munich",
+                        "span_price": "1.133"
+                    }
+                ],
+                "num_cols": "2",
+                "num_rows": "1"
             }
         }
     },
@@ -175,7 +746,62 @@
             "name": "1ra Mitad/Tiempo Completo",
             "tipo_de_contenido": "table",
             "contenido": {
-                "table": "table"
+                "table": "table",
+                "contenido": [
+                    [
+                        {
+                            "button": "1/1 ",
+                            "span": "1/1",
+                            "span_price": "11.00"
+                        },
+                        {
+                            "button": "X/1 ",
+                            "span": "X/1",
+                            "span_price": "13.00"
+                        },
+                        {
+                            "button": "2/1 ",
+                            "span": "2/1",
+                            "span_price": "41.00"
+                        }
+                    ],
+                    [
+                        {
+                            "button": "1/X ",
+                            "span": "1/X",
+                            "span_price": "17.00"
+                        },
+                        {
+                            "button": "X/X ",
+                            "span": "X/X",
+                            "span_price": "8.50"
+                        },
+                        {
+                            "button": "2/X ",
+                            "span": "2/X",
+                            "span_price": "15.00"
+                        }
+                    ],
+                    [
+                        {
+                            "button": "1/2 ",
+                            "span": "1/2",
+                            "span_price": "17.00"
+                        },
+                        {
+                            "button": "X/2 ",
+                            "span": "X/2",
+                            "span_price": "4.50"
+                        },
+                        {
+                            "button": "2/2 ",
+                            "span": "2/2",
+                            "span_price": "1.909"
+                        }
+                    ]
+                ],
+                "num_cols": "3",
+                "num_rows": "3"
             }
         }
     },
@@ -185,7 +811,79 @@
             "name": "\nHandicap Resultado Partido\n",
             "tipo_de_contenido": "table",
             "contenido": {
-                "table": "div"
+                "table": "table",
+                "contenido": [
+                    [
+                        {
+                            "button": "Celtic -1",
+                            "span": "Celtic -1",
+                            "span_price": "13.00"
+                        },
+                        {
+                            "button": "Empate -1",
+                            "span": "Empate -1",
+                            "span_price": "7.50"
+                        },
+                        {
+                            "button": "Bayern Munich +1",
+                            "span": "Bayern Munich +1",
+                            "span_price": "1.10"
+                        }
+                    ],
+                    [
+                        {
+                            "button": "Celtic +1",
+                            "span": "Celtic +1",
+                            "span_price": "2.95"
+                        },
+                        {
+                            "button": "Empate +1",
+                            "span": "Empate +1",
+                            "span_price": "3.85"
+                        },
+                        {
+                            "button": "Bayern Munich -1",
+                            "span": "Bayern Munich -1",
+                            "span_price": "1.909"
+                        }
+                    ],
+                    [
+                        {
+                            "button": "Celtic +2",
+                            "span": "Celtic +2",
+                            "span_price": "1.80"
+                        },
+                        {
+                            "button": "Empate +2",
+                            "span": "Empate +2",
+                            "span_price": "4.00"
+                        },
+                        {
+                            "button": "Bayern Munich -2",
+                            "span": "Bayern Munich -2",
+                            "span_price": "3.20"
+                        }
+                    ],
+                    [
+                        {
+                            "button": "Celtic +3",
+                            "span": "Celtic +3",
+                            "span_price": "1.30"
+                        },
+                        {
+                            "button": "Empate +3",
+                            "span": "Empate +3",
+                            "span_price": "5.50"
+                        },
+                        {
+                            "button": "Bayern Munich -3",
+                            "span": "Bayern Munich -3",
+                            "span_price": "6.00"
+                        }
+                    ]
+                ],
+                "num_cols": "3",
+                "num_rows": "4"
             }
         }
     },
@@ -195,7 +893,59 @@
             "name": "\nHandicap Asi\u00e1tico\n",
             "tipo_de_contenido": "table",
             "contenido": {
-                "table": "div"
+                "table": "table",
+                "contenido": [
+                    [
+                        {
+                            "button": "Celtic +1",
+                            "span": "Celtic +1",
+                            "span_price": "2.45"
+                        },
+                        {
+                            "button": "Bayern Munich -1",
+                            "span": "Bayern Munich -1",
+                            "span_price": "1.55"
+                        }
+                    ],
+                    [
+                        {
+                            "button": "Celtic +1 / +1.5",
+                            "span": "Celtic +1 / +1.5",
+                            "span_price": "2.05"
+                        },
+                        {
+                            "button": "Bayern Munich -1 / -1.5",
+                            "span": "Bayern Munich -1 / -1.5",
+                            "span_price": "1.769"
+                        }
+                    ],
+                    [
+                        {
+                            "button": "Celtic +1.5",
+                            "span": "Celtic +1.5",
+                            "span_price": "1.85"
+                        },
+                        {
+                            "button": "Bayern Munich -1.5",
+                            "span": "Bayern Munich -1.5",
+                            "span_price": "1.95"
+                        }
+                    ],
+                    [
+                        {
+                            "button": "Celtic +1.5 / +2",
+                            "span": "Celtic +1.5 / +2",
+                            "span_price": "1.666"
+                        },
+                        {
+                            "button": "Bayern Munich -1.5 / -2",
+                            "span": "Bayern Munich -1.5 / -2",
+                            "span_price": "2.20"
+                        }
+                    ]
+                ],
+                "num_cols": "2",
+                "num_rows": "4"
             }
         }
     },
@@ -215,7 +965,24 @@
             "name": "Siguiente equipo en anotar - Primer Mitad (Gol 1)",
             "tipo_de_contenido": "ul",
             "contenido": {
-                "ul": "ul"
+                "ul": "ul",
+                "contenido": [
+                    {
+                        "button": "Celtic ",
+                        "span": "Celtic",
+                        "span_price": "3.95"
+                    },
+                    {
+                        "button": "Sin goles ",
+                        "span": "Sin goles",
+                        "span_price": "4.00"
+                    },
+                    {
+                        "button": "Bayern Munich ",
+                        "span": "Bayern Munich",
+                        "span_price": "1.65"
+                    }
+                ]
             }
         }
     },
@@ -225,7 +992,19 @@
             "name": "Gana ambas mitades",
             "tipo_de_contenido": "ul",
             "contenido": {
-                "ul": "ul"
+                "ul": "ul",
+                "contenido": [
+                    {
+                        "button": "Celtic ",
+                        "span": "Celtic",
+                        "span_price": "23.00"
+                    },
+                    {
+                        "button": "Bayern Munich ",
+                        "span": "Bayern Munich",
+                        "span_price": "2.75"
+                    }
+                ]
             }
         }
     },
@@ -233,80 +1012,321 @@
         "624399002": {
             "id": "624399002",
             "name": "Gana cualquier mitad",
-            "tipo_de_contenido": "fetch_url",
-            "contenido": "None"
+            "tipo_de_contenido": "ul",
+            "contenido": {
+                "ul": "ul",
+                "contenido": [
+                    {
+                        "button": "Celtic ",
+                        "span": "Celtic",
+                        "span_price": "3.25"
+                    },
+                    {
+                        "button": "Bayern Munich ",
+                        "span": "Bayern Munich",
+                        "span_price": "1.20"
+                    }
+                ]
+            }
         }
     },
     {
         "624398874": {
             "id": "624398874",
             "name": "Doble Oportunidad y Ambos Equipos Anotan",
-            "tipo_de_contenido": "fetch_url",
-            "contenido": "None"
+            "tipo_de_contenido": "ul",
+            "contenido": {
+                "ul": "ul",
+                "contenido": [
+                    {
+                        "button": "Celtic/Empate y Si ",
+                        "span": "Celtic/Empate y Si",
+                        "span_price": "4.333"
+                    },
+                    {
+                        "button": "Celtic/Empate y No ",
+                        "span": "Celtic/Empate y No",
+                        "span_price": "11.00"
+                    },
+                    {
+                        "button": "Celtic/Bayern Munich y Si ",
+                        "span": "Celtic/Bayern Munich y Si",
+                        "span_price": "2.10"
+                    },
+                    {
+                        "button": "Celtic/Bayern Munich y No ",
+                        "span": "Celtic/Bayern Munich y No",
+                        "span_price": "2.55"
+                    },
+                    {
+                        "button": "Bayern Munich/Empate y Si ",
+                        "span": "Bayern Munich/Empate y Si",
+                        "span_price": "1.85"
+                    },
+                    {
+                        "button": "Bayern Munich/Empate y No ",
+                        "span": "Bayern Munich/Empate y No",
+                        "span_price": "2.55"
+                    }
+                ]
+            }
         }
     },
     {
         "624399000": {
             "id": "624399000",
             "name": "Total Goles Par/Impar",
-            "tipo_de_contenido": "fetch_url",
-            "contenido": "None"
+            "tipo_de_contenido": "table",
+            "contenido": {
+                "table": "table",
+                "contenido": [
+                    {
+                        "button": "Impar ",
+                        "span": "Impar",
+                        "span_price": "1.85"
+                    },
+                    {
+                        "button": "Par ",
+                        "span": "Par",
+                        "span_price": "1.85"
+                    }
+                ],
+                "num_cols": "2",
+                "num_rows": "1"
+            }
         }
     },
     {
         "624398858": {
             "id": "624398858",
             "name": "Ambos anotan / M\u00e1s/Menos (2.5)",
-            "tipo_de_contenido": "fetch_url",
-            "contenido": "None"
+            "tipo_de_contenido": "ul",
+            "contenido": {
+                "ul": "ul",
+                "contenido": [
+                    {
+                        "button": "Si y m\u00e1s 2.5",
+                        "span": "Si y m\u00e1s 2.5",
+                        "span_price": "1.80"
+                    },
+                    {
+                        "button": "No y Menos de 2.5",
+                        "span": "No y Menos de 2.5",
+                        "span_price": "3.75"
+                    },
+                    {
+                        "button": "No y m\u00e1s 2.5",
+                        "span": "No y m\u00e1s 2.5",
+                        "span_price": "5.00"
+                    },
+                    {
+                        "button": "Si y Menos de 2.5",
+                        "span": "Si y Menos de 2.5",
+                        "span_price": "9.00"
+                    }
+                ]
+            }
         }
     },
     {
         "624398998": {
             "id": "624398998",
             "name": "Total goles Exacto",
-            "tipo_de_contenido": "fetch_url",
-            "contenido": "None"
+            "tipo_de_contenido": "ul",
+            "contenido": {
+                "ul": "ul",
+                "contenido": [
+                    {
+                        "button": "0-2 ",
+                        "span": "0-2",
+                        "span_price": "2.90"
+                    },
+                    {
+                        "button": "3 ",
+                        "span": "3",
+                        "span_price": "3.90"
+                    },
+                    {
+                        "button": "4 o m\u00e1s ",
+                        "span": "4 o m\u00e1s",
+                        "span_price": "2.00"
+                    }
+                ]
+            }
         }
     },
     {
         "624398894": {
             "id": "624398894",
             "name": "1er Equipo en anotar",
-            "tipo_de_contenido": "fetch_url",
-            "contenido": "None"
+            "tipo_de_contenido": "table",
+            "contenido": {
+                "table": "table",
+                "contenido": [
+                    {
+                        "button": "Celtic ",
+                        "span": "Celtic",
+                        "span_price": "2.95"
+                    },
+                    {
+                        "button": "Bayern Munich ",
+                        "span": "Bayern Munich",
+                        "span_price": "1.363"
+                    },
+                    {
+                        "button": "Sin goles ",
+                        "span": "Sin goles",
+                        "span_price": "29.00"
+                    }
+                ],
+                "num_cols": "3",
+                "num_rows": "1"
+            }
         }
     },
     {
         "624398939": {
             "id": "624398939",
             "name": "Clasificaci\u00f3n del siguiente gol (Gol 1)",
-            "tipo_de_contenido": "fetch_url",
-            "contenido": "None"
+            "tipo_de_contenido": "ul",
+            "contenido": {
+                "ul": "ul",
+                "contenido": [
+                    {
+                        "button": "Tiro a porter\u00eda ",
+                        "span": "Tiro a porter\u00eda",
+                        "span_price": "1.363"
+                    },
+                    {
+                        "button": "De Cabeza ",
+                        "span": "De Cabeza",
+                        "span_price": "3.40"
+                    },
+                    {
+                        "button": "Penalti ",
+                        "span": "Penalti",
+                        "span_price": "6.50"
+                    },
+                    {
+                        "button": "Tiro Libre ",
+                        "span": "Tiro Libre",
+                        "span_price": "6.50"
+                    },
+                    {
+                        "button": "Gol en propia porter\u00eda ",
+                        "span": "Gol en propia porter\u00eda",
+                        "span_price": "12.00"
+                    },
+                    {
+                        "button": "No gol ",
+                        "span": "No gol",
+                        "span_price": "29.00"
+                    }
+                ]
+            }
         }
     },
     {
         "624399005": {
             "id": "624399005",
             "name": "Margen de Victoria",
-            "tipo_de_contenido": "fetch_url",
-            "contenido": "None"
+            "tipo_de_contenido": "ul",
+            "contenido": {
+                "ul": "ul",
+                "contenido": [
+                    {
+                        "button": "Celtic gana exacto por 1 gol ",
+                        "span": "Celtic gana exacto por 1 gol",
+                        "span_price": "7.50"
+                    },
+                    {
+                        "button": "Celtic gana exacto por 2 goles ",
+                        "span": "Celtic gana exacto por 2 goles",
+                        "span_price": "10.00"
+                    },
+                    {
+                        "button": "Celtic gana por 3 o m\u00e1s goles ",
+                        "span": "Celtic gana por 3 o m\u00e1s goles",
+                        "span_price": "21.00"
+                    },
+                    {
+                        "button": "Empate ",
+                        "span": "Empate",
+                        "span_price": "5.25"
+                    },
+                    {
+                        "button": "Bayern Munich gana exacto por 1 gol ",
+                        "span": "Bayern Munich gana exacto por 1 gol",
+                        "span_price": "3.85"
+                    },
+                    {
+                        "button": "Bayern Munich gana exacto por 2 goles ",
+                        "span": "Bayern Munich gana exacto por 2 goles",
+                        "span_price": "4.00"
+                    },
+                    {
+                        "button": "Bayern Munich gana por 3 o m\u00e1s goles ",
+                        "span": "Bayern Munich gana por 3 o m\u00e1s goles",
+                        "span_price": "3.20"
+                    }
+                ]
+            }
         }
     },
     {
         "624398944": {
             "id": "624398944",
             "name": "N\u00famero de equipos en anotar",
-            "tipo_de_contenido": "fetch_url",
-            "contenido": "None"
+            "tipo_de_contenido": "table",
+            "contenido": {
+                "table": "table",
+                "contenido": [
+                    {
+                        "button": "Ning\u00fan equipo anotar\u00e1 ",
+                        "span": "Ning\u00fan equipo anotar\u00e1",
+                        "span_price": "29.00"
+                    },
+                    {
+                        "button": "S\u00f3lo un equipo anotar\u00e1 ",
+                        "span": "S\u00f3lo un equipo anotar\u00e1",
+                        "span_price": "2.55"
+                    },
+                    {
+                        "button": "Ambos Equipos Anotan ",
+                        "span": "Ambos Equipos Anotan",
+                        "span_price": "1.571"
+                    }
+                ],
+                "num_cols": "3",
+                "num_rows": "1"
+            }
         }
     },
     {
         "624398922": {
             "id": "624398922",
             "name": "Celtic Total Goles",
-            "tipo_de_contenido": "fetch_url",
-            "contenido": "None"
+            "tipo_de_contenido": "ul",
+            "contenido": {
+                "ul": "ul",
+                "contenido": [
+                    {
+                        "button": "1 ",
+                        "span": "1",
+                        "span_price": "2.40"
+                    },
+                    {
+                        "button": "0 ",
+                        "span": "0",
+                        "span_price": "2.55"
+                    },
+                    {
+                        "button": "2 o m\u00e1s ",
+                        "span": "2 o m\u00e1s",
+                        "span_price": "3.20"
+                    }
+                ]
+            }
         }
     },
     {
@@ -395,7 +1415,71 @@
             "name": "\nHandicap Asi\u00e1tico Total Goles 1ra Mitad\n",
             "tipo_de_contenido": "table",
             "contenido": {
-                "table": "div"
+                "table": "table",
+                "contenido": [
+                    [
+                        {
+                            "button": "M\u00e1s de 1.5",
+                            "span": "M\u00e1s de 1.5",
+                            "span_price": "1.95"
+                        },
+                        {
+                            "button": "Menos de 1.5",
+                            "span": "Menos de 1.5",
+                            "span_price": "1.75"
+                        }
+                    ],
+                    [
+                        {
+                            "button": "M\u00e1s de 1",
+                            "span": "M\u00e1s de 1",
+                            "span_price": "1.363"
+                        },
+                        {
+                            "button": "Menos de 1",
+                            "span": "Menos de 1",
+                            "span_price": "2.875"
+                        }
+                    ],
+                    [
+                        {
+                            "button": "M\u00e1s de 1 / 1.5",
+                            "span": "M\u00e1s de 1 / 1.5",
+                            "span_price": "1.70"
+                        },
+                        {
+                            "button": "Menos de 1 / 1.5",
+                            "span": "Menos de 1 / 1.5",
+                            "span_price": "2.05"
+                        }
+                    ],
+                    [
+                        {
+                            "button": "M\u00e1s de 1.5 / 2",
+                            "span": "M\u00e1s de 1.5 / 2",
+                            "span_price": "2.35"
+                        },
+                        {
+                            "button": "Menos de 1.5 / 2",
+                            "span": "Menos de 1.5 / 2",
+                            "span_price": "1.533"
+                        }
+                    ],
+                    [
+                        {
+                            "button": "M\u00e1s de 2",
+                            "span": "M\u00e1s de 2",
+                            "span_price": "3.20"
+                        },
+                        {
+                            "button": "Menos de 2",
+                            "span": "Menos de 2",
+                            "span_price": "1.30"
+                        }
+                    ]
+                ],
+                "num_cols": "2",
+                "num_rows": "5"
             }
         }
     },
@@ -445,7 +1529,21 @@
             "name": "\n1\u00aa Mitad m\u00e1s/Menos de Celtic Total Goles\n",
             "tipo_de_contenido": "table",
             "contenido": {
-                "table": "div"
+                "table": "table",
+                "contenido": [
+                    {
+                        "button": "M\u00e1s de 0.5",
+                        "span": "M\u00e1s de 0.5",
+                        "span_price": "2.55"
+                    },
+                    {
+                        "button": "Menos de 0.5",
+                        "span": "Menos de 0.5",
+                        "span_price": "1.50"
+                    }
+                ],
+                "num_cols": "2",
+                "num_rows": "1"
             }
         }
     },
@@ -553,7 +1651,45 @@
             "name": "\nHandicap Primera Mitad\n",
             "tipo_de_contenido": "table",
             "contenido": {
-                "table": "div"
+                "table": "table",
+                "contenido": [
+                    [
+                        {
+                            "button": "Celtic +1",
+                            "span": "Celtic +1",
+                            "span_price": "1.95"
+                        },
+                        {
+                            "button": "Empate +1",
+                            "span": "Empate +1",
+                            "span_price": "2.95"
+                        },
+                        {
+                            "button": "Bayern Munich -1",
+                            "span": "Bayern Munich -1",
+                            "span_price": "3.70"
+                        }
+                    ],
+                    [
+                        {
+                            "button": "Celtic +2",
+                            "span": "Celtic +2",
+                            "span_price": "1.222"
+                        },
+                        {
+                            "button": "Empate +2",
+                            "span": "Empate +2",
+                            "span_price": "5.25"
+                        },
+                        {
+                            "button": "Bayern Munich -2",
+                            "span": "Bayern Munich -2",
+                            "span_price": "9.00"
+                        }
+                    ]
+                ],
+                "num_cols": "3",
+                "num_rows": "2"
             }
         }
     },
@@ -667,7 +1803,47 @@
             "name": "\n2\u00aa Mitad - m\u00e1s/Menos de\n",
             "tipo_de_contenido": "table",
             "contenido": {
-                "table": "div"
+                "table": "table",
+                "contenido": [
+                    [
+                        {
+                            "button": "M\u00e1s de 1.5",
+                            "span": "M\u00e1s de 1.5",
+                            "span_price": "1.571"
+                        },
+                        {
+                            "button": "Menos de 1.5",
+                            "span": "Menos de 1.5",
+                            "span_price": "2.25"
+                        }
+                    ],
+                    [
+                        {
+                            "button": "M\u00e1s de 0.5",
+                            "span": "M\u00e1s de 0.5",
+                            "span_price": "1.10"
+                        },
+                        {
+                            "button": "Menos de 0.5",
+                            "span": "Menos de 0.5",
+                            "span_price": "5.75"
+                        }
+                    ],
+                    [
+                        {
+                            "button": "M\u00e1s de 2.5",
+                            "span": "M\u00e1s de 2.5",
+                            "span_price": "2.75"
+                        },
+                        {
+                            "button": "Menos de 2.5",
+                            "span": "Menos de 2.5",
+                            "span_price": "1.40"
+                        }
+                    ]
+                ],
+                "num_cols": "2",
+                "num_rows": "3"
             }
         }
     },
@@ -701,7 +1877,21 @@
             "name": "\n2\u00aa Mitad - m\u00e1s/Menos de Celtic Total Goles\n",
             "tipo_de_contenido": "table",
             "contenido": {
-                "table": "div"
+                "table": "table",
+                "contenido": [
+                    {
+                        "button": "M\u00e1s de 0.5",
+                        "span": "M\u00e1s de 0.5",
+                        "span_price": "2.05"
+                    },
+                    {
+                        "button": "Menos de 0.5",
+                        "span": "Menos de 0.5",
+                        "span_price": "1.75"
+                    }
+                ],
+                "num_cols": "2",
+                "num_rows": "1"
             }
         }
     },
@@ -711,7 +1901,47 @@
             "name": "\n2\u00aa Mitad - m\u00e1s/Menos de Bayern Munich Total Goles\n",
             "tipo_de_contenido": "table",
             "contenido": {
-                "table": "div"
+                "table": "table",
+                "contenido": [
+                    [
+                        {
+                            "button": "M\u00e1s de 0.5",
+                            "span": "M\u00e1s de 0.5",
+                            "span_price": "1.25"
+                        },
+                        {
+                            "button": "Menos de 0.5",
+                            "span": "Menos de 0.5",
+                            "span_price": "3.95"
+                        }
+                    ],
+                    [
+                        {
+                            "button": "M\u00e1s de 1.5",
+                            "span": "M\u00e1s de 1.5",
+                            "span_price": "2.20"
+                        },
+                        {
+                            "button": "Menos de 1.5",
+                            "span": "Menos de 1.5",
+                            "span_price": "1.60"
+                        }
+                    ],
+                    [
+                        {
+                            "button": "M\u00e1s de 2.5",
+                            "span": "M\u00e1s de 2.5",
+                            "span_price": "4.75"
+                        },
+                        {
+                            "button": "Menos de 2.5",
+                            "span": "Menos de 2.5",
+                            "span_price": "1.153"
+                        }
+                    ]
+                ],
+                "num_cols": "2",
+                "num_rows": "3"
             }
         }
     },
@@ -753,7 +1983,45 @@
             "name": "\nHandicap 2da Mitad\n",
             "tipo_de_contenido": "table",
             "contenido": {
-                "table": "div"
+                "table": "table",
+                "contenido": [
+                    [
+                        {
+                            "button": "Celtic +1",
+                            "span": "Celtic +1",
+                            "span_price": "2.15"
+                        },
+                        {
+                            "button": "Empate +1",
+                            "span": "Empate +1",
+                            "span_price": "3.10"
+                        },
+                        {
+                            "button": "Bayern Munich -1",
+                            "span": "Bayern Munich -1",
+                            "span_price": "3.00"
+                        }
+                    ],
+                    [
+                        {
+                            "button": "Celtic +2",
+                            "span": "Celtic +2",
+                            "span_price": "1.333"
+                        },
+                        {
+                            "button": "Empate +2",
+                            "span": "Empate +2",
+                            "span_price": "4.75"
+                        },
+                        {
+                            "button": "Bayern Munich -2",
+                            "span": "Bayern Munich -2",
+                            "span_price": "6.50"
+                        }
+                    ]
+                ],
+                "num_cols": "3",
+                "num_rows": "2"
             }
         }
     },
@@ -795,7 +2063,35 @@
             "name": "\nTotal de Goles 2da Mitad - Asi\u00e1tico\n",
             "tipo_de_contenido": "table",
             "contenido": {
-                "table": "div"
+                "table": "table",
+                "contenido": [
+                    [
+                        {
+                            "button": "M\u00e1s de 1.5 / 2",
+                            "span": "M\u00e1s de 1.5 / 2",
+                            "span_price": "1.769"
+                        },
+                        {
+                            "button": "Menos de 1.5 / 2",
+                            "span": "Menos de 1.5 / 2",
+                            "span_price": "2.00"
+                        }
+                    ],
+                    [
+                        {
+                            "button": "M\u00e1s de 1.5",
+                            "span": "M\u00e1s de 1.5",
+                            "span_price": "1.571"
+                        },
+                        {
+                            "button": "Menos de 1.5",
+                            "span": "Menos de 1.5",
+                            "span_price": "2.25"
+                        }
+                    ]
+                ],
+                "num_cols": "2",
+                "num_rows": "2"
             }
         }
     },
@@ -933,7 +2229,155 @@
             "name": "\nResultado del partido por minutos\n",
             "tipo_de_contenido": "table",
             "contenido": {
-                "table": "div"
+                "table": "table",
+                "contenido": [
+                    [
+                        null,
+                        {
+                            "button": "Celtic ",
+                            "span": "Celtic",
+                            "span_price": "12.00"
+                        },
+                        {
+                            "button": "Empate ",
+                            "span": "Empate",
+                            "span_price": "1.285"
+                        },
+                        {
+                            "button": "Bayern Munich ",
+                            "span": "Bayern Munich",
+                            "span_price": "4.75"
+                        }
+                    ],
+                    [
+                        null,
+                        {
+                            "button": "Celtic ",
+                            "span": "Celtic",
+                            "span_price": "8.00"
+                        },
+                        {
+                            "button": "Empate ",
+                            "span": "Empate",
+                            "span_price": "1.65"
+                        },
+                        {
+                            "button": "Bayern Munich ",
+                            "span": "Bayern Munich",
+                            "span_price": "2.90"
+                        }
+                    ],
+                    [
+                        null,
+                        {
+                            "button": "Celtic ",
+                            "span": "Celtic",
+                            "span_price": "6.50"
+                        },
+                        {
+                            "button": "Empate ",
+                            "span": "Empate",
+                            "span_price": "2.05"
+                        },
+                        {
+                            "button": "Bayern Munich ",
+                            "span": "Bayern Munich",
+                            "span_price": "2.25"
+                        }
+                    ],
+                    [
+                        null,
+                        {
+                            "button": "Celtic ",
+                            "span": "Celtic",
+                            "span_price": "6.25"
+                        },
+                        {
+                            "button": "Empate ",
+                            "span": "Empate",
+                            "span_price": "2.50"
+                        },
+                        {
+                            "button": "Bayern Munich ",
+                            "span": "Bayern Munich",
+                            "span_price": "1.93"
+                        }
+                    ],
+                    [
+                        null,
+                        {
+                            "button": "Celtic ",
+                            "span": "Celtic",
+                            "span_price": "6.00"
+                        },
+                        {
+                            "button": "Empate ",
+                            "span": "Empate",
+                            "span_price": "3.00"
+                        },
+                        {
+                            "button": "Bayern Munich ",
+                            "span": "Bayern Munich",
+                            "span_price": "1.70"
+                        }
+                    ],
+                    [
+                        null,
+                        {
+                            "button": "Celtic ",
+                            "span": "Celtic",
+                            "span_price": "6.00"
+                        },
+                        {
+                            "button": "Empate ",
+                            "span": "Empate",
+                            "span_price": "3.55"
+                        },
+                        {
+                            "button": "Bayern Munich ",
+                            "span": "Bayern Munich",
+                            "span_price": "1.571"
+                        }
+                    ],
+                    [
+                        null,
+                        {
+                            "button": "Celtic ",
+                            "span": "Celtic",
+                            "span_price": "6.25"
+                        },
+                        {
+                            "button": "Empate ",
+                            "span": "Empate",
+                            "span_price": "4.00"
+                        },
+                        {
+                            "button": "Bayern Munich ",
+                            "span": "Bayern Munich",
+                            "span_price": "1.50"
+                        }
+                    ],
+                    [
+                        null,
+                        {
+                            "button": "Celtic ",
+                            "span": "Celtic",
+                            "span_price": "6.25"
+                        },
+                        {
+                            "button": "Empate ",
+                            "span": "Empate",
+                            "span_price": "4.50"
+                        },
+                        {
+                            "button": "Bayern Munich ",
+                            "span": "Bayern Munich",
+                            "span_price": "1.444"
+                        }
+                    ]
+                ],
+                "num_cols": "4",
+                "num_rows": "8"
             }
         }
     },
