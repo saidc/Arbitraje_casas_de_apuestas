@@ -3,7 +3,7 @@ import json
 import requests
 from bs4 import BeautifulSoup
 
-Count = 0
+Count = 0 
 
 def make_request(url):
     print("request_url: ", url)
@@ -41,7 +41,7 @@ def obtener_contenido_de_button(button):
         # obtener span ocn class="price dec"
         span_price = button.findChild("span", {"class": "price dec"})
         if span is not None and span_price is not None:
-            return {"button": str(title), "span": str(span), "span_price": str(span_price.text)}
+            return {"button": str(title), "span": str(span), "span_price": str(span_price.text), "value": str(value)}
     return None
 
 def obtener_contenido_de_table(table):
@@ -100,7 +100,38 @@ def obtener_contenido_de_ul(ul):
     return None
 
 def obtener_contenido_de_div(div):
-    return {"div": div.name}
+    # obtener el valor del atributo de la etiqueta div llamado class y verificar si tiene el valor de class="expander-content"
+    class_value = div.get("class")
+    if "expander-content" in class_value:
+        # obtener el primer hijo de div
+        div = div.findChild()
+        # obtener una etiqueta hija con class="section all"
+        div = div.findChild("div", {"class": "section all"})
+        # obtener todos los hijos que tienen valor de class="cols_2", este tipo de div suele contener 2 buttons
+        div = div.findChildren("div", {"class": "cols_2"}, recursive=False)
+        # verificar si div es de tipo lista
+        if isinstance(div, list):
+            # se crea una variable lista para guardar el contenido de los cols_2
+            contenido_cols_2 = []
+            # recorrer lista y dentro de cada div obtener los hijos que tengan class="seln"
+            for d in div:
+                # lista para guardar el contenido de los buttons dentro de cada div de cols_2
+                contenido_seln = []
+                seln = d.findChildren("span", {"class": "seln"}, recursive=False)
+                #print("seln: ", seln)
+                # verificar si seln es de tipo lista
+                if isinstance(seln, list):
+                    # recorrer la lista y obtener decada div clase seln una etiqueta tipo button
+                    for s in seln:
+                        button = s.findChild("button")
+                        contenido_seln.append(obtener_contenido_de_button(button))
+                contenido_cols_2.append(contenido_seln)
+            return {"div": "div", "contenido": contenido_cols_2}
+        else:
+            print(f"            ❌ Error, div no es de tipo lista, de la div {div.name}")
+    else:
+        print(f"            ❌ Error, div no tiene la clase expander-content, de la div {div.name}")
+    return None
 
 # obtener contenido de un tag de apuesta para un partido
 def obtener_tipo_de_tag_de_apuesta(tag_name, tag):
@@ -112,6 +143,9 @@ def obtener_tipo_de_tag_de_apuesta(tag_name, tag):
         contenido = obtener_contenido_de_ul(tag)
     elif tag_name == "div":
         tipo_de_contenido = "div"
+        # imprimir el nombre del tag y el valor del atributo class
+        #tag_name = str(tag.name)
+        #print(tag_name, tag["class"], type(tag["class"]))
         contenido = obtener_contenido_de_div(tag)
     return tipo_de_contenido, contenido
 
@@ -137,7 +171,6 @@ def obtener_contenido_de_fetch_url(fetch_url):
         else:
             print(f"            ❌ Error de solicitud de fetch_url {fetch_url}")
     return "fetch_url", "None"
-
 
 # obtener informacion de apuestas de un partido
 def obtener_informacion_de_apuesta(apuesta):
@@ -220,9 +253,9 @@ def solicitar_apuestas(partido_id, apuestas_url):
         print(f"            ❌ Error de solicitud de apuestas del partido {partido_id}")
     return []
 
-partido_id = 24961161
+partido_id = 24961160
 url_base = "https://apuestas.wplay.co" 
-url = "https://apuestas.wplay.co/es/e/24961161/Celtic-v-Bayern-Munich"
+url = "https://apuestas.wplay.co/es/e/24961160/Real-Madrid-v-Manchester-City"
 
 apuestas = solicitar_apuestas(partido_id, url)
 # guardar las apuestas en un archivo json
